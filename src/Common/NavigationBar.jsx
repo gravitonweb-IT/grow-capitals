@@ -51,7 +51,9 @@ const NavigationBar = () => {
     <nav className="bg-white shadow-md sticky top-0 z-50">
       <div className=" flex justify-between items-center px-5 md:px-10 py-2">
         <div className="">
+        <Link to="/">
           <img src={LogoImage} className="w-[104px] h-auto"></img>
+        </Link>
         </div>
 
         <div className="lg:hidden">

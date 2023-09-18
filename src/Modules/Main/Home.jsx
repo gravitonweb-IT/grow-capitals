@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import HomeSlide1 from "../../Assests/HomePageImages/HomeSlide1.png";
 import HomeSlide2 from "../../Assests/HomePageImages/HomeSlide2.png";
 import HomeSlide3 from "../../Assests/HomePageImages/HomeSlide3.png";
@@ -150,9 +151,12 @@ const Home = () => {
             <p className="text-[#64666C] text-md  md:text-xl font-semibold">
               {currentSlide.paragraph2}
             </p>
-            <button className="bg-[#2774AE] hidden md:block mt-5 px-5 py-3 text-white text-lg font-semibold rounded-lg">
-              {currentSlide.button}
-            </button>
+
+            <Link to="/contact">
+              <button className="bg-[#2774AE] hidden md:block mt-5 px-5 py-3 text-white text-lg font-semibold rounded-lg">
+                {currentSlide.button}
+              </button>
+            </Link>
           </div>
         </div>
         <FontAwesomeIcon
@@ -290,9 +294,11 @@ const Home = () => {
               smarter. You’ve come to the right place for Option Call, Commodity
               Trading, Nifty Future, and other trading products.
             </p>
+            <Link to="/contact">
             <button className="bg-[#2774AE] mt-5 md:mt-10 px-8 py-3 text-white text-lg font-semibold rounded-lg">
               More Details
             </button>
+            </Link>
           </div>
         </div>
       </div>
@@ -603,24 +609,24 @@ const Home = () => {
               </h1>
               <h1 className="text-md font-semi-bold mt-2">Customer</h1>
               <FontAwesomeIcon
-              icon={faStar}
-              className="h-4 w-4 text-yellow-600 mt-4"
+                icon={faStar}
+                className="h-4 w-4 text-yellow-600 mt-4"
               />
               <FontAwesomeIcon
-              icon={faStar}
-              className="h-4 w-4 text-yellow-600 mt-4"
+                icon={faStar}
+                className="h-4 w-4 text-yellow-600 mt-4"
               />
               <FontAwesomeIcon
-              icon={faStar}
-              className="h-4 w-4 text-yellow-600 mt-4"
+                icon={faStar}
+                className="h-4 w-4 text-yellow-600 mt-4"
               />
               <FontAwesomeIcon
-              icon={faStar}
-              className="h-4 w-4 text-yellow-600 mt-4"
+                icon={faStar}
+                className="h-4 w-4 text-yellow-600 mt-4"
               />
               <FontAwesomeIcon
-              icon={faStar}
-              className="h-4 w-4 text-yellow-600 mt-4"
+                icon={faStar}
+                className="h-4 w-4 text-yellow-600 mt-4"
               />
             </div>
           </div>
@@ -628,32 +634,33 @@ const Home = () => {
           <div className="p-4">
             <div className="rounded-lg border-2 p-8">
               <p className="text-[#64666C]">
-              Where you can test out your trading in this platform via real-time Paper
-               Trading before diving into Live Trading with your money.
+                Where you can test out your trading in this platform via
+                real-time Paper Trading before diving into Live Trading with
+                your money.
               </p>
               <h1 className="text-[#059DC0] text-xl font-bold mt-4">
-              Kavita Shamra
+                Kavita Shamra
               </h1>
               <h1 className="text-md font-semi-bold mt-2">Customer</h1>
               <FontAwesomeIcon
-              icon={faStar}
-              className="h-4 w-4 text-yellow-600 mt-4"
+                icon={faStar}
+                className="h-4 w-4 text-yellow-600 mt-4"
               />
               <FontAwesomeIcon
-              icon={faStar}
-              className="h-4 w-4 text-yellow-600 mt-4"
+                icon={faStar}
+                className="h-4 w-4 text-yellow-600 mt-4"
               />
               <FontAwesomeIcon
-              icon={faStar}
-              className="h-4 w-4 text-yellow-600 mt-4"
+                icon={faStar}
+                className="h-4 w-4 text-yellow-600 mt-4"
               />
               <FontAwesomeIcon
-              icon={faStar}
-              className="h-4 w-4 text-yellow-600 mt-4"
+                icon={faStar}
+                className="h-4 w-4 text-yellow-600 mt-4"
               />
               <FontAwesomeIcon
-              icon={faStar}
-              className="h-4 w-4 text-yellow-600 mt-4"
+                icon={faStar}
+                className="h-4 w-4 text-yellow-600 mt-4"
               />
             </div>
           </div>
@@ -661,32 +668,32 @@ const Home = () => {
           <div className="p-4">
             <div className="rounded-lg border-2 p-8">
               <p className="text-[#64666C]">
-              Get access to historical backtesting data with the live data,
-               before entering the real market with real money.
+                Get access to historical backtesting data with the live data,
+                before entering the real market with real money.
               </p>
               <h1 className="text-[#059DC0] text-xl font-bold mt-4">
-              Aman Gupta
+                Aman Gupta
               </h1>
               <h1 className="text-md font-semi-bold mt-2">Broker</h1>
               <FontAwesomeIcon
-              icon={faStar}
-              className="h-4 w-4 text-yellow-600 mt-4"
+                icon={faStar}
+                className="h-4 w-4 text-yellow-600 mt-4"
               />
               <FontAwesomeIcon
-              icon={faStar}
-              className="h-4 w-4 text-yellow-600 mt-4"
+                icon={faStar}
+                className="h-4 w-4 text-yellow-600 mt-4"
               />
               <FontAwesomeIcon
-              icon={faStar}
-              className="h-4 w-4 text-yellow-600 mt-4"
+                icon={faStar}
+                className="h-4 w-4 text-yellow-600 mt-4"
               />
               <FontAwesomeIcon
-              icon={faStar}
-              className="h-4 w-4 text-yellow-600 mt-4"
+                icon={faStar}
+                className="h-4 w-4 text-yellow-600 mt-4"
               />
               <FontAwesomeIcon
-              icon={faStar}
-              className="h-4 w-4 text-yellow-600 mt-4"
+                icon={faStar}
+                className="h-4 w-4 text-yellow-600 mt-4"
               />
             </div>
           </div>
@@ -694,32 +701,30 @@ const Home = () => {
           <div className="p-4">
             <div className="rounded-lg border-2 p-8">
               <p className="text-[#64666C]">
-              Tinker with more than 25 trading parameters to create millions of combinations,
-               building effective & cogent trading algorithms.
+                Tinker with more than 25 trading parameters to create millions
+                of combinations, building effective & cogent trading algorithms.
               </p>
-              <h1 className="text-[#059DC0] text-xl font-bold mt-4">
-              Subhas
-              </h1>
+              <h1 className="text-[#059DC0] text-xl font-bold mt-4">Subhas</h1>
               <h1 className="text-md font-semi-bold mt-2">User</h1>
               <FontAwesomeIcon
-              icon={faStar}
-              className="h-4 w-4 text-yellow-600 mt-4"
+                icon={faStar}
+                className="h-4 w-4 text-yellow-600 mt-4"
               />
               <FontAwesomeIcon
-              icon={faStar}
-              className="h-4 w-4 text-yellow-600 mt-4"
+                icon={faStar}
+                className="h-4 w-4 text-yellow-600 mt-4"
               />
               <FontAwesomeIcon
-              icon={faStar}
-              className="h-4 w-4 text-yellow-600 mt-4"
+                icon={faStar}
+                className="h-4 w-4 text-yellow-600 mt-4"
               />
               <FontAwesomeIcon
-              icon={faStar}
-              className="h-4 w-4 text-yellow-600 mt-4"
+                icon={faStar}
+                className="h-4 w-4 text-yellow-600 mt-4"
               />
               <FontAwesomeIcon
-              icon={faStar}
-              className="h-4 w-4 text-yellow-600 mt-4"
+                icon={faStar}
+                className="h-4 w-4 text-yellow-600 mt-4"
               />
             </div>
           </div>
