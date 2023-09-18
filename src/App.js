@@ -17,6 +17,7 @@ import Withdraw from "../src/Modules/Admin/Withdraw";
 import UserApproval from "../src/Modules/Admin/UserApproval";
 import StockForm from "../src/Modules/Admin/StockForm";
 import AddFund from "../src/Modules/Admin/AddFund";
+import LoginAndRegister from "./Modules/Account/LoginAndRegister";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/service" element={<Service />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/loginandregister" element={<LoginAndRegister />} />
 
           <Route path="/fund" element={<Fund />} />
           <Route path="/login" element={<LogIn />} />

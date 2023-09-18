@@ -106,7 +106,7 @@ const NavigationBar = () => {
               <li>
                 <Link
                 to="/"
-                  className="text-white hover:text-blue-500"
+                  className="text-white text-xl hover:text-blue-500"
                   onClick={() => setIsDrawerOpen(false)}
                 >
                   Home
@@ -116,7 +116,7 @@ const NavigationBar = () => {
               <li>
                 <Link
                 to="/about"
-                  className="text- hover:text-blue-500"
+                  className="text-white text-xl hover:text-blue-500"
                   onClick={() => setIsDrawerOpen(false)}
                 >
                   About
@@ -126,7 +126,7 @@ const NavigationBar = () => {
               <li>
                 <Link
                 to="/service"
-                  className="text-white hover:text-blue-500"
+                  className="text-white text-xl hover:text-blue-500"
                   onClick={() => setIsDrawerOpen(false)}
                 >
                   Service
@@ -136,12 +136,22 @@ const NavigationBar = () => {
               <li>
                 <Link
                 to="/contact"
-                  className="text-white hover:text-blue-500"
+                  className="text-white text-xl hover:text-blue-500"
                   onClick={() => setIsDrawerOpen(false)}
                 >
                  Contact
                 </Link>
               </li>
+
+              <li>
+            <Link
+            to="/loginandregister"
+              className="text-white text-xl hover:text-blue-500"
+              activeClassName="font-bold"
+            >
+            Login&Register
+            </Link>
+          </li>
 
             </ul>
           </div>
@@ -185,6 +195,16 @@ const NavigationBar = () => {
               activeClassName="font-bold"
             >
             Contact
+            </Link>
+          </li>
+
+          <li>
+            <Link
+            to="/loginandregister"
+              className="text-[#64666C] text-lg font-semibold"
+              activeClassName="font-bold"
+            >
+            Login&Register
             </Link>
           </li>
         </ul>
