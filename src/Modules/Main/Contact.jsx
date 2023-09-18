@@ -26,7 +26,29 @@ const Contact = () => {
 
     setValue(newObj);
   }
-
+const handlesubmit =(s)=>{
+  s.preventDefault()
+  debugger 
+  console.log(values)
+  var formdata = new FormData();
+  formdata.append("firstname", values.fname);
+  formdata.append("lastname", values.lname);
+  formdata.append("email",values.email);
+  formdata.append("phone", values.message);
+  
+  var requestOptions = {
+    method: 'POST',
+    body: formdata,
+    redirect: 'follow'
+  };
+  
+  fetch("http://127.0.0.1:8000/main_contact/", requestOptions)
+    .then(response => response.json())
+    .then(result => {
+      alert("successfully stored")
+    })
+    .catch(error => console.log('error', error));
+}
   return (
     <>
       {/* banner part start */}
@@ -139,6 +161,7 @@ const Contact = () => {
                 <button
                   type="submit"
                   class="bg-[#2774AE] text-white font-semibold rounded-lg px-5 py-3"
+                  onClick={handlesubmit }
                 >
                   Submit Request
                 </button>

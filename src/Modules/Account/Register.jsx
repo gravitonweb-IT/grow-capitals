@@ -1,6 +1,24 @@
 import React, { useState } from "react";
 
 function Register() {
+  const [values, setValue] = useState({
+    username:"",
+    password:"",
+    firstname :"",
+    lastname:"",
+    email   :"",
+    phone_number:"",
+    pancard :"",
+    bankaccount:"",
+    ifsccode:"",
+    aadhaarCardNumber:""
+  });
+
+  function inputHandle(event) {
+    const newObj = { ...values, [event.target.name]: event.target.value };
+
+    setValue(newObj);
+  }
   return (
     <>
       <div className="w-[80%] sm:w-[50%] md:w-[60%] lg:w-[60%] xl:w-[35%] p-5 sm:p-10 shadow-2xl rounded-lg  mx-auto mt-10">
