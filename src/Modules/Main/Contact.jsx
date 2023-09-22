@@ -54,6 +54,7 @@ const Contact = () => {
 
     s.preventDefault()
 
+
     debugger
 
     console.log(values)
@@ -142,8 +143,6 @@ const Contact = () => {
 
       </div>
 
-
-
       {/* Banner part End */}
 
 
@@ -151,48 +150,9 @@ const Contact = () => {
       {/* Contact part start*/}
 
 
-
       <div className="flex justify-center">
 
         <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mx-10 md:mx-20 lg:mx-32 mt-10 md:mt-20">
-
-          {/* <div className=" bg-[#2774AE] border rounded-xl p-12">
-
-            <h1 className="text-3xl font-medium text-white leading-4">
-
-              {" "}
-
-              Get in Touch
-
-            </h1>
-
- 
-
-            <p className="mt-8 text-justify text-md text-white">
-
-              We will get back to you within 24 hours, or call us everyday
-
-            </p>
-
- 
-
-            <div className="flex mt-7">
-
-              <FaFacebook className="text-white text-2xl mr-4  rounded-full" />
-
- 
-
-              <FaTwitter className="text-white text-2xl  mr-4 rounded-full " />
-
- 
-
-              <FaInstagram className="text-white text-2xl mr-4" />
-
-            </div>
-
- 
-
-          </div> */}
 
           <div className="  bg-blue-500 border rounded-xl shadow-top-md p-12">
 
@@ -207,9 +167,6 @@ const Contact = () => {
               <FaTwitter className="text-white text-2xl  mr-4 rounded-full " />
 
               <FaInstagram className="text-white text-2xl mr-4 " />
-
-
-
             </div>
 
             <div className="text-white pt-4">
@@ -223,13 +180,7 @@ const Contact = () => {
                 <li>help@grow-capitals.com</li>
 
               </ul>
-
-
-
               <h1 className="text-2xl mt-2 text-white font-mono" > Technical Support</h1>
-
-
-
               <ul className=" text-start p-2">
 
                 <li> 1st 1/27 Noida Sector C Gautam Buddha nagar 201309 UP.</li>
@@ -239,12 +190,7 @@ const Contact = () => {
               </ul>
 
             </div>
-
-
-
           </div>
-
-
 
           <div className="bg-white  lg:col-span-2 shadow-top-md px-0 sm:px-20  md:px-20  lg:px-20  ">
 
@@ -254,16 +200,11 @@ const Contact = () => {
 
             </h4>
 
-
-
             <p className="mt-4 font-medium">
 
               We will get back to you within 24 hours, or call us everyday{" "}
 
             </p>
-
-
-
             <form>
 
               <div className="grid grid-cols-2 gap-5 pb-4 pt-4">
@@ -284,8 +225,6 @@ const Contact = () => {
 
                 />
 
-
-
                 <input
 
                   type="text"
@@ -301,9 +240,6 @@ const Contact = () => {
                   value={values.lname}
 
                 />
-
-
-
                 <input
 
                   placeholder="Email"
@@ -322,8 +258,6 @@ const Contact = () => {
 
                 />
 
-
-
                 <input
 
                   placeholder="Subject"
@@ -341,9 +275,6 @@ const Contact = () => {
                   value={values.subject}
 
                 />
-
-
-
                 <textarea
 
                   placeholder="Your Message"
@@ -362,22 +293,6 @@ const Contact = () => {
 
                 />
 
-
-
-                {/* <button
-
-                  type="submit"
-
-                  class="bg-[#2774AE] text-white font-semibold rounded-lg px-5 py-3"
-
-                  onClick={handlesubmit }
-
-                >
-
-                  Submit Request
-
-                </button> */}
-
                 <button type="submit" onClick={submitHandle} class="bg-blue-500 hover:bg-white text-white hover:text-black border-2 border-blue-500 font-medium rounded-full w-[130px]   p-1 transition duration-300 ease-in-out">
 
                   Submit
@@ -393,8 +308,6 @@ const Contact = () => {
         </div>
 
       </div>
-
-
 
       <iframe
 

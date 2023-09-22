@@ -553,11 +553,7 @@ const Home = () => {
           Our Services
 
         </h1>
-
       </div>
-
-
-
       <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-10 mx-10 md:mx-20 lg:mx-32 mt-10 md:mt-20">
 
         <div className="border-2 p-10 rounded-lg group hover:shadow-2xl cursor-pointer">
@@ -587,11 +583,7 @@ const Home = () => {
             our expert trading services.
 
           </p>
-
         </div>
-
-
-
         <div className="border-2 p-10 rounded-lg  group hover:shadow-2xl cursor-pointer">
 
           <div className="">
@@ -621,8 +613,6 @@ const Home = () => {
           </p>
 
         </div>
-
-
 
         <div className="border-2 p-10 rounded-lg group hover:shadow-2xl cursor-pointer">
 
