@@ -1,9 +1,261 @@
-import React from 'react'
+import React, { useEffect, useState } from "react";
 
 const AddFund = () => {
-  return (
-    <div>AddFund</div>
-  )
-}
+  const [isOpen, setIsOpen] = useState(false);
+  const [formData, setFormData] = useState({
+    date: "",
+    amount: "",
+    loss: "",
+    profit: "",
+    userEmail: "",
+  });
+  const [tableData, setTableData] = useState([]);
+  const [editingIndex, setEditingIndex] = useState(null);
 
-export default AddFund
+  useEffect(() => {
+    const storedTableData = JSON.parse(localStorage.getItem("tableData"));
+    if (storedTableData) {
+      setTableData(storedTableData);
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("tableData", JSON.stringify(tableData));
+  }, [tableData]);
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (editingIndex !== null) {
+      // Update existing row if in edit mode
+      const updatedTableData = [...tableData];
+      updatedTableData[editingIndex] = {
+        No: editingIndex + 1,
+        Date: formData.date,
+        "Pay Amount": formData.amount,
+        Profit: formData.profit,
+        Loss: formData.loss,
+        Email: formData.userEmail,
+      };
+      setTableData(updatedTableData);
+      setEditingIndex(null);
+    } else {
+      // Create a new entry with the form data
+      const newEntry = {
+        No: tableData.length + 1,
+        Date: formData.date,
+        "Pay Amount": formData.amount,
+        Profit: formData.profit,
+        Loss: formData.loss,
+        Email: formData.userEmail,
+      };
+      setTableData([...tableData, newEntry]);
+    }
+    console.log(formData);
+    // Reset the form
+    setFormData({
+      date: "",
+      amount: "",
+      loss: "",
+      profit: "",
+      userEmail: "",
+    });
+
+    setIsOpen(false);
+  };
+
+  const handleEdit = (index) => {
+    // Set the form data to the selected row for editing
+    const selectedRow = tableData[index];
+    setFormData({
+      date: selectedRow.Date,
+      amount: selectedRow["Pay Amount"],
+      loss: selectedRow.Loss,
+      profit: selectedRow.Profit,
+      userEmail: selectedRow.Email,
+    });
+    setEditingIndex(index);
+    setIsOpen(true);
+  };
+
+  const handleDelete = (index) => {
+    // Remove the selected row from the table data
+    const updatedTableData = [...tableData];
+    updatedTableData.splice(index, 1);
+    setTableData(updatedTableData);
+  };
+  return (
+    <>
+ <div className="flex justify-center items-center mb-4">
+  <button
+    className="bg-blue-500 hover:bg-white text-white hover:text-black border-2 border-blue-500 text-lg rounded-full w-[130px] p-1 transition duration-300 ease-in-out"
+    onClick={() => setIsOpen(!isOpen)}
+  >
+    {isOpen ? "Cancel" : "Add New"}
+  </button>
+</div>
+
+      <div className="flex items-center justify-center  bg-blue-300  ">
+        {isOpen && (
+          <form
+            className="bg-white p-4 shadow-md rounded-md  w-[500px] mt-5 mb-5"
+            onSubmit={handleSubmit}
+          >
+            <div className="mb-4">
+              <label
+                htmlFor="date"
+                className="block text-lg text-gray-600 font-bold"
+              >
+                Date
+              </label>
+              <input
+                type="date"
+                id="date"
+                name="date"
+                value={formData.date}
+                onChange={handleInputChange}
+                className=" border rounded-md py-2  w-full"
+              />
+            </div>
+            <div className="mb-4">
+              <label
+                htmlFor="amount"
+                className="block text-lg text-gray-600 font-bold"
+              >
+                Amount
+              </label>
+              <input
+                type="text"
+                id="amount"
+                name="amount"
+                value={formData.amount}
+                onChange={handleInputChange}
+                className=" border rounded-md py-2 px-10 w-full hover:bg-gray-100"
+              />
+            </div>
+            <div className="mb-4">
+              <label
+                htmlFor="loss"
+                className="block text-lg text-gray-600 font-bold"
+              >
+                Loss
+              </label>
+              <input
+                type="text"
+                id="loss"
+                name="loss"
+                value={formData.loss}
+                onChange={handleInputChange}
+                className=" border rounded-md py-2 px-10 w-full hover:bg-gray-100"
+              />
+            </div>
+            <div className="mb-4">
+              <label
+                htmlFor="profit"
+                className="block text-lg text-gray-600 font-bold"
+              >
+                Profit
+              </label>
+              <input
+                type="text"
+                id="profit"
+                name="profit"
+                value={formData.profit}
+                onChange={handleInputChange}
+                className=" border rounded-md py-2 px-10 w-full hover:bg-gray-100"
+              />
+            </div>
+            <div className="mb-4">
+              <label
+                htmlFor="userEmail"
+                className="block text-lg text-gray-600 font-bold"
+              >
+                User Email
+              </label>
+              <input
+                type="text"
+                id="userEmail"
+                name="userEmail"
+                value={formData.userEmail}
+                onChange={handleInputChange}
+                className=" border rounded-md py-2 px-10 w-full hover:bg-gray-100"
+              />
+            </div>
+            <button
+              type="submit"
+              className="bg-blue-500 hover:bg-white text-white hover:text-black border-2 border-blue-500 text-lg rounded-full w-[130px]   p-1 transition duration-300 ease-in-out"
+            >
+              Add New
+            </button>
+          </form>
+        )}
+      </div>
+
+      {/* balance status */}
+      <div className="bg-gray-200 p-4 shadow-md mt-4">
+        <div className="text-3xl font-bold mb-2 text-blue-500 text-center">
+          Balance Status
+        </div>
+      </div>
+
+      <div className="overflow-x-auto">
+        <table className="w-full table-auto ">
+          <thead className="bg-black text-white">
+            <tr>
+              <th className="p-2">No.</th>
+              <th className="p-2">Date</th>
+              <th className="p-2 ">Pay Amount</th>
+              <th className="p-2">Profit</th>
+              <th className="p-2">Loss</th>
+              <th className="p-2">Email</th>
+              <th className="p-2">Action</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            {tableData.map((row, index) => (
+              <tr key={index} className="border">
+                <td className="p-2 text-center">{row.No}</td>
+                <td className="p-2 text-center">{row.Date}</td>
+                <td className="p-2 text-center bg-black text-white">
+                  {row["Pay Amount"]}
+                </td>
+                <td className="p-2 text-center bg-green-500 text-white">
+                  {row.Profit}
+                </td>
+                <td className="p-2 text-center bg-red-500 text-white">
+                  {row.Loss}
+                </td>
+                <td className="p-2 text-center">{row.Email}</td>
+                <td className="p-2 text-center">
+                  <button
+                    className="bg-blue-500 text-white px-2 py-1 rounded"
+                    onClick={() => handleEdit(index)}
+                  >
+                    Edit
+                  </button>
+                  <button
+                    className="bg-red-500 text-white px-2 py-1 rounded ml-2"
+                    onClick={() => handleDelete(index)}
+                  >
+                    Delete
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </>
+  );
+};
+
+export default AddFund;
