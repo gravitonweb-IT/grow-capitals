@@ -8,6 +8,7 @@ import { faFacebookF, faInstagram, faTwitter} from "@fortawesome/free-brands-svg
 
 const AdminNavbar = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const [show, setShow] = useState(false);
   return (
     <>
 
@@ -171,12 +172,38 @@ const AdminNavbar = () => {
             to="/"
               className="text-white text-xl hover:text-blue-500"
               activeClassName="font-bold"
+              onClick={() => setIsDrawerOpen(false)}
             >
                 My Account 
             </Link>
           </li>
 
+          {/* Check */}
+          <li>
+                  <div>
+                    <Link
+                      to="/"
+                      className="text-white text-xl hover:text-blue-500 relative"
+                      onClick={() => setIsDrawerOpen(false)}
+                    >
+                      My Account
+                    </Link>
 
+                    <div className="absolute bg-blue-950 w-34 flex flex-col text-white hover:text-white cursor-pointer">
+                      <p className="hover:bg-sky-500 hover:text-white border-b-2  p-1">
+                        <Link
+                          to="/"
+                          className="text-white "
+                          onClick={() => setIsDrawerOpen(false)}
+                        >
+                          Logout
+                        </Link>
+                      </p>
+                    </div>
+                  </div>
+                </li>
+          
+          {/* Check end*/}
 
           <li>
             <Link
@@ -187,6 +214,51 @@ const AdminNavbar = () => {
                 Super Admin
             </Link>
           </li>
+
+          <li>
+                  <div>
+                    <Link
+                      to="/"
+                      className="text-white hover:text-blue-500 relative"
+                      onClick={() => setIsDrawerOpen(false)}
+                    >
+                      Super Admin
+                    </Link>
+              
+                {/* test start */}
+                    <div className="absolute bg-blue-950 w-34 flex flex-col text-white hover:text-white cursor-pointer">
+                      <p className="hover:bg-sky-500 hover:text-white border-b-2  p-1">
+                        <Link
+                          to="/"
+                          className="text-white "
+                          onClick={() => setIsDrawerOpen(false)}
+                        >
+                          Stock Form
+                        </Link>
+                      </p>
+
+                      <p className="hover:bg-sky-500 hover:text-white border-b-2 p-1">
+                        <Link
+                          to="/"
+                          className="text-white "
+                          onClick={() => setIsDrawerOpen(false)}
+                        >
+                          Withdraw Data
+                        </Link>
+                      </p>
+
+                      <p className="hover:bg-sky-500 hover:text-white border-b-2 p-1">
+                        <Link
+                          to="/"
+                          className="text-white "
+                          onClick={() => setIsDrawerOpen(false)}
+                        >
+                          Add Funds
+                        </Link>
+                      </p>
+                    </div>
+                  </div>
+                </li>
 
             </ul>
           </div>
