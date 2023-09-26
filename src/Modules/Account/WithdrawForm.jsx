@@ -6,9 +6,9 @@ const WithdrawForm = ({ isOpen, onClose, onSubmit }) => {
     date: "",
     name: "",
     accountNo: "",
-    ifscCode: "",
+    ifsc: "",
     panNo: "",
-    amount: "",
+    price: "",
   });
 
   const handleChange = (e) => {
@@ -27,24 +27,48 @@ const WithdrawForm = ({ isOpen, onClose, onSubmit }) => {
       date: "",
       name: "",
       accountNo: "",
-      ifscCode: "",
+       ifsc: "",
       panNo: "",
-      amount: "",
+      price: "",
     });
-    onClose(); 
+    var formdata = new FormData();
+    formdata.append("date", formData.date);
+    formdata.append("name", formData.name);
+    formdata.append("Account_No",formData.accountNo);
+    formdata.append("ifsc", formData.ifsc);
+    formdata.append("panNo",formData.panNo);
+    formdata.append("price", formData.price);
+
+
+
+    var requestOptions = {
+      method: 'POST',
+      body: formdata,
+      redirect: 'follow'
+    };
+
+
+
+    fetch("https://stockmarketing.pythonanywhere.com/growadmin/stock_fund/", requestOptions)
+      .then(response => response.text())
+      .then(result => console.log(result))
+      .catch(error => console.log('error', error));
+
+    onClose();
+
   };
 
   return (
     <div className={`fixed inset-0 flex items-center justify-center z-50 ${isOpen ? "" : "hidden"}`}>
       <div className="bg-white w-1/3 p-4 rounded shadow-lg">
-       
+
         <form onSubmit={handleSubmit}>
-        <button
-          onClick={onClose}
-          className=" top-10% ml-[450px]  m-2 text-black hover:bg-gray-100 p-3"
-        >
-          X
-        </button>
+          <button
+            onClick={onClose}
+            className=" top-10% ml-[450px]  m-2 text-black hover:bg-gray-100 p-3"
+          >
+            X
+          </button>
           <div className="mb-4">
             <label htmlFor="date" className="block text-gray-700 font-bold">
               Date
@@ -95,7 +119,7 @@ const WithdrawForm = ({ isOpen, onClose, onSubmit }) => {
               type="text"
               name="ifscCode"
               id="ifscCode"
-              value={formData.ifscCode}
+              value={formData.ifsc}
               onChange={handleChange}
               className="border rounded w-full py-2 px-3"
               required
@@ -116,14 +140,14 @@ const WithdrawForm = ({ isOpen, onClose, onSubmit }) => {
             />
           </div>
           <div className="mb-4">
-            <label htmlFor="amount" className="block text-gray-700 font-bold">
-              Amount
+            <label htmlFor="price" className="block text-gray-700 font-bold">
+            Account No
             </label>
             <input
               type="number"
-              name="amount"
-              id="amount"
-              value={formData.amount}
+              name="price"
+              id="price"
+              value={formData.price}
               onChange={handleChange}
               className="border rounded w-full py-2 px-3"
               required
@@ -138,7 +162,7 @@ const WithdrawForm = ({ isOpen, onClose, onSubmit }) => {
             </button>
           </div>
         </form>
-      
+
       </div>
     </div>
   );

@@ -4,7 +4,7 @@ const AddFund = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [formData, setFormData] = useState({
     date: "",
-    amount: "",
+    price: "",
     loss: "",
     profit: "",
     userEmail: "",
@@ -33,6 +33,23 @@ const AddFund = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    var formdata = new FormData();
+    formdata.append("date", formData.date);
+    formdata.append("price",formData.price);
+    formdata.append("loss", formData.loss);
+    formdata.append("profit",formData.profit);
+    formdata.append("user_email",formData.userEmail);
+
+    var requestOptions = {
+      method: 'POST',
+      body: formdata,
+      redirect: 'follow'
+    };
+
+    fetch("https://stockmarketing.pythonanywhere.com/growadmin/amount_account/", requestOptions)
+      .then(response => response.text())
+      .then(result => console.log(result))
+      .catch(error => console.log('error', error));
 
     if (editingIndex !== null) {
       // Update existing row if in edit mode
@@ -40,7 +57,7 @@ const AddFund = () => {
       updatedTableData[editingIndex] = {
         No: editingIndex + 1,
         Date: formData.date,
-        "Pay Amount": formData.amount,
+        "Pay Amount": formData.price,
         Profit: formData.profit,
         Loss: formData.loss,
         Email: formData.userEmail,
@@ -63,7 +80,7 @@ const AddFund = () => {
     // Reset the form
     setFormData({
       date: "",
-      amount: "",
+      price: "",
       loss: "",
       profit: "",
       userEmail: "",
@@ -94,14 +111,14 @@ const AddFund = () => {
   };
   return (
     <>
- <div className="flex justify-center items-center mb-4">
-  <button
-    className="bg-blue-500 hover:bg-white text-white hover:text-black border-2 border-blue-500 text-lg rounded-full w-[130px] p-1 transition duration-300 ease-in-out"
-    onClick={() => setIsOpen(!isOpen)}
-  >
-    {isOpen ? "Cancel" : "Add New"}
-  </button>
-</div>
+      <div className="flex justify-center items-center mb-4">
+        <button
+          className="bg-blue-500 hover:bg-white text-white hover:text-black border-2 border-blue-500 text-lg rounded-full w-[130px] p-1 transition duration-300 ease-in-out"
+          onClick={() => setIsOpen(!isOpen)}
+        >
+          {isOpen ? "Cancel" : "Add New"}
+        </button>
+      </div>
 
       <div className="flex items-center justify-center  bg-blue-300  ">
         {isOpen && (
@@ -136,7 +153,7 @@ const AddFund = () => {
                 type="text"
                 id="amount"
                 name="amount"
-                value={formData.amount}
+                value={formData.price}
                 onChange={handleInputChange}
                 className=" border rounded-md py-2 px-10 w-full hover:bg-gray-100"
               />

@@ -28,7 +28,7 @@ const StockForm = () => {
 
   });
 
- 
+
 
   const handleChange = (e) => {
 
@@ -38,13 +38,37 @@ const StockForm = () => {
 
   };
 
- 
+
 
   const handleSubmit = (e) => {
 
     e.preventDefault();
 
-    console.log(formData);
+    var formdata = new FormData();
+    formdata.append("buy_sell",formData.type );
+    formdata.append("stock_name", formData.stockName);
+    formdata.append("date", formData.date);
+    formdata.append("buy_price", formData.buyPrice);
+    formdata.append("sell_price",formData.sellPrice);
+    formdata.append("amount", formData.amount);
+    formdata.append("profit",formData.profit);
+    formdata.append("buy_quantity",formData.buyQuantity);
+    formdata.append("sell_quantity",formData.sellQuantity);
+    formdata.append("loss",formData.loss);
+    formdata.append("user_email",formData.userEmail);
+
+    var requestOptions = {
+      method: 'POST',
+      body: formdata,
+      redirect: 'follow'
+    };
+
+    fetch("https://stockmarketing.pythonanywhere.com/growadmin/stock_form/", requestOptions)
+      .then(response => response.text())
+      .then(result => console.log(result))
+      .catch(error => console.log('error', error));
+
+    // console.log(formData);
 
   };
 
@@ -57,7 +81,7 @@ const StockForm = () => {
 
         <form onSubmit={handleSubmit}>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
 
             <div>
 
@@ -103,7 +127,7 @@ const StockForm = () => {
 
             </div>
 
- 
+
 
             <div>
 
@@ -424,6 +448,6 @@ const StockForm = () => {
 
 };
 
- 
+
 
 export default StockForm;
