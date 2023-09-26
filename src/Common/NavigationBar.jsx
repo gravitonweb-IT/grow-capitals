@@ -163,7 +163,7 @@ const NavigationBar = () => {
           <li>
             <Link
             to="/"
-              className="text-[#2774AE] text-lg font-semibold"
+              className="text-[#64666C] hover:text-blue-500 text-lg font-semibold"
               activeClassName="font-bold"
             >
               Home
@@ -173,7 +173,7 @@ const NavigationBar = () => {
           <li>
             <Link
             to="/about"
-              className="text-[#64666C] text-lg font-semibold"
+              className="text-[#64666C] hover:text-blue-500 text-lg font-semibold"
               activeClassName="font-bold"
             >
               About
@@ -183,7 +183,7 @@ const NavigationBar = () => {
           <li>
             <Link
             to="/service"  
-              className="text-[#64666C] text-lg font-semibold"
+              className="text-[#64666C] hover:text-blue-500 text-lg font-semibold"
               activeClassName="font-bold"
             >
              Service
@@ -193,7 +193,7 @@ const NavigationBar = () => {
           <li>
             <Link
             to="/contact"
-              className="text-[#64666C] text-lg font-semibold"
+              className="text-[#64666C] hover:text-blue-500 text-lg font-semibold"
               activeClassName="font-bold"
             >
             Contact
@@ -203,7 +203,7 @@ const NavigationBar = () => {
           <li>
             <Link
             to="/loginandregister"
-              className="text-[#64666C] text-lg font-semibold"
+              className="text-[#64666C] hover:text-blue-500 text-lg font-semibold"
               activeClassName="font-bold"
             >
             Login&Register
