@@ -251,7 +251,6 @@ const Home = () => {
   };
 
 
-
   const settings = {
 
     dots: false,
@@ -358,13 +357,7 @@ const Home = () => {
 
     return () => {
 
-      // Clean up the script when the component unmounts
 
-      // document
-
-      //   .getElementById("tradingview-widget-container")
-
-      //   .removeChild(script);
 
     };
 
@@ -412,13 +405,7 @@ const Home = () => {
 
     return () => {
 
-      // Clean up the script when the component unmounts
-
-      // document
-
-      //   .getElementById("tradingview-screener-widget-container")
-
-      //   .removeChild(script);
+  
 
     };
 
@@ -459,7 +446,6 @@ const Home = () => {
         </div>
 
       </div>
-
 
 
       {/* Banner-part */}
@@ -504,8 +490,6 @@ const Home = () => {
 
             </p>
 
-
-
             <Link to="/contact">
 
               <button className="bg-[#2774AE] hidden md:block mt-5 px-5 py-3 text-white text-lg font-semibold rounded-lg">
@@ -541,7 +525,6 @@ const Home = () => {
         />
 
       </div>
-
 
 
       {/* Services-part */}
@@ -646,8 +629,6 @@ const Home = () => {
 
         </div>
 
-
-
         <div className="border-2 p-10 rounded-lg group hover:shadow-2xl cursor-pointer">
 
           <div className="">
@@ -678,8 +659,6 @@ const Home = () => {
 
         </div>
 
-
-
         <div className="border-2 p-10 rounded-lg group hover:shadow-2xl cursor-pointer">
 
           <div className="">
@@ -709,8 +688,6 @@ const Home = () => {
           </p>
 
         </div>
-
-
 
         <div className="border-2 p-10 rounded-lg group hover:shadow-2xl cursor-pointer">
 
@@ -745,7 +722,6 @@ const Home = () => {
       </div>
 
 
-
       {/* About-part */}
 
       <div className="bg-[#F5F5F5]">
@@ -757,7 +733,6 @@ const Home = () => {
             <img src={HomeAbout}></img>
 
           </div>
-
 
 
           <div className="mx-6 md:mx-4 lg:mx-4 xl:mx-14 mb-5 md:mb-0 mt-5 md:mt-10 lg:mt-10 xl:mt-20">
@@ -795,7 +770,6 @@ const Home = () => {
         </div>
 
       </div>
-
 
 
       {/* Market-part */}
@@ -913,9 +887,7 @@ const Home = () => {
 
         <div
 
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-colr-2 gap-10 max-10 md:max-20
-
-lg:mx-32  "
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-colr-2 gap-10 max-10 md:max-20 lg:mx-32  "
 
         >
 
@@ -1023,8 +995,61 @@ lg:mx-32  "
                 Buy
 
               </button>
+              <button className="bg-red-500 hover:bg-red-600 text-white py-2 px-4 ml-5 rounded">
 
+                Sell
 
+              </button>
+
+            </div>
+
+          </div>
+          <div className="bg-white rounded-lg shadow-md p-4 w-100 mb-10">
+
+            <h2 className="text-xl font-semibold">{stockData.name}</h2>
+
+            <p className="text-gray-600">{stockData.description}</p>
+
+            <div className="mt-4">
+
+              <p className="text-2xl font-semibold">{stockData.price}</p>
+
+              <p
+
+                className={
+
+                  stockData.return1M < 0 ? "text-red-500" : "text-green-500"
+
+                }
+
+              >
+
+                1M Return: {stockData.return1M}%
+
+              </p>
+
+              <p className="text-gray-600">1Y Return: {stockData.return1Y}%</p>
+
+            </div>
+
+            <div className="mt-4">
+
+              <p>P/E Ratio: {stockData.pe}</p>
+
+              <p>Market Cap: {stockData.marketCap} Cr</p>
+
+              <p>Beta: {stockData.beta}</p>
+
+              <p>Div. Yield: {stockData.dividendYield}</p>
+
+            </div>
+
+            <div className="mt-4 flex justify-end">
+
+              <button className="bg-green-500 hover:bg-green-600 text-white py-2  px-4 rounded">
+
+                Buy
+              </button>
 
               <button className="bg-red-500 hover:bg-red-600 text-white py-2 px-4 ml-5 rounded">
 
@@ -1035,8 +1060,6 @@ lg:mx-32  "
             </div>
 
           </div>
-
-
 
           <div className="bg-white rounded-lg shadow-md p-4 w-100 mb-10">
 
@@ -1085,71 +1108,6 @@ lg:mx-32  "
                 Buy
 
               </button>
-
-
-
-              <button className="bg-red-500 hover:bg-red-600 text-white py-2 px-4 ml-5 rounded">
-
-                Sell
-
-              </button>
-
-            </div>
-
-          </div>
-
-
-
-          <div className="bg-white rounded-lg shadow-md p-4 w-100 mb-10">
-
-            <h2 className="text-xl font-semibold">{stockData.name}</h2>
-
-            <p className="text-gray-600">{stockData.description}</p>
-
-            <div className="mt-4">
-
-              <p className="text-2xl font-semibold">{stockData.price}</p>
-
-              <p
-
-                className={
-
-                  stockData.return1M < 0 ? "text-red-500" : "text-green-500"
-
-                }
-
-              >
-
-                1M Return: {stockData.return1M}%
-
-              </p>
-
-              <p className="text-gray-600">1Y Return: {stockData.return1Y}%</p>
-
-            </div>
-
-            <div className="mt-4">
-
-              <p>P/E Ratio: {stockData.pe}</p>
-
-              <p>Market Cap: {stockData.marketCap} Cr</p>
-
-              <p>Beta: {stockData.beta}</p>
-
-              <p>Div. Yield: {stockData.dividendYield}</p>
-
-            </div>
-
-            <div className="mt-4 flex justify-end">
-
-              <button className="bg-green-500 hover:bg-green-600 text-white py-2  px-4 rounded">
-
-                Buy
-
-              </button>
-
-
-
               <button className="bg-red-500 hover:bg-red-600 text-white py-2 px-4 ml-5 rounded">
 
                 Sell
@@ -1183,8 +1141,6 @@ lg:mx-32  "
         </h1>
 
       </div>
-
-
 
       <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-10 mx-10 md:mx-20 lg:mx-32 mt-10 md:mt-20">
 
@@ -1249,9 +1205,6 @@ lg:mx-32  "
           </p>
 
         </div>
-
-
-
         <div className="border-2 p-10 rounded-lg cursor-pointer home-portfolio-cards">
 
           <div className="">
@@ -1283,9 +1236,6 @@ lg:mx-32  "
           </p>
 
         </div>
-
-
-
         <div className="border-2 p-10 rounded-lg  cursor-pointer home-portfolio-cards">
 
           <div className="">
@@ -1315,9 +1265,6 @@ lg:mx-32  "
           </p>
 
         </div>
-
-
-
         <div className="border-2 p-10 rounded-lg  cursor-pointer home-portfolio-cards">
 
           <div className="">
@@ -1347,9 +1294,6 @@ lg:mx-32  "
           </p>
 
         </div>
-
-
-
         <div className="border-2 p-10 rounded-lg  cursor-pointer home-portfolio-cards">
 
           <div className="">
@@ -1381,9 +1325,6 @@ lg:mx-32  "
         </div>
 
       </div>
-
-
-
       {/* Trading-part*/}
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-14 mx-10 md:mx-20 lg:mx-32 mt-12 md:mt-28">
@@ -1395,9 +1336,6 @@ lg:mx-32  "
             Powerful Trading Platforms
 
           </h1>
-
-
-
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 mt-10">
 
             <div>
@@ -1415,9 +1353,6 @@ lg:mx-32  "
               </p>
 
             </div>
-
-
-
             <div>
 
               <h1 className="text-2xl font-bold">Feature Two</h1>
@@ -1433,9 +1368,6 @@ lg:mx-32  "
               </p>
 
             </div>
-
-
-
             <div>
 
               <h1 className="text-2xl font-bold">Feature Three</h1>
@@ -1451,9 +1383,6 @@ lg:mx-32  "
               </p>
 
             </div>
-
-
-
             <div>
 
               <h1 className="text-2xl font-bold">Feature Four</h1>
@@ -1475,9 +1404,6 @@ lg:mx-32  "
           </div>
 
         </div>
-
-
-
         <div>
 
           <img src={TradingImage}></img>
@@ -1490,140 +1416,7 @@ lg:mx-32  "
 
       {/* Stock-market-Part */}
 
-      {/* <div className="mt-12 md:mt-20">
-
-        <h1 className="text-2xl md:text-4xl font-bold text-center text-[#034694]">
-
-          The stock market is a complex and ever-changing
-
-          <br /> world that is constantly evolving
-
-        </h1>
-
-      </div>
-
- 
-
-      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-10 mx-10 md:mx-20 lg:mx-32 mt-10 md:mt-20">
-
-        <div className="border-2 p-10 rounded-lg cursor-pointer group hover:shadow-2xl">
-
-        <div className="">
-
-            <FontAwesomeIcon
-
-              icon={faChartBar}
-
-              className="h-14 w-14 text-[#059DC0]"
-
-            />
-
-          </div>
-
-          <h1 className="text-2xl font-bold mt-4 group-hover:text-[#059DC0]">
-
-            Market News and Analysis
-
-          </h1>
-
-          <p className="text-[#64666C] mt-4">
-
-            One of the most obvious ways to create content on the stock market
-
-            is to provide news and analysis of current market trends. This could
-
-            include daily updates on the stock market indices, analysis of key
-
-            companies and sectors, and insights into market-moving events like
-
-            economic reports, central bank meetings, and geopolitical events.
-
-          </p>
-
-        </div>
-
- 
-
-        <div className="border-2 p-10 rounded-lg cursor-pointer group hover:shadow-2xl">
-
-        <div className="">
-
-            <FontAwesomeIcon
-
-              icon={faMoneyBill}
-
-              className="h-14 w-14 text-[#059DC0]"
-
-            />
-
-          </div>
-
-          <h1 className="text-2xl font-bold mt-4 group-hover:text-[#059DC0]">
-
-            Investment Strategies
-
-          </h1>
-
-          <p className="text-[#64666C] mt-4">
-
-            Another way to approach stock market content is to provide
-
-            information on different investment strategies. This could include
-
-            articles on value investing, growth investing, dividend investing,
-
-            and more. You could also discuss different types of investment
-
-            vehicles, such as mutual funds, exchange-traded funds (ETFs), and
-
-            individual stocks.
-
-          </p>
-
-        </div>
-
- 
-
-        <div className="border-2 p-10 rounded-lg cursor-pointer group hover:shadow-2xl">
-
-        <div className="">
-
-            <FontAwesomeIcon
-
-              icon={faClipboardQuestion}
-
-              className="h-14 w-14 text-[#059DC0]"
-
-            />
-
-          </div>
-
-          <h1 className="text-2xl font-bold mt-4 group-hover:text-[#059DC0]">
-
-            Interviews with Experts
-
-          </h1>
-
-          <p className="text-[#64666C] mt-4">
-
-            Finally, you could create content that features interviews with
-
-            experts in the stock market. This could include interviews with
-
-            successful investors, market analysts, and financial advisors. These
-
-            interviews could provide valuable insights and advice for readers
-
-            who are looking to improve their knowledge of the stock market.
-
-          </p>
-
-        </div>
-
-      </div> */}
-
-
-
+     
       <div className="">
 
         <div className="flex items-center justify-center h-screen">

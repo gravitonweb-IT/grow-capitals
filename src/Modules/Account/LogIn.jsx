@@ -16,7 +16,7 @@ function LogIn() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-   debugger 
+   
     // Basic email validation (you can use a more robust validation library)
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!email.match(emailRegex)) {

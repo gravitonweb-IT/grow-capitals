@@ -12,39 +12,24 @@ import {
 
 } from "react-icons/fa";
 
-
-
 const Contact = () => {
 
   const [values, setValue] = useState({
 
     fname: "",
 
-
-
     lname: "",
-
-
 
     email: "",
 
-
-
     subject: "",
-
-
-
     message: "",
 
   });
 
-
-
   function inputHandle(event) {
 
     const newObj = { ...values, [event.target.name]: event.target.value };
-
-
 
     setValue(newObj);
 
@@ -54,46 +39,36 @@ const Contact = () => {
 
     s.preventDefault()
 
-
-    debugger
-
-    console.log(values)
-
     var formdata = new FormData();
-
     formdata.append("firstname", values.fname);
-
     formdata.append("lastname", values.lname);
-
     formdata.append("email", values.email);
-
-    formdata.append("phone", values.message);
-
-
+    formdata.append("subject", values.subject);
+    formdata.append("message", values.message);
 
     var requestOptions = {
-
       method: 'POST',
-
       body: formdata,
-
       redirect: 'follow'
-
     };
 
-
-
-    fetch("http://127.0.0.1:8000/main_contact/", requestOptions)
-
-      .then(response => response.json())
-
-      .then(result => {
-
-        alert("successfully stored")
-
-      })
-
+    fetch("https://stockmarketing.pythonanywhere.com/main_contact/", requestOptions)
+      .then(response => response.text())
+      .then(result => console.log(result))
       .catch(error => console.log('error', error));
+
+    // console.log(values)
+
+    setValue({
+      fname: "",
+      lname: "",
+
+      email: "",
+
+      subject: "",
+
+      message: "",
+    })
 
   }
 
@@ -102,8 +77,6 @@ const Contact = () => {
     <>
 
       {/* banner part start */}
-
-
 
       <div className="relative w-full h-64 md:h-96 lg:h-96">
 
@@ -117,19 +90,13 @@ const Contact = () => {
 
         />
 
-
-
         {/*banner-content */}
-
-
 
         <div className="absolute top-0 left-5 lg:left-20 right-0 bottom-0 text-white flex flex-col justify-center ">
 
           <div className="container mx-auto">
 
             <h1 className="text-lg md:text-5xl font-bold">Contact Us</h1>
-
-
 
             <p className="mt-4 text-md md:text-xl font-semibold">
 
@@ -145,11 +112,7 @@ const Contact = () => {
 
       {/* Banner part End */}
 
-
-
       {/* Contact part start*/}
-
-
       <div className="flex justify-center">
 
         <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mx-10 md:mx-20 lg:mx-32 mt-10 md:mt-20">
