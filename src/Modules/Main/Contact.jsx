@@ -274,7 +274,7 @@ const Contact = () => {
 
       <iframe
 
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2483.5404230564054!2d-0.12174238448021957!3d51.50330061882424!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487604b900d26973%3A0x4291f3172409ea92!2slastminute.com%20London%20Eye!5e0!3m2!1sen!2sph!4v1606746108264!5m2!1sen!2sph"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3507.098489541257!2d77.51388777976233!3d28.476580428639917!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cea87005fd0ab%3A0x2642698644c6f56a!2sc%2C%20F-127%2C%201st%20St%2C%20Pocket%20F%2C%20Block%20F%2C%20Sector%20Alpha%20II%2C%20Greater%20Noida%2C%20Brahmpur%20Rajraula%20Urf%20Nawada%2C%20Uttar%20Pradesh%20201308!5e0!3m2!1sen!2sin!4v1695711374522!5m2!1sen!2sin"
 
         width="100%"
 
@@ -289,6 +289,8 @@ const Contact = () => {
         className="m-auto p-2 rounded-md mt-10"
 
       ></iframe>
+
+      
 
     </>
 

@@ -18,13 +18,15 @@ const FooterOne = () => {
       <div className="">
         <img src={LogoImage} className="w-[104px] h-auto"></img>
       </div>
-      <p className="mt-4"> Quisque tincidunt justo in libero </p>
+      <p className="mt-4"> <b>Grow-capitals</b> Technology Solutions </p>
 
-      <p>ut fermentum quam accumsan.</p>
+      <p>has come up with fully automatic Robo Trading to make  </p>
 
-      <p> Quisque tincidunt justo in libero </p>
+      <p> your trading strategies smarter. You’ve come to the  </p>
 
-      <p>ut fermentum quam accumsan.</p>
+      <p>right place for Option Call, Commodity Trading, </p>
+
+      <p>Nifty Future, and other trading products.</p>
     </div>
 
     <div class="text-white mt-4 md:mt-0 ">

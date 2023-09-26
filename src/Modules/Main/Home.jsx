@@ -526,6 +526,139 @@ const Home = () => {
 
       </div>
 
+  {/* Trading-part*/}
+
+  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-14 mx-10 md:mx-20 lg:mx-32 mt-12 md:mt-28">
+
+<div>
+
+  <h1 className="text-2xl md:text-4xl font-bold text-[#034694]">
+
+    Powerful Trading Platforms
+
+  </h1>
+  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 mt-10">
+
+    <div>
+
+      <h1 className="text-2xl font-bold">Empowerment</h1>
+
+      <p className="mt-2 text-[#64666C]">
+
+        Ever wondered why aren't you winning at wealth creation? What
+
+        does it take to be a winner? Challenge your potential and let us
+
+        help you win this game. Smart investing at your finger tips.
+
+      </p>
+
+    </div>
+    <div>
+
+      <h1 className="text-2xl font-bold">Live Stock</h1>
+
+      <p className="mt-2 text-[#64666C]">
+
+        Real-time stock quotes: This service provides users with
+
+        real-time information on the prices of stocks traded on various
+
+        stock exchanges around the world.
+
+      </p>
+
+    </div>
+    <div>
+
+      <h1 className="text-2xl font-bold">Insights</h1>
+
+      <p className="mt-2 text-[#64666C]">
+
+        Market news and analysis: Websites often provide a range of news
+
+        and analysis on the stock market, including commentary on market
+
+        trends, individual company news, and economic indicators.
+
+      </p>
+
+    </div>
+    <div>
+
+      <h1 className="text-2xl font-bold">Analytics</h1>
+
+      <p className="mt-2 text-[#64666C]">
+
+        Stock market data and analytics: Websites may offer access to
+
+        detailed financial data and analytics on individual stocks, such
+
+        as earnings reports, financial statements, and historical price
+
+        data.
+
+      </p>
+
+    </div>
+
+  </div>
+
+</div>
+<div>
+
+  <img src={TradingImage}></img>
+
+</div>
+
+</div>
+
+
+
+{/* Stock-market-Part */}
+
+
+<div className="">
+
+<div className="flex items-center justify-center h-screen">
+
+  <div
+
+    id="tradingview-screener-widget-container"
+
+    className="tradingview-widget-container overflow-x-auto w-screen md:w-3/4 lg:w-2/3 xl:w-1/2"
+
+  >
+
+    <div className="tradingview-widget-container__widget"></div>
+
+    <div className="tradingview-widget-copyright">
+
+      <a
+
+        href="https://in.tradingview.com/"
+
+        rel="noopener noreferrer"
+
+        target="_blank"
+
+      >
+
+        <span className="blue-text">
+
+          Track all markets on TradingView
+
+        </span>
+
+      </a>
+
+    </div>
+
+  </div>
+
+</div>
+
+</div>
 
       {/* Services-part */}
 
@@ -883,7 +1016,7 @@ const Home = () => {
       {/* FAQ's-part-end */}
 
     
-      <div className="bg-blue-500 ">
+      <div className=" bg-[#2774AE] ">
 
         <div
 
@@ -1325,139 +1458,7 @@ const Home = () => {
         </div>
 
       </div>
-      {/* Trading-part*/}
-
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-14 mx-10 md:mx-20 lg:mx-32 mt-12 md:mt-28">
-
-        <div>
-
-          <h1 className="text-2xl md:text-4xl font-bold text-[#034694]">
-
-            Powerful Trading Platforms
-
-          </h1>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 mt-10">
-
-            <div>
-
-              <h1 className="text-2xl font-bold">Feature One</h1>
-
-              <p className="mt-2 text-[#64666C]">
-
-                Ever wondered why aren't you winning at wealth creation? What
-
-                does it take to be a winner? Challenge your potential and let us
-
-                help you win this game. Smart investing at your finger tips.
-
-              </p>
-
-            </div>
-            <div>
-
-              <h1 className="text-2xl font-bold">Feature Two</h1>
-
-              <p className="mt-2 text-[#64666C]">
-
-                Real-time stock quotes: This service provides users with
-
-                real-time information on the prices of stocks traded on various
-
-                stock exchanges around the world.
-
-              </p>
-
-            </div>
-            <div>
-
-              <h1 className="text-2xl font-bold">Feature Three</h1>
-
-              <p className="mt-2 text-[#64666C]">
-
-                Market news and analysis: Websites often provide a range of news
-
-                and analysis on the stock market, including commentary on market
-
-                trends, individual company news, and economic indicators.
-
-              </p>
-
-            </div>
-            <div>
-
-              <h1 className="text-2xl font-bold">Feature Four</h1>
-
-              <p className="mt-2 text-[#64666C]">
-
-                Stock market data and analytics: Websites may offer access to
-
-                detailed financial data and analytics on individual stocks, such
-
-                as earnings reports, financial statements, and historical price
-
-                data.
-
-              </p>
-
-            </div>
-
-          </div>
-
-        </div>
-        <div>
-
-          <img src={TradingImage}></img>
-
-        </div>
-
-      </div>
-
-
-
-      {/* Stock-market-Part */}
-
-     
-      <div className="">
-
-        <div className="flex items-center justify-center h-screen">
-
-          <div
-
-            id="tradingview-screener-widget-container"
-
-            className="tradingview-widget-container overflow-x-auto w-screen md:w-3/4 lg:w-2/3 xl:w-1/2"
-
-          >
-
-            <div className="tradingview-widget-container__widget"></div>
-
-            <div className="tradingview-widget-copyright">
-
-              <a
-
-                href="https://in.tradingview.com/"
-
-                rel="noopener noreferrer"
-
-                target="_blank"
-
-              >
-
-                <span className="blue-text">
-
-                  Track all markets on TradingView
-
-                </span>
-
-              </a>
-
-            </div>
-
-          </div>
-
-        </div>
-
-      </div>
+    
 
       {/* Testomonial-part */}
 
