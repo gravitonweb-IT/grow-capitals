@@ -8,7 +8,6 @@ import Service from "../src/Modules/Main/Service";
 import Contact from "../src/Modules/Main/Contact";
 
 import Fund from "../src/Modules/Account/Fund";
-import LogIn from "../src/Modules/Account/LogIn";
 import Register from "../src/Modules/Account/Register";
 import Portfolio from "../src/Modules/Account/Portfolio";
 import Profile from "../src/Modules/Account/Profile";
@@ -32,7 +31,6 @@ function App() {
           <Route path="/loginandregister" element={<LoginAndRegister />} />
       
           <Route path="/fund" element={<Fund />} />
-          <Route path="/login" element={<LogIn />} />
           <Route path="/register" element={<Register />} />
           <Route path="/portfolio" element={<Portfolio />} />
           <Route path="/profile" element={<Profile />} />
