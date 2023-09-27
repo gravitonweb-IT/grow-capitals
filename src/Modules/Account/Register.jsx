@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 
- 
-
 function Register() {
 
   // const [values, setValue] = useState({
@@ -504,8 +502,6 @@ function Register() {
 
           </p>
 
- 
-
           <button className="bg-[#2774AE] mt-8 w-full py-2 text-white text-lg font-semibold rounded-lg">
 
             Register
@@ -522,6 +518,5 @@ function Register() {
 
 }
 
- 
 
 export default Register;
