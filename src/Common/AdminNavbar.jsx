@@ -149,12 +149,12 @@ const AdminNavbar = () => {
                 className="text-[#64666C] hover:text-blue-500 text-lg font-semibold"
                 onClick={() => toggleDropdown("superAdmin")}
               >
-                Super Admin
+                Super Admin <span className="ml-1">&#9660;</span>
               </button>
 
               {showDropdown === "superAdmin" && (
                 <div className="absolute bg-blue-950 w-34 flex flex-col text-white hover:text-white cursor-pointer mt-2 right-0">
-                  <p className="hover:bg-sky-500 hover:text-white border-b-2  p-1">
+                  <p className="hover:bg-sky-500 hover:text-white border-b-2  p-2  mx-4">
                     <Link
                       to="/stockform"
                       className="text-white "
@@ -172,7 +172,7 @@ const AdminNavbar = () => {
                       Withdraw Data
                     </Link>
                   </p>
-                  <p className="hover:bg-sky-500 hover:text-white border-b-2 p-1">
+                  <p className="hover:bg-sky-500 hover:text-white border-b-2 p-2">
                     <Link
                       to="/addfund"
                       className="text-white "
@@ -191,12 +191,12 @@ const AdminNavbar = () => {
                 className="text-[#64666C] hover:text-blue-500 text-lg font-semibold"
                 onClick={() => toggleDropdown("myAccount")}
               >
-                My Account
+              My Account <span className="ml-1">&#9660;</span>
               </button>
 
               {showDropdown === "myAccount" && (
                 <div className="absolute bg-blue-950 w-34 flex flex-col text-white hover:text-white cursor-pointer mt-2">
-                  <p className="hover:bg-sky-500 hover:text-white border-b-2  p-1">
+                  <p className="hover:bg-sky-500 hover:text-white border-b-2  p-2 mx-6">
                     <Link
                       to="/"
                       className="text-white "
@@ -319,15 +319,15 @@ const AdminNavbar = () => {
 
                 <li>
                   <button
-                    className="text-white text-xl hover:text-blue-500 relative"
+                    className="text-white text-xl hover:text-white relative"
                     onClick={toggleSuperAdminDropdown}
                   >
-                    Super Admin
+                     Super Admin <span className="ml-1">&#9660;</span>
                   </button>
 
                   {showSuperAdminDropdown && (
-                    <div className="absolute bg-blue-950 w-34 flex flex-col text-white hover:text-white cursor-pointer">
-                      <p className="hover:bg-sky-500 hover:text-white border-b-2  p-1">
+                    <div className=" bg-blue-950 w-44 flex flex-col text-white hover:text-white cursor-pointer">
+                      <p className="hover:bg-sky-500 hover:text-white border-b-2  p-1 ">
                         <Link
                           to="/stockform"
                           className="text-white "
@@ -362,15 +362,15 @@ const AdminNavbar = () => {
 
                 <li>
                   <button
-                    className="text-white text-xl hover:text-blue-500 relative"
+                    className="text-white text-xl hover:text-white relative"
                     onClick={toggleMyAccountDropdown}
                   >
-                    My Account
+                     My Account <span className="ml-1">&#9660;</span>
                   </button>
 
                   {showMyAccountDropdown && (
-                    <div className="absolute bg-blue-950 w-34 flex flex-col text-white hover:text-white cursor-pointer">
-                      <p className="hover:bg-sky-500 hover:text-white border-b-2  p-1">
+                    <div className="absolute bg-blue-950 w-40 flex flex-col text-white hover:text-white cursor-pointer">
+                      <p className="hover:bg-sky-500 hover:text-white border-b-2  m-2">
                         <Link
                           to="/"
                           className="text-white "
