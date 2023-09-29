@@ -25,7 +25,7 @@ const About = () => {
             <h1 className="text-lg md:text-5xl font-bold">About Us</h1>
 
             <p className="mt-4 text-md md:text-xl font-semibold">
-              Welcome to Grow-capitals stock market trading website! We are a
+              Welcome to Groww Capitals stock market trading website! We are a
               team <br></br> of experienced traders and financial experts who
               are passionate about <br></br> helping our clients succeed in the
               stock market.

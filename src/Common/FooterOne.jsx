@@ -18,7 +18,7 @@ const FooterOne = () => {
       <div className="">
         <img src={LogoImage} className="w-[104px] h-auto"></img>
       </div>
-      <p className="mt-4"> <b>Grow-capitals</b> Technology Solutions </p>
+      <p className="mt-4"> <b>Groww Capitals</b> Technology Solutions </p>
 
       <p>has come up with fully automatic Robo Trading to make  </p>
 
@@ -145,7 +145,7 @@ const FooterOne = () => {
   <hr class="my-2 md:my-5 w-100 mx-5 md:mx-20 " color="white"></hr>
 
   <div className="text-center">
-    <h1 className="text-white text-lg">&copy; 2023 Grow-Capitals</h1>
+    <h1 className="text-white text-lg">&copy; 2023 Groww Capitals</h1>
   </div>
 </div>
 

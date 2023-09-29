@@ -126,7 +126,7 @@ export default function LoginAndRegister() {
 
             <span className='text-lg md:text-5xl font-bold text-[#0066b2] pr-3'>
 
-              GROW
+              GROWW
 
             </span>
 

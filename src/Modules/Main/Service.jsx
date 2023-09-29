@@ -30,7 +30,7 @@ const Service = () => {
             </h1>
 
             <p className="mt-4 text-md md:text-xl font-semibold">
-              Start Investing and Trading with Grow-Capitals 5 E’s Steps
+              Start Investing and Trading with Groww Capitals 5 E’s Steps
             </p>
           </div>
         </div>
@@ -141,7 +141,7 @@ const Service = () => {
 
           <p className="mt-4 text-md md:text-xl font-semibold text-center text-[#64666C]">
             Choose the right plan and start your investment journey with
-            Grow-capitals
+            Groww Capitals
           </p>
        
 
