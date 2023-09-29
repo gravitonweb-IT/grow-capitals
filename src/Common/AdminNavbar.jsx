@@ -154,7 +154,7 @@ const AdminNavbar = () => {
 
               {showDropdown === "superAdmin" && (
                 <div className="absolute bg-blue-950 w-34 flex flex-col text-white hover:text-white cursor-pointer mt-2 right-0">
-                  <p className="hover:bg-sky-500 hover:text-white border-b-2  p-2  mx-4">
+                  <p className="hover:bg-sky-500 hover:text-white border-b-2  p-2  ">
                     <Link
                       to="/stockform"
                       className="text-white "
@@ -163,7 +163,7 @@ const AdminNavbar = () => {
                       Stock Form
                     </Link>
                   </p>
-                  <p className="hover:bg-sky-500 hover:text-white border-b-2 p-1">
+                  <p className="hover:bg-sky-500 hover:text-white border-b-2 p-2">
                     <Link
                       to="/withdraw"
                       className="text-white "
@@ -196,7 +196,7 @@ const AdminNavbar = () => {
 
               {showDropdown === "myAccount" && (
                 <div className="absolute bg-blue-950 w-34 flex flex-col text-white hover:text-white cursor-pointer mt-2">
-                  <p className="hover:bg-sky-500 hover:text-white border-b-2  p-2 mx-6">
+                  <p className="hover:bg-sky-500 hover:text-white border-b-2  p-2 w-32">
                     <Link
                       to="/"
                       className="text-white "
