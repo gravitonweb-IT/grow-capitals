@@ -264,6 +264,8 @@ const AdminNavbar = () => {
           </div>
         )}
 
+
+
         <ul className="hidden lg:flex space-x-5">
           <li>
             <Link
@@ -314,6 +316,79 @@ const AdminNavbar = () => {
             Login&Register
             </Link>
           </li>
+
+          <li>
+                  <div>
+                    <Link
+                      to="/"
+                      className="text-[#64666C] hover:text-blue-500 text-lg font-semibold"
+                      activeClassName="font-bold"
+                      onClick={() => setIsDrawerOpen(false)}
+                    >
+                      My Account
+                    </Link>
+
+                    <div className="absolute bg-blue-950 w-34 flex flex-col text-white hover:text-white cursor-pointer">
+                      <p className="hover:bg-sky-500 hover:text-white border-b-2  p-1">
+                        <Link
+                          to="/"
+                          className="text-white "
+                          onClick={() => setIsDrawerOpen(false)}
+                        >
+                          Logout
+                        </Link>
+                      </p>
+                    </div>
+                  </div>
+                </li>
+
+          <li>
+                  <div>
+                    <Link
+                      to="/"
+                      className="text-[#64666C] hover:text-blue-500 text-lg font-semibold"
+                      activeClassName="font-bold"
+                      onClick={() => setIsDrawerOpen(false)}
+                    >
+                      Super Admin
+                    </Link>
+              
+                {/* test start */}
+                    <div className="absolute bg-blue-950 w-34 flex flex-col text-white hover:text-white cursor-pointer">
+                      <p className="hover:bg-sky-500 hover:text-white border-b-2  p-1">
+                        <Link
+                          to="/"
+                          className="text-white "
+                          onClick={() => setIsDrawerOpen(false)}
+                        >
+                          Stock Form
+                        </Link>
+                      </p>
+
+                      <p className="hover:bg-sky-500 hover:text-white border-b-2 p-1">
+                        <Link
+                          to="/"
+                          className="text-white "
+                          onClick={() => setIsDrawerOpen(false)}
+                        >
+                          Withdraw Data
+                        </Link>
+                      </p>
+
+                      <p className="hover:bg-sky-500 hover:text-white border-b-2 p-1">
+                        <Link
+                          to="/"
+                          className="text-white "
+                          onClick={() => setIsDrawerOpen(false)}
+                        >
+                          Add Funds
+                        </Link>
+                      </p>
+                    </div>
+                  </div>
+                </li>
+
+
         </ul>
 
         

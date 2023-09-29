@@ -17,6 +17,8 @@ import UserApproval from "../src/Modules/Admin/UserApproval";
 import StockForm from "../src/Modules/Admin/StockForm";
 import AddFund from "../src/Modules/Admin/AddFund";
 import LoginAndRegister from "./Modules/Account/LoginAndRegister";
+import AdminNavbar from "../src/Common/AdminNavbar";
+
 
 function App() {
   return (
@@ -39,10 +41,12 @@ function App() {
           <Route path="/userapproval" element={<UserApproval />} />
           <Route path="/stockform" element={<StockForm />} />
           <Route path="/addfund" element={<AddFund />} />
+          <Route path ="/adminpanel" element={<AdminNavbar/>}/>
         </Routes>
 
         <FooterOne />
       </div>
+      
     </>
   );
 }
