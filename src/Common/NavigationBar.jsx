@@ -8,6 +8,10 @@ import { faFacebookF, faInstagram, faTwitter} from "@fortawesome/free-brands-svg
 
 const NavigationBar = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+
+  
+
+
   return (
     <>
 

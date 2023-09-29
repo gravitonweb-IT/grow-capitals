@@ -17,19 +17,11 @@ export default function LoginAndRegister() {
 
   const [errorMessage, setErrorMessage] = useState("");
 
- 
 
   const handleEmailChange = (e) => {
 
- 
-
     setEmail(e.target.value);
-
- 
-
   };
-
- 
 
   const handlePasswordChange = (e) => {
 
@@ -37,15 +29,9 @@ export default function LoginAndRegister() {
 
     setPassword(e.target.value);
 
- 
-
   };
 
- 
-
   const handleSubmit = (e) => {
-
- 
 
     e.preventDefault();
 
@@ -59,15 +45,12 @@ export default function LoginAndRegister() {
 
     // console.log(formdata)
 
- 
-
     var formdata = new FormData();
 
     formdata.append("username", email);
 
     formdata.append("password", password);
 
- 
 
     var requestOptions = {
 
@@ -76,8 +59,6 @@ export default function LoginAndRegister() {
       body: formdata,
 
       redirect: "follow",
-
- 
 
     };
 
@@ -91,23 +72,12 @@ export default function LoginAndRegister() {
 
     )
 
- 
-
       .then((response) => response.text())
-
- 
 
       .then((result) => console.log(result))
 
- 
-
       .catch((error) => console.log("error", error));
 
- 
-
-   
-
- 
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -123,27 +93,17 @@ export default function LoginAndRegister() {
 
       return;
 
- 
 
     }
 
- 
 
     if (password.length < 6) {
 
- 
-
       setErrorMessage("Password must be at least 6 characters long");
-
- 
 
       return;
 
- 
-
     }
-
- 
 
     console.log("Email:", email);
 
@@ -151,13 +111,8 @@ export default function LoginAndRegister() {
 
     setErrorMessage("");
 
- 
 
   };
-
- 
-
- 
 
   return (
 
@@ -201,13 +156,7 @@ export default function LoginAndRegister() {
 
               />
 
- 
-
- 
-
             </p>
-
- 
 
             <p className='mt-5'>
 
@@ -229,8 +178,6 @@ export default function LoginAndRegister() {
 
               />
 
- 
-
             </p>
 
             <Link to="#">
@@ -243,15 +190,12 @@ export default function LoginAndRegister() {
 
             </Link>
 
- 
-
             {errorMessage && (
 
               <div className="text-red-600 text-sm mb-4">{errorMessage}</div>
 
             )}
 
- 
 
             <p className='mt-1'>
 

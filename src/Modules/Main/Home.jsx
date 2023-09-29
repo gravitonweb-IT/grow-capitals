@@ -1474,11 +1474,11 @@ const Home = () => {
 
 
 
-      <div className="mt-12 md:mt-14 mx-10 md:mx-20 lg:mx-40">
+      <div className="mt-12 md:mt-14 mx-10 md:mx-20 lg:mx-34">
 
         <Slider {...settings}>
 
-          <div className="p-4">
+          <div className="p-4 ">
 
             <div className="rounded-lg border-2 p-8">
 
