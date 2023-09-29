@@ -179,29 +179,7 @@ const AdminNavbar = () => {
           </li>
 
           {/* Check */}
-          <li>
-                  <div>
-                    <Link
-                      to="/"
-                      className="text-white text-xl hover:text-blue-500 relative"
-                      onClick={() => setIsDrawerOpen(false)}
-                    >
-                      My Account
-                    </Link>
-
-                    <div className="absolute bg-blue-950 w-34 flex flex-col text-white hover:text-white cursor-pointer">
-                      <p className="hover:bg-sky-500 hover:text-white border-b-2  p-1">
-                        <Link
-                          to="/"
-                          className="text-white "
-                          onClick={() => setIsDrawerOpen(false)}
-                        >
-                          Logout
-                        </Link>
-                      </p>
-                    </div>
-                  </div>
-                </li>
+        
           
           {/* Check end*/}
 
@@ -254,6 +232,31 @@ const AdminNavbar = () => {
                           onClick={() => setIsDrawerOpen(false)}
                         >
                           Add Funds
+                        </Link>
+                      </p>
+                    </div>
+                  </div>
+                </li>
+
+
+                <li>
+                  <div>
+                    <Link
+                      to="/"
+                      className="text-white text-xl hover:text-blue-500 relative"
+                      onClick={() => setIsDrawerOpen(false)}
+                    >
+                      My Account
+                    </Link>
+
+                    <div className="absolute bg-blue-950 w-34 flex flex-col text-white hover:text-white cursor-pointer">
+                      <p className="hover:bg-sky-500 hover:text-white border-b-2  p-1">
+                        <Link
+                          to="/"
+                          className="text-white "
+                          onClick={() => setIsDrawerOpen(false)}
+                        >
+                          Logout
                         </Link>
                       </p>
                     </div>
@@ -317,30 +320,7 @@ const AdminNavbar = () => {
             </Link>
           </li>
 
-          <li>
-                  <div>
-                    <Link
-                      to="/"
-                      className="text-[#64666C] hover:text-blue-500 text-lg font-semibold"
-                      activeClassName="font-bold"
-                      onClick={() => setIsDrawerOpen(false)}
-                    >
-                      My Account
-                    </Link>
-
-                    <div className="absolute bg-blue-950 w-34 flex flex-col text-white hover:text-white cursor-pointer">
-                      <p className="hover:bg-sky-500 hover:text-white border-b-2  p-1">
-                        <Link
-                          to="/"
-                          className="text-white "
-                          onClick={() => setIsDrawerOpen(false)}
-                        >
-                          Logout
-                        </Link>
-                      </p>
-                    </div>
-                  </div>
-                </li>
+        
 
           <li>
                   <div>
@@ -382,6 +362,34 @@ const AdminNavbar = () => {
                           onClick={() => setIsDrawerOpen(false)}
                         >
                           Add Funds
+                        </Link>
+                      </p>
+                    </div>
+                  </div>
+                </li>
+
+
+
+
+                <li>
+                  <div>
+                    <Link
+                      to="/"
+                      className="text-[#64666C] hover:text-blue-500 text-lg font-semibold"
+                      activeClassName="font-bold"
+                      onClick={() => setIsDrawerOpen(false)}
+                    >
+                      My Account
+                    </Link>
+
+                    <div className="absolute bg-blue-950 w-34 flex flex-col text-white hover:text-white cursor-pointer">
+                      <p className="hover:bg-sky-500 hover:text-white border-b-2  p-1">
+                        <Link
+                          to="/"
+                          className="text-white "
+                          onClick={() => setIsDrawerOpen(false)}
+                        >
+                          Logout
                         </Link>
                       </p>
                     </div>
