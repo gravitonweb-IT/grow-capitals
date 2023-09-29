@@ -180,7 +180,7 @@ export default function LoginAndRegister() {
 
             </p>
 
-            <Link to="#">
+            <Link to="/forget">
 
               <h1 className="text-[#64666C] text-lg font-semibold hover:underline mt-3">
 
