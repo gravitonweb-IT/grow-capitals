@@ -8,7 +8,7 @@ import RAndL from "../../Assests/Register&Login/Register&LoginImage.jpg";
 
  
 
-export default function LoginAndRegister() {
+export default function LoginAndRegister({setUserType}) {
 
  
 
@@ -47,6 +47,7 @@ export default function LoginAndRegister() {
       if (response.status === 200) {
         // Login successful, set the user's role
         setRole(data.role);
+        setUserType(data.role)
       } else {
         // Login failed, display error message
         setError("Login failed");

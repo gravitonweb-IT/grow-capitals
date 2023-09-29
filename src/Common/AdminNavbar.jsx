@@ -9,7 +9,7 @@ import {
   faTwitter,
 } from "@fortawesome/free-brands-svg-icons";
 
-const AdminNavbar = () => {
+const AdminNavbar = ({setUserType}) => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [showDropdown, setShowDropdown] = useState(null);
   const [showSuperAdminDropdown, setShowSuperAdminDropdown] = useState(false);
@@ -23,6 +23,10 @@ const AdminNavbar = () => {
     }
   };
 
+   const handleLogOut = () =>{
+    setUserType("0");
+    setIsDrawerOpen(false) 
+ }
   const toggleSuperAdminDropdown = () => {
     setShowSuperAdminDropdown(!showSuperAdminDropdown);
   };
@@ -154,7 +158,7 @@ const AdminNavbar = () => {
 
               {showDropdown === "superAdmin" && (
                 <div className="absolute bg-blue-950 w-34 flex flex-col text-white hover:text-white cursor-pointer mt-2 right-0">
-                  <p className="hover:bg-sky-500 hover:text-white border-b-2  p-2  ">
+                  <p className="hover:bg-sky-500 hover:text-white border-b-2  p-2  mx-4">
                     <Link
                       to="/stockform"
                       className="text-white "
@@ -163,7 +167,7 @@ const AdminNavbar = () => {
                       Stock Form
                     </Link>
                   </p>
-                  <p className="hover:bg-sky-500 hover:text-white border-b-2 p-2">
+                  <p className="hover:bg-sky-500 hover:text-white border-b-2 p-1">
                     <Link
                       to="/withdraw"
                       className="text-white "
@@ -196,11 +200,11 @@ const AdminNavbar = () => {
 
               {showDropdown === "myAccount" && (
                 <div className="absolute bg-blue-950 w-34 flex flex-col text-white hover:text-white cursor-pointer mt-2">
-                  <p className="hover:bg-sky-500 hover:text-white border-b-2  p-2 w-32">
+                  <p className="hover:bg-sky-500 hover:text-white border-b-2  p-2 mx-6">
                     <Link
                       to="/"
                       className="text-white "
-                      onClick={() => setIsDrawerOpen(false)}
+                      onClick={() =>handleLogOut()}
                     >
                       Logout
                     </Link>
@@ -261,7 +265,7 @@ const AdminNavbar = () => {
                   <Link
                     to="/"
                     className="text-white text-xl hover:text-blue-500"
-                    onClick={() => setIsDrawerOpen(false)}
+                    onClick={() => {setIsDrawerOpen(false) ; setUserType("0")}}
                   >
                     Home
                   </Link>
@@ -374,7 +378,7 @@ const AdminNavbar = () => {
                         <Link
                           to="/"
                           className="text-white "
-                          onClick={() => setIsDrawerOpen(false)}
+                          onClick={() => handleLogOut()}
                         >
                           Logout
                         </Link>

@@ -9,19 +9,16 @@ import {
   faTwitter,
 } from "@fortawesome/free-brands-svg-icons";
 
-const UserNavbar = () => {
+const UserNavbar = ({setUserType}) => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
-  const [showDropdown, setShowDropdown] = useState(null);
+  const [showDropdown, setShowDropdown] = useState(false);
   const [showSuperAdminDropdown, setShowSuperAdminDropdown] = useState(false);
   const [showMyAccountDropdown, setShowMyAccountDropdown] = useState(false);
 
-  const toggleDropdown = (dropdownName) => {
-    if (showDropdown === dropdownName) {
-      setShowDropdown(null); // Close the dropdown if it's already open
-    } else {
-      setShowDropdown(dropdownName); // Open the selected dropdown
-    }
-  };
+ const handleLogOut = () =>{
+    setUserType("0");
+    setIsDrawerOpen(false) 
+ }
 
   const toggleSuperAdminDropdown = () => {
     setShowSuperAdminDropdown(!showSuperAdminDropdown);
@@ -148,18 +145,18 @@ const UserNavbar = () => {
             <div className="relative">
               <button
                 className="text-[#64666C] hover:text-blue-500 text-lg font-semibold"
-                onClick={() => toggleDropdown("myAccount")}
+                onClick={() =>setShowDropdown(!showDropdown)}
               >
               My Account <span className="ml-1">&#9660;</span>
               </button>
 
-              {showDropdown === "myAccount" && (
+              {showDropdown && (
                 <div className="absolute bg-blue-950 w-34 flex flex-col text-white hover:text-white cursor-pointer mt-2">
                   <p className="hover:bg-sky-500 hover:text-white border-b-2  p-2 w-32">
                     <Link
                       to="/"
                       className="text-white "
-                      onClick={() => setIsDrawerOpen(false)}
+                      onClick={() => handleLogOut()}
                     >
                       Logout
                     </Link>
@@ -291,7 +288,7 @@ const UserNavbar = () => {
                         <Link
                           to="/"
                           className="text-white "
-                          onClick={() => setIsDrawerOpen(false)}
+                          onClick={() => handleLogOut()}
                         >
                           Logout
                         </Link>

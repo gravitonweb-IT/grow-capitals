@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import NavigationBar from "../src/Common/NavigationBar";
 import FooterOne from "../src/Common/FooterOne";
@@ -21,19 +21,20 @@ import AdminNavbar from "../src/Common/AdminNavbar";
 import Forget from "./Modules/Account/Forget";
 import UserNavbar from "../src/Common/UserNavbar";
 
-
+console.log("check", window.location.pathname.includes("adminpanel"))
 function App() {
+  const [userType , setUserType] = useState("0")
   return (
     <>
       <div>
-        <NavigationBar />
+        {userType === '0' ? <NavigationBar/> : userType === '1' ? <AdminNavbar setUserType={setUserType} /> :userType ==="3" ? <UserNavbar setUserType={setUserType} /> : <NavigationBar />}
         <Routes>
           <Route index path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/service" element={<Service />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/forget" element={<Forget />} />
-          <Route path="/loginandregister" element={<LoginAndRegister />} />
+          <Route path="/loginandregister" element={<LoginAndRegister setUserType={setUserType}/>} />
       
           <Route path="/fund" element={<Fund />} />
           <Route path="/register" element={<Register />} />
@@ -44,8 +45,8 @@ function App() {
           <Route path="/userapproval" element={<UserApproval />} />
           <Route path="/stockform" element={<StockForm />} />
           <Route path="/addfund" element={<AddFund />} />
-          <Route path ="/adminpanel" element={<AdminNavbar/>}/>
-          <Route path ="/user" element={<UserNavbar/>}/>
+          {/* <Route path ="/adminpanel" element={<AdminNavbar/>}/> */}
+          {/* <Route path ="/user" element={<UserNavbar/>}/> */}
         </Routes>
 
         <FooterOne />
