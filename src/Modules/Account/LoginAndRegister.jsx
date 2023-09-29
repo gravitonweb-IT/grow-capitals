@@ -1,5 +1,6 @@
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 import { Link } from 'react-router-dom';
 
@@ -11,108 +12,64 @@ export default function LoginAndRegister() {
 
  
 
-  const [email, setEmail] = useState("");
 
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [role, setRole] = useState(null); // Store the user's role
+  const [error, setError] = useState(null); // Store login error message
+  const navigate = useNavigate(); // Access the navigation function
 
-  const [errorMessage, setErrorMessage] = useState("");
+  const handleLogin = async () => {
+    try {
+      // Make a fetch request to the login API
+      var myHeaders = new Headers();
+      myHeaders.append("Content-Type", "application/json");
+      myHeaders.append("Cookie", "csrftoken=Z9nseXk0218jRsyMVwAhHRYLPsrUDGZf");
 
+      var raw = JSON.stringify({
+        email: username,
+        password: password,
+      });
 
-  const handleEmailChange = (e) => {
+      var requestOptions = {
+        method: "POST",
+        headers: myHeaders,
+        body: raw,
+        redirect: "follow",
+      };
 
-    setEmail(e.target.value);
+      const response = await fetch(
+        "https://stockmarketing.pythonanywhere.com/rolebased/login/",
+        requestOptions
+      );
+      const data = await response.json();
+
+      if (response.status === 200) {
+        // Login successful, set the user's role
+        setRole(data.role);
+      } else {
+        // Login failed, display error message
+        setError("Login failed");
+      }
+    } catch (error) {
+      console.error("Login failed", error);
+      setError("Login failed");
+    }
   };
 
-  const handlePasswordChange = (e) => {
-
- 
-
-    setPassword(e.target.value);
-
-  };
-
-  const handleSubmit = (e) => {
-
-    e.preventDefault();
-
-    if (!email || !password) {
-
-      setErrorMessage("Both email and password are required.");
-
-      return;
-
+  useEffect(() => {
+    // Use the useEffect hook to trigger navigation when the role changes
+    if (role === "1") {
+      navigate("/adminpanel");
+    } else if (role === "2") {
+      navigate("/page2");
+    } else if (role === "3") {
+      navigate("/user");
     }
-
-    // console.log(formdata)
-
-    var formdata = new FormData();
-
-    formdata.append("username", email);
-
-    formdata.append("password", password);
+  }, [role, navigate]);
 
 
-    var requestOptions = {
 
-      method: "POST",
-
-      body: formdata,
-
-      redirect: "follow",
-
-    };
-
- 
-
-    fetch(
-
-      "https://stockmarketing.pythonanywhere.com/account/login/",
-
-      requestOptions
-
-    )
-
-      .then((response) => response.text())
-
-      .then((result) => console.log(result))
-
-      .catch((error) => console.log("error", error));
-
-
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
- 
-
-    if (!email.match(emailRegex)) {
-
- 
-
-      setErrorMessage("Invalid email address");
-
- 
-
-      return;
-
-
-    }
-
-
-    if (password.length < 6) {
-
-      setErrorMessage("Password must be at least 6 characters long");
-
-      return;
-
-    }
-
-    console.log("Email:", email);
-
-    console.log("Password:", password);
-
-    setErrorMessage("");
-
-
-  };
 
   return (
 
@@ -134,7 +91,7 @@ export default function LoginAndRegister() {
 
           </h1>
 
-          <form onSubmit={handleSubmit}>
+          <form >
 
             <p className='mt-10' >
 
@@ -148,9 +105,8 @@ export default function LoginAndRegister() {
 
                 placeholder="Username or Email"
 
-                value={email}
-
-                onChange={handleEmailChange}
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
 
                 required
 
@@ -171,8 +127,7 @@ export default function LoginAndRegister() {
                 placeholder="Enter Password"
 
                 value={password}
-
-                onChange={handlePasswordChange}
+                onChange={(e) => setPassword(e.target.value)}
 
                 required
 
@@ -190,9 +145,9 @@ export default function LoginAndRegister() {
 
             </Link>
 
-            {errorMessage && (
+            {error && (
 
-              <div className="text-red-600 text-sm mb-4">{errorMessage}</div>
+              <div className="text-red-600 text-sm mb-4">{error}</div>
 
             )}
 
@@ -201,7 +156,9 @@ export default function LoginAndRegister() {
 
               <Link to="">
 
-                <button className="bg-[#2774AE] mt-5 px-10 py-3 text-white text-lg font-semibold rounded-lg">Login</button>
+                <button onClick={() => {
+          handleLogin();
+        }} className="bg-[#2774AE] mt-5 px-10 py-3 text-white text-lg font-semibold rounded-lg">Login</button>
 
               </Link>
 

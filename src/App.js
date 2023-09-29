@@ -19,6 +19,7 @@ import AddFund from "../src/Modules/Admin/AddFund";
 import LoginAndRegister from "./Modules/Account/LoginAndRegister";
 import AdminNavbar from "../src/Common/AdminNavbar";
 import Forget from "./Modules/Account/Forget";
+import UserNavbar from "../src/Common/UserNavbar";
 
 
 function App() {
@@ -44,6 +45,7 @@ function App() {
           <Route path="/stockform" element={<StockForm />} />
           <Route path="/addfund" element={<AddFund />} />
           <Route path ="/adminpanel" element={<AdminNavbar/>}/>
+          <Route path ="/user" element={<UserNavbar/>}/>
         </Routes>
 
         <FooterOne />

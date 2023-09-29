@@ -102,14 +102,16 @@ function Register() {
 
         formdata.append("username", username);
         formdata.append("password", password);
-        formdata.append("firstname", firstname);
-        formdata.append("lastname", lastname);
+        formdata.append("first_name", firstname);
+        formdata.append("last_name", lastname);
         formdata.append("email", email);
         formdata.append("phone_number", phonenumber);
         formdata.append("pancard", pancard);
         formdata.append("bankaccount", bankaccount);
         formdata.append("ifsccode", ifsccode);
         formdata.append("aadhaarCardNumber", aadhaarcardnumber);
+
+
 
         var requestOptions = {
           method: "POST",
@@ -118,7 +120,7 @@ function Register() {
         };
 
         const response = await fetch(
-          "https://stockmarketing.pythonanywhere.com/account/account_register/",
+          "https://stockmarketing.pythonanywhere.com/rolebased/register/",
           requestOptions
         );
 
