@@ -67,11 +67,9 @@ const Portfolio = () => {
       <div className="bg-gray-200 p-4 shadow-md">
         <div className="text-3xl font-bold mb-4 text-blue-500 text-center">CUSTOMER PORTFOLIO PROFIT AND LOSS DETAILS</div>
         <div className="text-xl font-bold mb-3 text-center">
-          WELCOME TO
+          WELCOME
         </div>
-        <div className="text-2xl font-bold text-center">
-          Admin Admin
-        </div>
+        
       </div>
 
       <div className="overflow-x-auto">

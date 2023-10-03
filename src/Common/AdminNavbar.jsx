@@ -46,10 +46,10 @@ const AdminNavbar = ({setUserType}) => {
                 className="h-5 w-5 text-white pr-3"
               />
               <span className="text-white font-semibold text-lg">
-                info@grow-capitals.com
+              info@growwcapitals.in
               </span>
             </p>
-            <p className="pl-10">
+            {/* <p className="pl-10">
               <FontAwesomeIcon
                 icon={faPhone}
                 className="h-5 w-5 text-white pr-3"
@@ -57,7 +57,7 @@ const AdminNavbar = ({setUserType}) => {
               <span className="text-white font-semibold text-lg">
                 8349227709
               </span>
-            </p>
+            </p> */}
           </div>
 
           <div>
