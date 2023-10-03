@@ -155,7 +155,7 @@ const NavigationBar = () => {
               className="text-white text-xl hover:text-blue-500"
               activeClassName="font-bold"
             >
-            Login&Register
+            Login
             </Link>
           </li>
 
@@ -210,7 +210,7 @@ const NavigationBar = () => {
               className="text-[#64666C] hover:text-blue-500 text-lg font-semibold"
               activeClassName="font-bold"
             >
-            Login&Register
+            Login
             </Link>
           </li>
         </ul>
