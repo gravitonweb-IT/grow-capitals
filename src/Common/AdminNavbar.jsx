@@ -144,6 +144,7 @@ const AdminNavbar = ({setUserType}) => {
                 >
                   Funds
                 </Link>
+                
               </li>
             </ul>
 
@@ -303,11 +304,11 @@ const AdminNavbar = ({setUserType}) => {
 
                 <li>
                   <Link
-                    to="/funds"
+                    to="/fund"
                     className="text-white text-xl hover:text-blue-500"
                     activeClassName="font-bold"
                   >
-                    Funds
+                    Fund
                   </Link>
                 </li>
 

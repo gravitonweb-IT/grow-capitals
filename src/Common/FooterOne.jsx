@@ -55,30 +55,31 @@ const FooterOne = () => {
 
           <div class=" text-white mt-4 md:mt-0">
             <h1 className="font-bold text-2xl">Service Links</h1>
-            <p className="mt-4">
-              <Link to="/">Home</Link>
+            <p className="mt-4  ">
+              <Link to="/"> <span className="hover:underline">Home </span></Link>
             </p>
 
             <p className="mt-2">
-              <Link to="/about">About</Link>
+              <Link to="/about"><span className="hover:underline">About </span></Link>
             </p>
 
             <p className="mt-2">
-              <Link to="/service">Service</Link>
+              <Link to="/service"><span className="hover:underline">Service </span></Link>
             </p>
 
             <p className="mt-2">
-              <Link to="/contact">Contact</Link>
+              <Link to="/contact"><span className="hover:underline">Contact </span></Link>
             </p>
           </div>
 
           <div class=" text-white mt-4 md:mt-0">
             <h1 className="font-bold text-2xl">Useful Links</h1>
-            <p className="mt-4">
+            <p className="mt-4 ">
               <a
                 href="https://www.moneycontrol.com/stocksmarketsindia/"
                 target="_blank"
                 rel="noopener noreferrer"
+                className="hover:underline"
               >
                 Markets
               </a>
@@ -89,6 +90,7 @@ const FooterOne = () => {
                 href="https://www.moneycontrol.com/news/business/stocks/"
                 target="_blank"
                 rel="noopener noreferrer"
+                className="hover:underline"
               >
                 Stock
               </a>
@@ -99,6 +101,7 @@ const FooterOne = () => {
                 href="https://www.moneycontrol.com/ipo/"
                 target="_blank"
                 rel="noopener noreferrer"
+                className="hover:underline"
               >
                 IPO
               </a>
@@ -109,6 +112,7 @@ const FooterOne = () => {
                 href="https://www.moneycontrol.com/portfolio-management/portfolio-investment-signup.php"
                 target="_blank"
                 rel="noopener noreferrer"
+                className="hover:underline"
               >
                 Portfolio
               </a>

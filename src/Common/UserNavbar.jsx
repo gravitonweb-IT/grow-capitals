@@ -54,7 +54,7 @@ const UserNavbar = ({setUserType}) => {
               </span>
             </p> */}
 
-            
+
           </div>
 
           <div>
@@ -133,6 +133,7 @@ const UserNavbar = ({setUserType}) => {
                   Portfolio
                 </Link>
               </li>
+
               <li>
                 <Link
                   to="/fund"
@@ -259,11 +260,11 @@ const UserNavbar = ({setUserType}) => {
 
                 <li>
                   <Link
-                    to="/funds"
+                    to="/fund"
                     className="text-white text-xl hover:text-blue-500"
                     activeClassName="font-bold"
                   >
-                    Funds
+                    Fund
                   </Link>
                 </li>
 
