@@ -155,7 +155,7 @@ const AddFund = () => {
                 name="amount"
                 value={formData.price}
                 onChange={handleInputChange}
-                className=" border rounded-md py-2 px-10 w-full hover:bg-gray-100"
+                className=" border rounded-md py-2  w-full hover:bg-gray-100"
               />
             </div>
             <div className="mb-4">
@@ -171,7 +171,7 @@ const AddFund = () => {
                 name="loss"
                 value={formData.loss}
                 onChange={handleInputChange}
-                className=" border rounded-md py-2 px-10 w-full hover:bg-gray-100"
+                className=" border rounded-md py-2  w-full hover:bg-gray-100"
               />
             </div>
             <div className="mb-4">
@@ -187,7 +187,7 @@ const AddFund = () => {
                 name="profit"
                 value={formData.profit}
                 onChange={handleInputChange}
-                className=" border rounded-md py-2 px-10 w-full hover:bg-gray-100"
+                className=" border rounded-md py-2  w-full hover:bg-gray-100"
               />
             </div>
             <div className="mb-4">
@@ -203,7 +203,7 @@ const AddFund = () => {
                 name="userEmail"
                 value={formData.userEmail}
                 onChange={handleInputChange}
-                className=" border rounded-md py-2 px-10 w-full hover:bg-gray-100"
+                className=" border rounded-md py-2  w-full hover:bg-gray-100"
               />
             </div>
             <button

@@ -60,7 +60,7 @@ const WithdrawForm = ({ isOpen, onClose, onSubmit }) => {
 
   return (
     <div className={`fixed inset-0 flex items-center justify-center z-50 ${isOpen ? "" : "hidden"}`}>
-      <div className="bg-white w-1/3 p-4 rounded shadow-lg">
+      <div className="bg-white w-2/3 lg:w-1/3 md:w-1/3  p-4 rounded shadow-lg">
 
         <div className="relative">
           <button

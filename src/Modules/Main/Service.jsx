@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import image1 from "../../Assests/ServicePageImages/about1.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser, faUsers, faBuilding } from "@fortawesome/free-solid-svg-icons";
@@ -181,7 +182,8 @@ const Service = () => {
               </ul>
 
               <button className="mt-4 bg-blue-500  px-4 py-2 rounded-lg hover:bg-gray-300 transition-colors text-white">
-                Buy Now
+          
+           Buy Now 
               </button>
             </div>
           </div>
