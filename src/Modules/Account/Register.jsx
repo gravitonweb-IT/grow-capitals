@@ -13,8 +13,8 @@ function Register() {
   const [bankaccount, setBankAccount] = useState("");
   const [ifsccode, setIfscCode] = useState("");
   const [aadhaarcardnumber, setAadhaarCardNumber] = useState("");
-
-  
+ const [checkOtp,setOtp]=useState(false)
+  const [otpValue,setOtpValue]=useState(null)
 
   const [errors, setErrors] = useState({
     username: "",
@@ -33,13 +33,8 @@ function Register() {
 
   const [isLoading, setIsLoading] = useState(false);
 
-  const handleSubmit = async (e) => {
+  const sendOtp =(e)=>{
     e.preventDefault();
-  
-    // Disable the button to prevent multiple submissions
-    setIsLoading(true);
-  
-    // Validation checks
     const newErrors = {};
 
     if (!username) {
@@ -95,8 +90,65 @@ function Register() {
     // Update the errors state with the new errors
     setErrors(newErrors);
 
+    
+
+    setIsLoading(true);
+  
+  
     // If there are no errors, submit the form
     if (Object.values(newErrors).every((error) => !error)) {
+      setOtp(true)
+    var formdata = new FormData();
+    formdata.append("number", phonenumber);
+    
+    var requestOptions = {
+      method: 'POST',
+      body: formdata,
+      redirect: 'follow'
+    };
+    
+    fetch("http://127.0.0.1:8000/rolebased/sendOTP/", requestOptions)
+      .then(response => response.json())
+      .then(result => console.log(result))
+      .catch(error => console.log('error', error));
+  }
+  else{
+    setIsLoading(false);
+  }
+      
+  }
+
+  const verifyOtp=()=>{
+    
+    var formdata = new FormData();
+formdata.append("number", phonenumber);
+formdata.append("otp", otpValue);
+
+var requestOptions = {
+  method: 'PUT',
+  body: formdata,
+  redirect: 'follow'
+};
+
+fetch("http://127.0.0.1:8000/rolebased/checkOTP/", requestOptions)
+  .then(response => response.json())
+  .then(result => {
+    
+    if(result.status){
+      handleSubmit()
+    }else{
+      alert("otp is wrong entered")
+    }
+  })
+  .catch(error => console.log('error', error));
+  }
+
+  const handleSubmit = async () => {
+   
+  debugger
+    // Disable the button to prevent multiple submissions
+  
+    if (true) {
       try {
         var formdata = new FormData();
 
@@ -146,20 +198,22 @@ function Register() {
         // Re-enable the button after registration process finishes
         setIsLoading(false);
       }
-    } else {
-      // Re-enable the button if there are validation errors
-      setIsLoading(false);
-    }
+    } 
   };
 
   return (
     <>
-      <div className="w-[80%] sm:w-[50%] md:w-[60%] lg:w-[60%] xl:w-[35%] p-5 sm:p-10 shadow-2xl rounded-lg  mx-auto mt-10">
+     {checkOtp?<div>
+             <input type="number" name="otp"
+              value={otpValue}  onChange={(e) => setOtpValue(e.target.value)}  />
+              <button onClick={verifyOtp}> verifyOtp </button>
+     </div>:
+     <div className="w-[80%] sm:w-[50%] md:w-[60%] lg:w-[60%] xl:w-[35%] p-5 sm:p-10 shadow-2xl rounded-lg  mx-auto mt-10">
         <div className="text-lg md:text-3xl font-bold text-[#0066b2] text-center">
           Register
         </div>
 
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={sendOtp}>
           <p className="mt-10">
             <label className="font-semibold text-lg">Username</label>
             <input
@@ -372,6 +426,8 @@ function Register() {
           </button>
         </form>
       </div>
+     } 
+
     </>
   );
 }

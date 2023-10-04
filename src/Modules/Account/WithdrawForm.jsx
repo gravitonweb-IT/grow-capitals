@@ -1,5 +1,6 @@
 
 import React, { useState } from "react";
+import { servieUrl } from "../../env/env";
 
 const WithdrawForm = ({ isOpen, onClose, onSubmit }) => {
   const [formData, setFormData] = useState({
@@ -49,7 +50,7 @@ const WithdrawForm = ({ isOpen, onClose, onSubmit }) => {
 
 
 
-    fetch("https://stockmarketing.pythonanywhere.com/growadmin/stock_fund/", requestOptions)
+    fetch(servieUrl.url+"growadmin/stock_fund/", requestOptions)
       .then(response => response.text())
       .then(result => console.log(result))
       .catch(error => console.log('error', error));
