@@ -20,6 +20,7 @@ import LoginAndRegister from "./Modules/Account/LoginAndRegister";
 import AdminNavbar from "../src/Common/AdminNavbar";
 import Forget from "./Modules/Account/Forget";
 import UserNavbar from "../src/Common/UserNavbar";
+import ScrollToTop from '../src/Common/ScrollToTop'; // Import the ScrollToTop component
 
 console.log("check", window.location.pathname.includes("adminpanel"))
 function App() {
@@ -28,7 +29,9 @@ function App() {
     <>
       <div>
         {userType === '0' ? <NavigationBar/> : userType === '1' ? <AdminNavbar setUserType={setUserType} /> :userType ==="3" ? <UserNavbar setUserType={setUserType} /> : <NavigationBar />}
+        <ScrollToTop /> {/* Add the ScrollToTop component here, outside of Routes */}
         <Routes>
+       
           <Route index path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/service" element={<Service />} />
