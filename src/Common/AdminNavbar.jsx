@@ -168,7 +168,7 @@ const AdminNavbar = ({setUserType}) => {
                       Stock Form
                     </Link>
                   </p>
-                  <p className="hover:bg-sky-500 hover:text-white border-b-2 p-1">
+                  <p className="hover:bg-sky-500 hover:text-white border-b-2 p-2">
                     <Link
                       to="/withdraw"
                       className="text-white "
