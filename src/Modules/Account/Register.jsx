@@ -203,11 +203,40 @@ fetch("http://127.0.0.1:8000/rolebased/checkOTP/", requestOptions)
 
   return (
     <>
-     {checkOtp?<div>
-             <input type="number" name="otp"
-              value={otpValue}  onChange={(e) => setOtpValue(e.target.value)}  />
-              <button onClick={verifyOtp}> verifyOtp </button>
-     </div>:
+     {checkOtp?
+  <div className=" flex items-center justify-center p-10 ">
+  <div className="max-w-md w-full p-6 bg-slate-100 rounded-md shadow-lg">
+    <h2 className="text-2xl font-semibold text-gray-800 mb-6 text-center">OTP Verification </h2>
+    <form>
+      <div className="mb-4">
+       
+        <input
+          type="text"
+          id="otp"
+          className="w-full px-4 py-2 border rounded-md focus:outline-none focus:border-blue-500"
+          placeholder="Enter your OTP"
+          value={otpValue}
+          onChange={(e) => setOtpValue(e.target.value)}
+          required
+        />
+      </div>
+      <div className="mb-4">
+        <button
+          onClick={verifyOtp}
+          type="submit"
+          className="w-full px-4 py-2 bg-[#2774AE] text-white rounded-md hover:bg-blue-600"
+        >
+           VerifyOTP
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+   
+
+
+
+     :
      <div className="w-[80%] sm:w-[50%] md:w-[60%] lg:w-[60%] xl:w-[35%] p-5 sm:p-10 shadow-2xl rounded-lg  mx-auto mt-10">
         <div className="text-lg md:text-3xl font-bold text-[#0066b2] text-center">
           Register
