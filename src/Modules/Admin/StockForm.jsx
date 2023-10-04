@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { servieUrl } from "../../env/env";
 
 const StockForm = () => {
 
@@ -63,7 +64,7 @@ const StockForm = () => {
       redirect: 'follow'
     };
 
-    fetch("https://stockmarketing.pythonanywhere.com/growadmin/stock_form/", requestOptions)
+    fetch(servieUrl.url+"growadmin/stock_form/", requestOptions)
       .then(response => response.text())
       .then(result => console.log(result))
       .catch(error => console.log('error', error));

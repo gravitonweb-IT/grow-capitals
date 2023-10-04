@@ -6,6 +6,7 @@ import {
   FaTwitter,
   FaInstagram,
 } from "react-icons/fa";
+import { servieUrl } from "../../env/env";
 
 const Contact = () => {
 
