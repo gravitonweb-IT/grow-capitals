@@ -45,6 +45,8 @@ import "./Home.css";
 import HomeSlide4 from "../../Assests/HomePageImages/stock1.png";
 import HomeSlide5 from "../../Assests/HomePageImages/stock2.png";
 import HomeSlide6 from "../../Assests/HomePageImages/stock3.png";
+import Chart from "./Chart";
+import Stockchart from "./Stockchart";
 
 const stockData = {
   name: "Reliance Industries Ltd",
@@ -378,6 +380,10 @@ const Home = () => {
           onClick={nextSlide}
         />
       </div>
+      {/* Indian Ticker */}
+      <div>
+        < Chart />
+      </div>
 
       {/* Trading-part*/}
 
@@ -458,21 +464,21 @@ const Home = () => {
 
       {/* Services-part */}
 
-      <div className="mt-12 md:mt-20">
+      <div className="">
         <h1 className="text-2xl md:text-4xl font-bold text-center text-[#034694]">
           Our Services
         </h1>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-10 mx-10 md:mx-20 lg:mx-32 mt-10 md:mt-20">
-        <div className="border-2 p-10 rounded-lg group hover:shadow-2xl cursor-pointer">
-          <div className="">
+      <div className="border-2 p-10 rounded-lg group hover:shadow-2xl cursor-pointer transform hover:scale-105 transition-transform duration-500  ">
+          <div className="group-hover:text-center">
             <FontAwesomeIcon
               icon={faCoins}
               className="h-14 w-14 text-[#059DC0]"
             />
           </div>
 
-          <h1 className="text-2xl font-bold mt-4 group-hover:text-[#059DC0]">
+          <h1 className="text-2xl  font-bold mt-4 group-hover:text-[#059DC0] group-hover:text-center ">
             Equity Trading
           </h1>
 
@@ -481,15 +487,15 @@ const Home = () => {
             our expert trading services.
           </p>
         </div>
-        <div className="border-2 p-10 rounded-lg  group hover:shadow-2xl cursor-pointer">
-          <div className="">
+        <div className="border-2 p-10 rounded-lg group hover:shadow-2xl cursor-pointer transform hover:scale-105 transition-transform duration-500">
+          <div className="group-hover:text-center">
             <FontAwesomeIcon
               icon={faHandshake}
               className="h-14 w-14 text-[#059DC0]"
             />
           </div>
 
-          <h1 className="text-2xl font-bold mt-4 group-hover:text-[#059DC0]">
+          <h1 className="text-2xl  font-bold mt-4 group-hover:text-[#059DC0] group-hover:text-center">
             Portfolio Management
           </h1>
 
@@ -499,15 +505,15 @@ const Home = () => {
           </p>
         </div>
 
-        <div className="border-2 p-10 rounded-lg group hover:shadow-2xl cursor-pointer">
-          <div className="">
+        <div className="border-2 p-10 rounded-lg group hover:shadow-2xl cursor-pointer transform hover:scale-105 transition-transform duration-500">
+          <div className="group-hover:text-center">
             <FontAwesomeIcon
               icon={faHeadset}
               className="h-14 w-14 text-[#059DC0]"
             />
           </div>
 
-          <h1 className="text-2xl font-bold mt-4 group-hover:text-[#059DC0]">
+          <h1 className="text-2xl  font-bold mt-4 group-hover:text-[#059DC0] group-hover:text-center">
             Investment Advice
           </h1>
 
@@ -518,15 +524,15 @@ const Home = () => {
           </p>
         </div>
 
-        <div className="border-2 p-10 rounded-lg group hover:shadow-2xl cursor-pointer">
-          <div className="">
+        <div className="border-2 p-10 rounded-lg group hover:shadow-2xl cursor-pointer transform hover:scale-105 transition-transform duration-500">
+          <div className="group-hover:text-center">
             <FontAwesomeIcon
               icon={faUsersGear}
               className="h-14 w-14 text-[#059DC0]"
             />
           </div>
 
-          <h1 className="text-2xl font-bold mt-4 group-hover:text-[#059DC0]">
+          <h1 className="text-2xl  font-bold mt-4 group-hover:text-[#059DC0] group-hover:text-center">
             Risk Management
           </h1>
 
@@ -536,15 +542,15 @@ const Home = () => {
           </p>
         </div>
 
-        <div className="border-2 p-10 rounded-lg group hover:shadow-2xl cursor-pointer">
-          <div className="">
+        <div className="border-2 p-10 rounded-lg group hover:shadow-2xl cursor-pointer transform hover:scale-105 transition-transform duration-500">
+          <div className="group-hover:text-center">
             <FontAwesomeIcon
               icon={faBook}
               className="h-14 w-14 text-[#059DC0]"
             />
           </div>
 
-          <h1 className="text-2xl font-bold mt-4 group-hover:text-[#059DC0]">
+          <h1 className="text-2xl  font-bold mt-4 group-hover:text-[#059DC0] group-hover:text-center">
             Research And Analysis
           </h1>
 
@@ -554,15 +560,15 @@ const Home = () => {
           </p>
         </div>
 
-        <div className="border-2 p-10 rounded-lg group hover:shadow-2xl cursor-pointer">
-          <div className="">
+        <div className="border-2 p-10 rounded-lg group hover:shadow-2xl cursor-pointer transform hover:scale-105 transition-transform duration-500">
+          <div className="group-hover:text-center">
             <FontAwesomeIcon
               icon={faGraduationCap}
               className="h-14 w-14 text-[#059DC0]"
             />
           </div>
 
-          <h1 className="text-2xl font-bold mt-4 group-hover:text-[#059DC0]">
+          <h1 className="text-2xl  font-bold mt-4 group-hover:text-[#059DC0] group-hover:text-center">
             Education And Resources
           </h1>
 
@@ -667,7 +673,7 @@ const Home = () => {
 
       {/* FAQ's-part-end */}
 
-      <div className=" bg-[#2774AE] ">
+      {/* <div className=" bg-[#2774AE] ">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-colr-2 gap-10 max-10 md:max-20 lg:mx-32  ">
           <div className="bg-white rounded-lg shadow-md p-4 w-100 mt-20 ">
             <h2 className="text-xl font-semibold">{stockData.name}</h2>
@@ -825,6 +831,11 @@ const Home = () => {
             </div>
           </div>
         </div>
+      </div> */}
+
+      {/* indian stock table */}
+      <div>
+        < Stockchart />
       </div>
 
       {/* Portfolio-part */}
@@ -1118,6 +1129,8 @@ const Home = () => {
           </div>
         </Slider>
       </div>
+
+   
     </>
   );
 };
