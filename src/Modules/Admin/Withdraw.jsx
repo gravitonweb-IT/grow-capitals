@@ -61,7 +61,7 @@ const Withdraw = () => {
   return (
     <>
       {/* Search input field */}
-      <div className="mb-4">
+      <div className="p-4">
         <input
           type="text"
           placeholder="Search by Name"

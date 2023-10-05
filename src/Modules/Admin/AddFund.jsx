@@ -57,7 +57,7 @@ const AddFund = () => {
       updatedTableData[editingIndex] = {
         No: editingIndex + 1,
         Date: formData.date,
-        "Pay Amount": formData.price,
+        price: formData.price,
         Profit: formData.profit,
         Loss: formData.loss,
         Email: formData.userEmail,
@@ -69,7 +69,7 @@ const AddFund = () => {
       const newEntry = {
         No: tableData.length + 1,
         Date: formData.date,
-        "Pay Amount": formData.amount,
+        price: formData.price,
         Profit: formData.profit,
         Loss: formData.loss,
         Email: formData.userEmail,
@@ -93,8 +93,8 @@ const AddFund = () => {
     // Set the form data to the selected row for editing
     const selectedRow = tableData[index];
     setFormData({
-      date: selectedRow.Date,
-      amount: selectedRow["Pay Amount"],
+      date: selectedRow.Date, 
+      price: selectedRow.price,
       loss: selectedRow.Loss,
       profit: selectedRow.Profit,
       userEmail: selectedRow.Email,
@@ -129,7 +129,7 @@ const AddFund = () => {
             <div className="mb-4">
               <label
                 htmlFor="date"
-                className="block text-lg text-gray-600 font-bold"
+                className="block text-lg text-gray-600 font-bold mb-1"
               >
                 Date
               </label>
@@ -139,29 +139,29 @@ const AddFund = () => {
                 name="date"
                 value={formData.date}
                 onChange={handleInputChange}
-                className=" border rounded-md py-2  w-full"
+                className=" border rounded-md py-2  w-full p-2 text-gray-600 "
               />
             </div>
             <div className="mb-4">
               <label
-                htmlFor="amount"
-                className="block text-lg text-gray-600 font-bold"
+                htmlFor="price"
+                className="block text-lg text-gray-600 font-bold mb-1"
               >
                 Amount
               </label>
               <input
                 type="text"
-                id="amount"
-                name="amount"
+                id="price"
+                name="price"
                 value={formData.price}
                 onChange={handleInputChange}
-                className=" border rounded-md py-2  w-full hover:bg-gray-100"
+                className=" border rounded-md py-2  w-full hover:bg-gray-100 p-2 "
               />
             </div>
             <div className="mb-4">
               <label
-                htmlFor="loss"
-                className="block text-lg text-gray-600 font-bold"
+                htmlFor="loss" 
+                className="block text-lg text-gray-600 font-bold mb-1"
               >
                 Loss
               </label>
@@ -171,13 +171,13 @@ const AddFund = () => {
                 name="loss"
                 value={formData.loss}
                 onChange={handleInputChange}
-                className=" border rounded-md py-2  w-full hover:bg-gray-100"
+                className=" border rounded-md py-2  w-full hover:bg-gray-100 p-2"
               />
             </div>
             <div className="mb-4">
               <label
                 htmlFor="profit"
-                className="block text-lg text-gray-600 font-bold"
+                className="block text-lg text-gray-600 font-bold mb-1"
               >
                 Profit
               </label>
@@ -187,13 +187,13 @@ const AddFund = () => {
                 name="profit"
                 value={formData.profit}
                 onChange={handleInputChange}
-                className=" border rounded-md py-2  w-full hover:bg-gray-100"
+                className=" border rounded-md py-2  w-full hover:bg-gray-100 p-2"
               />
             </div>
             <div className="mb-4">
               <label
                 htmlFor="userEmail"
-                className="block text-lg text-gray-600 font-bold"
+                className="block text-lg text-gray-600 font-bold mb-1"
               >
                 User Email
               </label>
@@ -203,7 +203,7 @@ const AddFund = () => {
                 name="userEmail"
                 value={formData.userEmail}
                 onChange={handleInputChange}
-                className=" border rounded-md py-2  w-full hover:bg-gray-100"
+                className=" border rounded-md py-2  w-full hover:bg-gray-100 p-2"
               />
             </div>
             <button
@@ -242,8 +242,8 @@ const AddFund = () => {
               <tr key={index} className="border">
                 <td className="p-2 text-center">{row.No}</td>
                 <td className="p-2 text-center">{row.Date}</td>
-                <td className="p-2 text-center bg-black text-white">
-                  {row["Pay Amount"]}
+                <td className="p-2 text-center bg-slate-400 text-white">
+                  {row.price}
                 </td>
                 <td className="p-2 text-center bg-green-500 text-white">
                   {row.Profit}

@@ -78,7 +78,7 @@ const StockForm = () => {
 
     <div className="flex justify-center items-center min-h-screen bg-blue-300">
 
-      <div className="bg-white p-6 rounded-md shadow-md w-[900px] ">
+      <div className="bg-white p-6 rounded-md shadow-lg w-[900px] ">
 
         <form onSubmit={handleSubmit}>
 
@@ -90,7 +90,7 @@ const StockForm = () => {
 
                 htmlFor="type"
 
-                className="block text-lg font-medium text-gray-700"
+                className="block text-lg font-medium text-gray-700 mb-2"
 
               >
 
@@ -136,7 +136,7 @@ const StockForm = () => {
 
                 htmlFor="stockName"
 
-                className="block text-lg font-medium text-gray-700"
+                className="block text-lg font-medium text-gray-700 mb-2"
 
               >
 
@@ -170,7 +170,7 @@ const StockForm = () => {
 
                 htmlFor="buyPrice"
 
-                className="block text-lg font-medium text-gray-700"
+                className="block text-lg font-medium text-gray-700 mb-2"
 
               >
 
@@ -204,7 +204,7 @@ const StockForm = () => {
 
                 htmlFor="buyQuantity"
 
-                className="block text-lg font-medium text-gray-700"
+                className="block text-lg font-medium text-gray-700 mb-2"
               >
                 Buy Quantity
 
@@ -230,7 +230,7 @@ const StockForm = () => {
             <div>
               <label
                 htmlFor="sellPrice"
-                className="block text-lg font-medium text-gray-700"
+                className="block text-lg font-medium text-gray-700 mb-2"
               >
                 Sell Price
 
@@ -256,7 +256,7 @@ const StockForm = () => {
             <div>
               <label
                 htmlFor="sellQuantity"
-                className="block text-lg font-medium text-gray-700"
+                className="block text-lg font-medium text-gray-700 mb-2"
               >
                 Sell Quantity
               </label>
@@ -284,7 +284,7 @@ const StockForm = () => {
 
                 htmlFor="amount"
 
-                className="block text-lg font-medium text-gray-700"
+                className="block text-lg font-medium text-gray-700 mb-2"
 
               >
 
@@ -314,7 +314,7 @@ const StockForm = () => {
 
                 htmlFor="loss"
 
-                className="block text-lg font-medium text-gray-700"
+                className="block text-lg font-medium text-gray-700 mb-2"
               >
                 Loss
 
@@ -342,7 +342,7 @@ const StockForm = () => {
 
                 htmlFor="profit"
 
-                className="block text-lg font-medium text-gray-700"
+                className="block text-lg font-medium text-gray-700 mb-2"
               >
                 Profit
               </label>
@@ -369,7 +369,7 @@ const StockForm = () => {
 
                 htmlFor="date"
 
-                className="block text-lg font-medium text-gray-700"
+                className="block text-lg font-medium text-gray-700 mb-2"
               >
                 Date
 
@@ -397,7 +397,7 @@ const StockForm = () => {
               <label
                 htmlFor="userEmail"
 
-                className="block text-lg font-medium text-gray-700"
+                className="block text-lg font-medium text-gray-700 mb-2"
 
               >
                 User Email
