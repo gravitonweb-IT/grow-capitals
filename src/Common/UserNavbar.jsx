@@ -2,7 +2,13 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import LogoImage from "./NavbarImages/LogoImage.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEnvelope, faPhone } from "@fortawesome/free-solid-svg-icons";
+import {
+  faNewspaper,
+  faArrowUpRightFromSquare,
+  faLink,
+  faEnvelope,
+  faPhone,
+} from "@fortawesome/free-solid-svg-icons";
 import {
   faFacebookF,
   faInstagram,
@@ -58,18 +64,39 @@ const UserNavbar = ({setUserType}) => {
           </div>
 
           <div>
-            <FontAwesomeIcon
-              icon={faFacebookF}
-              className="h-5 w-5 text-white pr-3"
-            />
-            <FontAwesomeIcon
-              icon={faTwitter}
-              className="h-5 w-5 text-white pr-3"
-            />
-            <FontAwesomeIcon
-              icon={faInstagram}
-              className="h-5 w-5 text-white pr-3"
-            />
+            <a
+              href="https://www.moneycontrol.com/stocksmarketsindia/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FontAwesomeIcon
+                icon={faLink}
+                className="h-5 w-5 text-white pr-3 hover:cursor-pointer"
+              />
+              
+            </a>
+            <a
+              href="https://www.moneycontrol.com/news/business/stocks/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FontAwesomeIcon
+                icon={faArrowUpRightFromSquare}
+                className="h-4 w-4 text-white pr-3 hover:cursor-pointer"
+              />
+            </a>
+           
+             <a
+              href="https://www.moneycontrol.com/portfolio-management/portfolio-investment-signup.php"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FontAwesomeIcon
+                icon={faNewspaper}
+                className="h-4 w-4 text-white pr-3 hover:cursor-pointer"
+              />
+            </a>
+           
           </div>
         </div>
       </div>
