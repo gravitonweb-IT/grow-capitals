@@ -1,14 +1,10 @@
 import React, { useEffect, useState } from "react";
-
 import { Link } from "react-router-dom";
-
 import HomeSlide1 from "../../Assests/HomePageImages/HomeSlide1.png";
-
 import HomeSlide2 from "../../Assests/HomePageImages/HomeSlide2.png";
-
 import HomeSlide3 from "../../Assests/HomePageImages/HomeSlide3.png";
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Typewriter from 'typewriter-effect';
 
 import {
   faPlus,
@@ -46,6 +42,9 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 import "./Home.css";
+import HomeSlide4 from "../../Assests/HomePageImages/stock1.png";
+import HomeSlide5 from "../../Assests/HomePageImages/stock2.png";
+import HomeSlide6 from "../../Assests/HomePageImages/stock3.png";
 
 const stockData = {
   name: "Reliance Industries Ltd",
@@ -70,7 +69,7 @@ const stockData = {
 
 const slides = [
   {
-    image: HomeSlide1,
+    image: HomeSlide6,
 
     content1: "Introduction To The",
 
@@ -81,10 +80,11 @@ const slides = [
     paragraph2: "opportunities in the rapidly growing world of Stock Market.",
 
     button: "Let's Connect",
+    button1: "Register Now",
   },
 
   {
-    image: HomeSlide2,
+    image: HomeSlide5,
 
     content1: "Get A Passive Income With",
 
@@ -95,10 +95,11 @@ const slides = [
     paragraph2: "24/7 chat support.",
 
     button: "Let's Connect",
+    button1: "Register Now",
   },
 
   {
-    image: HomeSlide3,
+    image: HomeSlide4,
 
     content1: "Investments In Securities",
 
@@ -109,6 +110,7 @@ const slides = [
     paragraph2: "carefully before investing.",
 
     button: "Let's Connect",
+    button1: "Register Now",
   },
 ];
 
@@ -126,7 +128,7 @@ const Home = () => {
   };
 
   useEffect(() => {
-    const slideInterval = setInterval(nextSlide, 5000);
+    const slideInterval = setInterval(nextSlide, 6000);
 
     // Clean up the interval when the component unmounts
 
@@ -320,31 +322,47 @@ const Home = () => {
           <img
             src={currentSlide.image}
             alt={`Slide ${currentIndex + 1}`}
-            className="w-full h-auto"
+            className="w-full h-64 md:h-[95vh]"
           />
 
           <div className="absolute top-1/2 transform -translate-y-1/2 left-8 md:left-12 lg:left-20">
-            <h1 className="text-lg md:text-5xl font-bold text-black">
+            <h1 className="text-lg md:text-5xl font-bold text-[#f9fafb]">
               {currentSlide.content1}
             </h1>
 
-            <h1 className="text-lg md:text-5xl font-bold text-[#0066b2] mt-0 md:mt-5">
+            {/* <h1 className="text-lg md:text-5xl font-bold text-[#22d3ee] mt-0 md:mt-5">
               {currentSlide.content2}
+            </h1> */}
+            <h1 className="text-lg md:text-5xl font-bold text-[#22d3ee] mt-0 md:mt-5">
+              <Typewriter
+                options={{
+                  strings: [currentSlide.content2], // Replace this array with your dynamic content source
+                  autoStart: true,
+                  loop: true, // Set to true if you want the typewriter effect to loop
+                }}
+              />
             </h1>
 
-            <p className="text-[#64666C] text-md md:text-xl font-semibold mt-0 md:mt-8">
+            <p className="text-[#f9fafb] text-md md:text-xl font-semibold mt-0 md:mt-8">
               {currentSlide.paragraph1}
             </p>
 
-            <p className="text-[#64666C] text-md  md:text-xl font-semibold">
+            <p className="text-[#f9fafb] text-md  md:text-xl font-semibold">
               {currentSlide.paragraph2}
             </p>
 
-            <Link to="/contact">
-              <button className="bg-[#2774AE] hidden md:block mt-5 px-5 py-3 text-white text-lg font-semibold rounded-lg">
-                {currentSlide.button}
-              </button>
-            </Link>
+            <div className="flex">
+              <Link to="/contact">
+                <button className="bg-[#06b6d4] hidden md:block mt-8 px-5 py-3 text-white text-lg font-semibold rounded-[4px]">
+                  {currentSlide.button}
+                </button>
+              </Link>
+              <Link to="/register">
+                <button className="bg-[#06b6d4] hidden md:block ml-5 mt-8 px-5 py-3 text-white text-lg font-semibold rounded-[4px]">
+                  {currentSlide.button1}
+                </button>
+              </Link>
+            </div>
           </div>
         </div>
 
