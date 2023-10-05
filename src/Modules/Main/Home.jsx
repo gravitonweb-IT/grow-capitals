@@ -355,12 +355,12 @@ const Home = () => {
 
             <div className="flex">
               <Link to="/contact">
-                <button className="bg-[#06b6d4] hidden md:block mt-8 px-5 py-3 text-white text-lg font-semibold rounded-[4px]">
+                <button className="bg-[#06b6d4] hidden md:block mt-8 px-5 py-3 text-white text-lg font-semibold rounded-[4px] hover:cursor-pointer">
                   {currentSlide.button}
                 </button>
               </Link>
               <Link to="/register">
-                <button className="bg-[#06b6d4] hidden md:block ml-5 mt-8 px-5 py-3 text-white text-lg font-semibold rounded-[4px]">
+                <button className="bg-[#06b6d4] hidden md:block ml-5 mt-8 px-5 py-3 text-white text-lg font-semibold rounded-[4px] hover:cursor-pointer">
                   {currentSlide.button1}
                 </button>
               </Link>
