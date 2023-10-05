@@ -35,7 +35,7 @@ const FundsPopup = ({ isOpen, onClose }) => {
                 <img
                   src={image4}
                   alt="Funds Image"
-                  className="w-[500px] h-auto "
+                  className="w-[600px] h-auto "
                 />
               </div>
             </div>

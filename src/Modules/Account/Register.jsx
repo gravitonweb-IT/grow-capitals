@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { servieUrl } from "../../env/env";
 
 function Register() {
   const [username, setUserName] = useState("");
@@ -107,7 +108,7 @@ function Register() {
       redirect: 'follow'
     };
     
-    fetch("http://127.0.0.1:8000/rolebased/sendOTP/", requestOptions)
+    fetch(servieUrl.otpurl + "rolebased/sendOTP/", requestOptions)
       .then(response => response.json())
       .then(result => console.log(result))
       .catch(error => console.log('error', error));
@@ -130,7 +131,7 @@ var requestOptions = {
   redirect: 'follow'
 };
 
-fetch("http://127.0.0.1:8000/rolebased/checkOTP/", requestOptions)
+fetch(servieUrl.otpurl + "rolebased/checkOTP/", requestOptions)
   .then(response => response.json())
   .then(result => {
     
@@ -145,7 +146,7 @@ fetch("http://127.0.0.1:8000/rolebased/checkOTP/", requestOptions)
 
   const handleSubmit = async () => {
    
-  debugger
+  // debugger
     // Disable the button to prevent multiple submissions
   
     if (true) {
@@ -172,7 +173,7 @@ fetch("http://127.0.0.1:8000/rolebased/checkOTP/", requestOptions)
         };
 
         const response = await fetch(
-          "https://stockmarketing.pythonanywhere.com/rolebased/register/",
+          servieUrl.url+"rolebased/register/",
           requestOptions
         );
 
@@ -204,38 +205,35 @@ fetch("http://127.0.0.1:8000/rolebased/checkOTP/", requestOptions)
   return (
     <>
      {checkOtp?
-  <div className=" flex items-center justify-center p-10 ">
-  <div className="max-w-md w-full p-6 bg-slate-100 rounded-md shadow-lg">
-    <h2 className="text-2xl font-semibold text-gray-800 mb-6 text-center">OTP Verification </h2>
-    <form>
-      <div className="mb-4">
-       
-        <input
-          type="text"
-          id="otp"
-          className="w-full px-4 py-2 border rounded-md focus:outline-none focus:border-blue-500"
-          placeholder="Enter your OTP"
-          value={otpValue}
-          onChange={(e) => setOtpValue(e.target.value)}
-          required
-        />
-      </div>
-      <div className="mb-4">
-        <button
-          onClick={verifyOtp}
-          type="submit"
-          className="w-full px-4 py-2 bg-[#2774AE] text-white rounded-md hover:bg-blue-600"
-        >
-           VerifyOTP
-        </button>
-      </div>
-    </form>
-  </div>
-</div>
-   
-
-
-
+       <div className="mt-16 flex items-center justify-center">
+       <div className="max-w-md w-full p-6 bg-white rounded-md shadow-md">
+         <h2 className="text-2xl font-semibold text-gray-800 mb-6">OTP Verification</h2>
+         <form onSubmit={handleSubmit}>
+           <div className="mb-4">
+             {/* <label htmlFor="email" className="block text-gray-600">Email</label> */}
+             <input
+               type="text"
+               id="number"
+               className="w-full px-4 py-2 border rounded-md focus:outline-none focus:border-blue-500"
+               placeholder="Enter your OTP"
+               value={otpValue}
+               onChange={(e) => setOtpValue(e.target.value)}
+               required
+             />
+           </div>
+           <div className="mb-4">
+             <button
+               onClick={verifyOtp}
+               type="submit"
+               className="w-full px-4 py-2 bg-[#2774AE] text-white rounded-md hover:bg-blue-600"
+             >
+              verifyOtp
+             </button>
+           </div>
+         </form>
+       </div>
+     </div>
+     
      :
      <div className="w-[80%] sm:w-[50%] md:w-[60%] lg:w-[60%] xl:w-[35%] p-5 sm:p-10 shadow-2xl rounded-lg  mx-auto mt-10">
         <div className="text-lg md:text-3xl font-bold text-[#0066b2] text-center">

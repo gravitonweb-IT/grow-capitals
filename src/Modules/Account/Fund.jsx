@@ -77,7 +77,7 @@ const Fund = () => {
    
 
     <div className="mt-12 md:mt-14 mx-10 sm:mx-14 md:mx-20 lg:mx-40 flex justify-center items-center ">
-  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 justify-center items-center p-1 lg:p-10">
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 justify-center items-center p-10">
     <FlipCard
       buttonText="Please click button for withdraw"
       image={image2}
