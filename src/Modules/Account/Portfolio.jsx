@@ -140,31 +140,31 @@ const Portfolio = () => {
           <div className="text-xl font-bold mb-3 text-center">WELCOME</div>
         </div>
         <div className="overflow-x-auto">
-          <table className="w-full table-auto">
+          <table className="w-full table-auto border-2">
             <thead className="bg-black text-white">
               <tr>
                 <th className="p-2">Date</th>
-                <th className="p-2">[Name]</th>
-                <th className="p-2">[B-P]</th>
+                <th className="p-2">Name</th>
+                <th className="p-2 ">[B-P]</th>
                 <th className="p-2">[B-Q]</th>
-                <th className="p-2">[S-P]</th>
+                <th className="p-2 ">[S-P]</th>
                 <th className="p-2">[S-Q]</th>
                 <th className="p-2">[S&B]</th>
-                <th className="p-2">[Email]</th>
+                <th className="p-2">Email</th>
                 <th className="p-2">Action</th>
               </tr>
             </thead>
             <tbody>
               {data.map((item) => (
-                <tr key={item.id}>
-                  <td className="p-2 text-center">{item.date}</td>
-                  <td className="p-2 text-center">{item.stock_name}</td>
-                  <td className="p-2 text-center">{item.buy_price}</td>
-                  <td className="p-2 text-center">{item.buy_quantity}</td>
-                  <td className="p-2 text-center">{item.sell_price}</td>
-                  <td className="p-2 text-center">{item.sell_quantity}</td>
+                <tr className="border" key={item.id}>
+                  <td className="p-2 text-center  ">{item.date}</td>
+                  <td className="p-2 text-center bg-slate-300">{item.stock_name}</td>
+                  <td className="p-2 text-center font-bold text-green-600  ">{item.buy_price}</td>
+                  <td className="p-2 text-center bg-slate-300">{item.buy_quantity}</td>
+                  <td className="p-2 text-center font-bold text-green-600">{item.sell_price}</td>
+                  <td className="p-2 text-center bg-slate-300">{item.sell_quantity}</td>
                   <td className="p-2 text-center">{item.buy_sell}</td>
-                  <td className="p-2 text-center">{item.user_email}</td>
+                  <td className="p-2 text-center bg-slate-300">{item.user_email}</td>
                   <td className="p-2 text-center">
                     <button
                       onClick={() => handleDelete(item.id)} // Pass the item ID to the delete function

@@ -156,7 +156,7 @@ export default function LoginAndRegister({setUserType}) {
 
                 <button onClick={() => {
           handleLogin();
-        }} className="bg-[#2774AE] mt-5 px-10 py-3 text-white text-lg font-semibold rounded-lg">Login</button>
+        }} className="bg-[#2774AE] mt-5 px-10 py-3 text-white text-lg font-semibold rounded-lg hover:cursor-pointer">Login</button>
 
               </Link>
 
@@ -164,7 +164,7 @@ export default function LoginAndRegister({setUserType}) {
 
               <Link to="/register">
 
-                <button className="bg-[#2774AE] mt-5 px-10 py-3 text-white text-lg font-semibold rounded-lg ml-5">Register</button>
+                <button className="bg-[#2774AE] mt-5 px-10 py-3 text-white text-lg font-semibold rounded-lg ml-5 hover:cursor-pointer">Register</button>
 
               </Link>
 
