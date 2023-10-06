@@ -2,63 +2,45 @@ import React, { useEffect, useState } from "react";
 
 import { servieUrl } from "../../env/env";
 
- 
+
 
 const Withdraw = () => {
 
-  const [searchQuery, setSearchQuery] = useState("");
-
- 
-
- 
-
+  const [searchQuery, setSearchQuery] = useState('');
   const [data, setData] = useState([]);
 
- 
-
   useEffect(() => {
-
     async function fetchData() {
-
       try {
-
         // Replace with the actual API endpoint URL
-
-        const apiUrl =servieUrl.otpurl+"growadmin/stock_fund/"
-
-     
+        const apiUrl = servieUrl.otpurl + 'growadmin/stock_fund/';
 
         const response = await fetch(apiUrl);
 
         if (!response.ok) {
-
-          throw new Error("Network response was not ok");
-
+          throw new Error('Network response was not ok');
         }
 
-        const data = await response.json();
+        const apiData = await response.json();
 
-        console.log(data);
+        // Filter the data based on the search query
+        const filteredData = apiData.filter(item =>
+          item.name.toLowerCase().includes(searchQuery.toLowerCase())
+        );
 
-        setData(data);
-
+        setData(filteredData);
       } catch (error) {
-
-        console.error("Error fetching data:", error);
-
+        console.error('Error fetching data:', error);
       }
-
     }
 
- 
-
     fetchData();
+  }, [searchQuery]); // Run the effect whenever searchQuery changes
 
-  }, []);
-
- 
-
- 
+  const handleSearchInputChange = event => {
+    setSearchQuery(event.target.value);
+  };
+  
 
   return (
 
@@ -66,25 +48,18 @@ const Withdraw = () => {
 
       {/* Search input field */}
 
-      <div className="mb-4">
 
+      <div className="my-2 pl-2">
         <input
-
           type="text"
-
-          placeholder="Search by Name"
-
+          placeholder="Search by Name.."
           value={searchQuery}
-
-          onChange={(e) => setSearchQuery(e.target.value)}
-
+          onChange={handleSearchInputChange}
           className="border rounded-md py-2 px-4"
-
         />
-
+      
       </div>
 
- 
 
       {/* Table */}
 
@@ -95,12 +70,6 @@ const Withdraw = () => {
           <thead>
 
             <tr>
-
-              {/* <th className="px-6 py-3 bg-black text-left text-lg leading-4 font-medium text-white uppercase tracking-wider">
-
-                No
-
-              </th> */}
 
               <th className="px-6 py-3 bg-black text-center text-lg leading-4 font-medium text-white uppercase tracking-wider">
 
@@ -113,12 +82,6 @@ const Withdraw = () => {
                 Name
 
               </th>
-
-              {/* <th className="px-6 py-3 bg-black text-left text-lg leading-4 font-medium text-white uppercase tracking-wider">
-
-                Mobile
-
-              </th> */}
 
               <th className="px-6 py-3 bg-black text-center text-lg leading-4 font-medium text-white uppercase tracking-wider">
 
@@ -144,149 +107,35 @@ const Withdraw = () => {
 
               </th>
 
-              {/* <th className="px-6 py-3 bg-black text-left text-lg leading-4 font-medium text-white uppercase tracking-wider">
-
-                Action
-
-              </th> */}
-
             </tr>
 
           </thead>
 
           <tbody>
 
-            {/* {filteredData.map((row, index) => (
+          
 
-              <tr key={index}>
+            {data.map((item) => (
 
-                <td className="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
+              <tr key={item.id}>
 
-                  {row.No}
+                <td className="p-2 text-center">{item.date}</td>
 
-                </td>
+                <td className="p-2 text-center">{item.name}</td>
 
-                <td className="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
+                <td className="p-2 text-center">{item.Account_No}</td>
 
-                  {row.Date}
+                <td className="p-2 text-center">{item.ifsc}</td>
 
-                </td>
+                <td className="p-2 text-center">{item.panNo}</td>
 
-                <td className="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
+                <td className="p-2 text-center">{item.price}</td>
 
-                  {row.Name}
 
-                </td>
-
-                <td className="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
-
-                  {row.Mobile}
-
-                </td>
-
-                <td className="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
-
-                  {row.Account}
-
-                </td>
-
-                <td className="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
-
-                  {row.IFCS}
-
-                </td>
-
-                <td className="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
-
-                  {row["PAN CARD"]}
-
-                </td>
-
-                <td className="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
-
-                  {row.Amount}
-
-                </td>
-
-                <td className="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
-
-                 
-
-                <button
-
-                    className="bg-red-500 text-white px-2 py-1 rounded ml-2"
-
-                    onClick={() => handleDelete(index)}
-
-                  >
-
-                    Delete
-
-                  </button>
-
-                </td>
 
               </tr>
 
-            ))} */}
-
-                {data.map((item) => (
-
-                <tr key={item.id}>
-
-                  <td className="p-2 text-center">{item.date}</td>
-
-                  <td className="p-2 text-center">{item.name}</td>
-
- 
-
-                  <td className="p-2 text-center">{item.Account_No}</td>
-
-                  <td className="p-2 text-center">{item.ifsc}</td>
-
- 
-
-                  <td className="p-2 text-center">{item.panNo}</td>
-
-                  <td className="p-2 text-center">{item.price}</td>
-
-                 
-
- 
-
-                  {/* <td className="p-2 text-center">{item.amount}</td> */}
-
-                  {/* <td className="p-2 text-center">
-
-                    <button
-
-                      onClick={EditHandler}
-
-                      className="bg-blue-500 text-white px-2 py-1 rounded"
-
-                    >
-
-                      Edit
-
-                    </button>
-
-                    <button
-
-                      onClick={DeleteHandler}
-
-                      className="bg-red-500 text-white px-2 py-1 rounded ml-2"
-
-                    >
-
-                      Delete
-
-                    </button>
-
-                  </td> */}
-
-                </tr>
-
-              ))}
+            ))}
 
           </tbody>
 
@@ -300,6 +149,6 @@ const Withdraw = () => {
 
 };
 
- 
+
 
 export default Withdraw;
