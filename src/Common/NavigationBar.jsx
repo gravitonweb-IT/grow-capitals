@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import whatsapp from "./NavbarImages/whatsaap.png";
 import LogoImage from "./NavbarImages/LogoImage.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -80,6 +81,12 @@ const NavigationBar = () => {
           <div className="">
             <Link to="/">
               <img src={LogoImage} className="w-[90px] h-[70px]"></img>
+            </Link>
+          </div>
+
+          <div className="fixed right-7 bottom-7">
+            <Link to="https://wa.me/919981413114?I want to Know more About this?">
+              <img src={whatsapp} width="70" />
             </Link>
           </div>
 
