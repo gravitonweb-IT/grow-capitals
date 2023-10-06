@@ -173,7 +173,7 @@ fetch(servieUrl.otpurl + "rolebased/checkOTP/", requestOptions)
         };
 
         const response = await fetch(
-          servieUrl.url+"rolebased/register/",
+          servieUrl.otpurl+"rolebased/register/",
           requestOptions
         );
 

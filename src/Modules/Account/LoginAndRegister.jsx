@@ -35,7 +35,7 @@ export default function LoginAndRegister({setUserType}) {
         redirect: "follow",
       };
 
-      const response = await fetch(servieUrl.url+"rolebased/login/",
+      const response = await fetch(servieUrl.otpurl+"rolebased/login/",
         requestOptions
       );
       const data = await response.json();

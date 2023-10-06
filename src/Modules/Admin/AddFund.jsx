@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { servieUrl } from "../../env/env";
 
 const AddFund = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -46,7 +47,7 @@ const AddFund = () => {
       redirect: 'follow'
     };
 
-    fetch("https://stockmarketing.pythonanywhere.com/growadmin/amount_account/", requestOptions)
+    fetch( servieUrl.otpurl+"growadmin/amount_account/", requestOptions)
       .then(response => response.text())
       .then(result => console.log(result))
       .catch(error => console.log('error', error));

@@ -74,7 +74,7 @@ const WithdrawForm = ({ isOpen, onClose, onSubmit }) => {
 
    
 
-    fetch("https://stockmarketing.pythonanywhere.com/growadmin/stock_fund/", requestOptions)
+    fetch(servieUrl.otpurl+"growadmin/stock_fund/", requestOptions)
 
       .then(response => response.text())
 

@@ -6,6 +6,7 @@ import {
   FaTwitter,
   FaInstagram,
 } from "react-icons/fa";
+
 import { servieUrl } from "../../env/env";
 
 const Contact = () => {
@@ -127,7 +128,7 @@ const Contact = () => {
       };
       fetch(
 
-        "https://stockmarketing.pythonanywhere.com/main_contact/",
+        servieUrl.otpurl+"main_contact/",
 
         requestOptions
 

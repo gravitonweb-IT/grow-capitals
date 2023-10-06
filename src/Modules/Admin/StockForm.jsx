@@ -64,10 +64,37 @@ const StockForm = () => {
       redirect: 'follow'
     };
 
-    fetch(servieUrl.url+"growadmin/stock_form/", requestOptions)
+    fetch(servieUrl.otpurl+"growadmin/stock_form/", requestOptions)
       .then(response => response.text())
       .then(result => console.log(result))
       .catch(error => console.log('error', error));
+
+
+
+      setFormData ({
+        type: "",
+
+        buyPrice: "",
+    
+        sellPrice: "",
+    
+        amount: "",
+    
+        profit: "",
+    
+        stockName: "",
+    
+        buyQuantity: "",
+    
+        sellQuantity: "",
+    
+        loss: "",
+    
+        date: "",
+    
+        userEmail: "",
+      })
+
 
     // console.log(formData);
 
