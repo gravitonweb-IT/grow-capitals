@@ -3,6 +3,7 @@ import { servieUrl } from "../../env/env";
 
 const AddFund = () => {
   const [isOpen, setIsOpen] = useState(false);
+  
   const [formData, setFormData] = useState({
     date: "",
     price: "",
@@ -12,6 +13,7 @@ const AddFund = () => {
   });
   const [tableData, setTableData] = useState([]);
   const [editingIndex, setEditingIndex] = useState(null);
+  const [registrationSuccess, setRegistrationSuccess] = useState(false);
 
   useEffect(() => {
     const storedTableData = JSON.parse(localStorage.getItem("tableData"));
@@ -34,13 +36,13 @@ const AddFund = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
+
     var formdata = new FormData();
     formdata.append("date", formData.date);
-    formdata.append("price",formData.price);
+    formdata.append("price", formData.price);
     formdata.append("loss", formData.loss);
-    formdata.append("profit",formData.profit);
-    formdata.append("user_email",formData.userEmail);
+    formdata.append("profit", formData.profit);
+    formdata.append("user_email", formData.userEmail);
 
     var requestOptions = {
       method: 'POST',
@@ -48,11 +50,13 @@ const AddFund = () => {
       redirect: 'follow'
     };
 
-    fetch( servieUrl.otpurl+"growadmin/amount_account/", requestOptions)
+    fetch(servieUrl.otpurl + "growadmin/amount_account/", requestOptions)
       .then(response => response.text())
       .then(result => console.log(result))
       .catch(error => console.log('error', error));
-        alert("Submitted Successfully !")
+
+    // alert("Submitted Successfully !")
+
     if (editingIndex !== null) {
       // Update existing row if in edit mode
       const updatedTableData = [...tableData];
@@ -95,7 +99,7 @@ const AddFund = () => {
     // Set the form data to the selected row for editing
     const selectedRow = tableData[index];
     setFormData({
-      date: selectedRow.Date, 
+      date: selectedRow.Date,
       price: selectedRow.price,
       loss: selectedRow.Loss,
       profit: selectedRow.Profit,
@@ -104,6 +108,7 @@ const AddFund = () => {
     setEditingIndex(index);
     setIsOpen(true);
   };
+  
 
   const handleDelete = (index) => {
     // Remove the selected row from the table data
@@ -162,7 +167,7 @@ const AddFund = () => {
             </div>
             <div className="mb-4">
               <label
-                htmlFor="loss" 
+                htmlFor="loss"
                 className="block text-lg text-gray-600 font-bold mb-1"
               >
                 Loss
@@ -214,6 +219,11 @@ const AddFund = () => {
             >
               Add New
             </button>
+            {registrationSuccess && (
+
+              <p className="text-green-500 mb-2">Your Form successfully Submitted!</p>
+
+            )}
           </form>
         )}
       </div>

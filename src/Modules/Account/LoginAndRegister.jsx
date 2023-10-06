@@ -41,6 +41,7 @@ export default function LoginAndRegister({setUserType}) {
       const data = await response.json();
 
       if (response.status === 200) {
+        localStorage.setItem("username",username)
         // Login successful, set the user's role
         setRole(data.role);
         setUserType(data.role)

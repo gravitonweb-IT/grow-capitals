@@ -3,6 +3,8 @@ import { servieUrl } from "../../env/env";
 
 const StockForm = () => {
 
+  const [registrationSuccess, setRegistrationSuccess] = useState(false);
+
   const [formData, setFormData] = useState({
 
     type: "",
@@ -46,17 +48,17 @@ const StockForm = () => {
     e.preventDefault();
 
     var formdata = new FormData();
-    formdata.append("buy_sell",formData.type );
+    formdata.append("buy_sell", formData.type);
     formdata.append("stock_name", formData.stockName);
     formdata.append("date", formData.date);
     formdata.append("buy_price", formData.buyPrice);
-    formdata.append("sell_price",formData.sellPrice);
+    formdata.append("sell_price", formData.sellPrice);
     formdata.append("amount", formData.amount);
-    formdata.append("profit",formData.profit);
-    formdata.append("buy_quantity",formData.buyQuantity);
-    formdata.append("sell_quantity",formData.sellQuantity);
-    formdata.append("loss",formData.loss);
-    formdata.append("user_email",formData.userEmail);
+    formdata.append("profit", formData.profit);
+    formdata.append("buy_quantity", formData.buyQuantity);
+    formdata.append("sell_quantity", formData.sellQuantity);
+    formdata.append("loss", formData.loss);
+    formdata.append("user_email", formData.userEmail);
 
     var requestOptions = {
       method: 'POST',
@@ -64,37 +66,37 @@ const StockForm = () => {
       redirect: 'follow'
     };
 
-    fetch(servieUrl.otpurl+"growadmin/stock_form/", requestOptions)
+    fetch(servieUrl.otpurl + "growadmin/stock_form/", requestOptions)
       .then(response => response.text())
       .then(result => console.log(result))
       .catch(error => console.log('error', error));
-      alert("Submitted Successfully !")
+    alert("Submitted Successfully !")
 
 
-      setFormData ({
-        type: "",
+    setFormData({
+      type: "",
 
-        buyPrice: "",
-    
-        sellPrice: "",
-    
-        amount: "",
-    
-        profit: "",
-    
-        stockName: "",
-    
-        buyQuantity: "",
-    
-        sellQuantity: "",
-    
-        loss: "",
-    
-        date: "",
-    
-        userEmail: "",
-      })
+      buyPrice: "",
 
+      sellPrice: "",
+
+      amount: "",
+
+      profit: "",
+
+      stockName: "",
+
+      buyQuantity: "",
+
+      sellQuantity: "",
+
+      loss: "",
+
+      date: "",
+
+      userEmail: "",
+    })
+    setRegistrationSuccess(true);
 
     // console.log(formData);
 
@@ -451,7 +453,12 @@ const StockForm = () => {
             </div>
 
           </div>
-          <div className="mt-5">
+          {registrationSuccess && (
+
+            <p className="text-green-500 m-2">Your Form successfully Submitted!</p>
+
+          )}
+          <div className="mt-2">
 
             <button
 
@@ -465,6 +472,7 @@ const StockForm = () => {
             </button>
 
           </div>
+
 
         </form>
 

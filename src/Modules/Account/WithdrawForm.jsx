@@ -2,9 +2,10 @@ import React, { useState } from "react";
 
 import { servieUrl } from "../../env/env";
 
- 
+
 
 const WithdrawForm = ({ isOpen, onClose, onSubmit }) => {
+  const [registrationSuccess, setRegistrationSuccess] = useState(false);
 
   const [formData, setFormData] = useState({
 
@@ -22,7 +23,7 @@ const WithdrawForm = ({ isOpen, onClose, onSubmit }) => {
 
   });
 
- 
+
 
   const handleChange = (e) => {
 
@@ -38,13 +39,13 @@ const WithdrawForm = ({ isOpen, onClose, onSubmit }) => {
 
   };
 
- 
+
 
   const handleSubmit = (e) => {
 
     e.preventDefault();
 
-   
+
 
     var formdata = new FormData();
 
@@ -60,7 +61,7 @@ const WithdrawForm = ({ isOpen, onClose, onSubmit }) => {
 
     formdata.append("price", formData.price);
 
-   
+
 
     var requestOptions = {
 
@@ -72,9 +73,9 @@ const WithdrawForm = ({ isOpen, onClose, onSubmit }) => {
 
     };
 
-   
 
-    fetch(servieUrl.otpurl+"growadmin/stock_fund/", requestOptions)
+
+    fetch(servieUrl.otpurl + "growadmin/stock_fund/", requestOptions)
 
       .then(response => response.text())
 
@@ -82,7 +83,7 @@ const WithdrawForm = ({ isOpen, onClose, onSubmit }) => {
 
       .catch(error => console.log('error', error));
 
-      alert("Submitted Successfully !")
+    // alert("Submitted Successfully !")
 
     onClose();
 
@@ -105,12 +106,12 @@ const WithdrawForm = ({ isOpen, onClose, onSubmit }) => {
       price: "",
 
     });
+    setRegistrationSuccess(true);
 
- 
 
   };
 
- 
+
 
   return (
 
@@ -118,7 +119,7 @@ const WithdrawForm = ({ isOpen, onClose, onSubmit }) => {
 
       <div className="bg-white w-2/3 lg:w-1/3 md:w-1/3  p-4 rounded shadow-lg">
 
- 
+
 
         <div className="relative">
 
@@ -321,14 +322,19 @@ const WithdrawForm = ({ isOpen, onClose, onSubmit }) => {
               </button>
 
             </div>
+            {registrationSuccess && (
+
+              <p className="text-green-500 mb-2"> successfully Submitted!</p>
+
+            )}
 
           </form>
 
         </div>
 
- 
 
- 
+
+
 
       </div>
 
@@ -338,6 +344,6 @@ const WithdrawForm = ({ isOpen, onClose, onSubmit }) => {
 
 };
 
- 
+
 
 export default WithdrawForm;
