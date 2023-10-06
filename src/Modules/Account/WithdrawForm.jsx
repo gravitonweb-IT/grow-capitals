@@ -82,7 +82,7 @@ const WithdrawForm = ({ isOpen, onClose, onSubmit }) => {
 
       .catch(error => console.log('error', error));
 
- 
+      alert("Submitted Successfully !")
 
     onClose();
 

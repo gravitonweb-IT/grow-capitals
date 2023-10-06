@@ -34,6 +34,7 @@ const AddFund = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    
     var formdata = new FormData();
     formdata.append("date", formData.date);
     formdata.append("price",formData.price);
@@ -51,7 +52,7 @@ const AddFund = () => {
       .then(response => response.text())
       .then(result => console.log(result))
       .catch(error => console.log('error', error));
-
+        alert("Submitted Successfully !")
     if (editingIndex !== null) {
       // Update existing row if in edit mode
       const updatedTableData = [...tableData];

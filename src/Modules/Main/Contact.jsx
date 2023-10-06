@@ -138,6 +138,7 @@ const Contact = () => {
         .catch((error) => console.log("error", error));
 
       // console.log(values)
+      alert("Submitted Successfully !")
 
 
       setValue({
