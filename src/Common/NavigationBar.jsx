@@ -188,6 +188,16 @@ const NavigationBar = () => {
                     Login
                   </Link>
                 </li>
+
+                <li>
+                  <Link
+                    to="/register"
+                    className="text-white text-xl hover:text-blue-500"
+                    activeClassName="font-bold"
+                  >
+                    Register
+                  </Link>
+                </li>
               </ul>
             </div>
           )}
