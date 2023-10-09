@@ -158,13 +158,13 @@ const Portfolio = () => {
               {data.map((item) => (
                 <tr className="border" key={item.id}>
                   <td className="p-2 text-center  ">{item.date}</td>
-                  <td className="p-2 text-center bg-slate-300">{item.stock_name}</td>
+                  <td className="p-2 text-center bg-slate-300 font-semibold">{item.stock_name}</td>
                   <td className="p-2 text-center font-bold text-green-600  ">{item.buy_price}</td>
-                  <td className="p-2 text-center bg-slate-300">{item.buy_quantity}</td>
+                  <td className="p-2 text-center bg-slate-300 font-semibold">{item.buy_quantity}</td>
                   <td className="p-2 text-center font-bold text-green-600">{item.sell_price}</td>
-                  <td className="p-2 text-center bg-slate-300">{item.sell_quantity}</td>
+                  <td className="p-2 text-center bg-slate-300 font-semibold">{item.sell_quantity}</td>
                   <td className="p-2 text-center">{item.buy_sell}</td>
-                  <td className="p-2 text-center bg-slate-300">{item.user_email}</td>
+                  <td className="p-2 text-center bg-slate-300 font-semibold">{item.user_email}</td>
                   <td className="p-2 text-center">
                     <button
                       onClick={() => handleDelete(item.id)} // Pass the item ID to the delete function
