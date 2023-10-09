@@ -30,8 +30,9 @@ const Service = () => {
 
     if (localStorage.getItem("username") !== null) {
 
-     history("/loginandregister");
-
+    //  history("/loginandregister");
+    
+     history("/contact");
  
 
     } else {

@@ -1018,7 +1018,7 @@ const Home = () => {
               </p>
 
               <h1 className="text-[#059DC0] text-xl font-bold mt-4">
-                Kavita Shamra
+                Kavit Shamra
               </h1>
 
               <h1 className="text-md font-semi-bold mt-2">Customer</h1>

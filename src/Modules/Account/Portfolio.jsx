@@ -129,22 +129,22 @@ const Portfolio = () => {
               rel="noopener noreferrer"
               target="_blank"
             >
-              <span className="blue-text">Track all markets on TradingView</span>
+              {/* <span className="blue-text">Track all markets on TradingView</span> */}
             </a>
           </div>
         </div>
-        <div className="bg-gray-200 p-4 shadow-md">
+        <div className="bg-[#ccfbf1] p-4 shadow-md">
           <div className="text-3xl font-bold mb-4 text-blue-500 text-center">
             CUSTOMER PORTFOLIO PROFIT AND LOSS DETAILS
           </div>
           <div className="text-xl font-bold mb-3 text-center">WELCOME</div>
         </div>
         <div className="overflow-x-auto">
-          <table className="w-full table-auto border-2">
-            <thead className="bg-black text-white">
+          <table className="w-full table-auto border-4">
+            <thead className="bg-red-600 text-white">
               <tr>
                 <th className="p-2">Date</th>
-                <th className="p-2">Name</th>
+                <th className="p-2">S-Name</th>
                 <th className="p-2 ">[B-P]</th>
                 <th className="p-2">[B-Q]</th>
                 <th className="p-2 ">[S-P]</th>
@@ -168,7 +168,7 @@ const Portfolio = () => {
                   <td className="p-2 text-center">
                     <button
                       onClick={() => handleDelete(item.id)} // Pass the item ID to the delete function
-                      className="bg-red-500 text-white px-2 py-1 rounded ml-2 hover:cursor-pointer"
+                      className="bg-blue-900 text-white px-2 py-1 rounded ml-2 hover:cursor-pointer"
                     >
                       Delete
                     </button>
