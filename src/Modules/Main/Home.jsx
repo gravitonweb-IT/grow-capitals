@@ -4,7 +4,7 @@ import HomeSlide1 from "../../Assests/HomePageImages/HomeSlide1.png";
 import HomeSlide2 from "../../Assests/HomePageImages/HomeSlide2.png";
 import HomeSlide3 from "../../Assests/HomePageImages/HomeSlide3.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Typewriter from 'typewriter-effect';
+import Typewriter from "typewriter-effect";
 
 import {
   faPlus,
@@ -382,7 +382,7 @@ const Home = () => {
       </div>
       {/* Indian Ticker */}
       <div>
-        < Chart />
+        <Chart />
       </div>
 
       {/* Trading-part*/}
@@ -470,7 +470,7 @@ const Home = () => {
         </h1>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-10 mx-10 md:mx-20 lg:mx-32 mt-10 md:mt-20">
-      <div className="border-2 p-10 rounded-lg group hover:shadow-2xl cursor-pointer transform hover:scale-105 transition-transform duration-500  ">
+        <div className="border-2 p-10 rounded-lg group hover:shadow-2xl cursor-pointer transform hover:scale-105 transition-transform duration-500  ">
           <div className="group-hover:text-center">
             <FontAwesomeIcon
               icon={faCoins}
@@ -835,7 +835,7 @@ const Home = () => {
 
       {/* indian stock table */}
       <div>
-        < Stockchart />
+        <Stockchart />
       </div>
 
       {/* Portfolio-part */}
@@ -1129,8 +1129,6 @@ const Home = () => {
           </div>
         </Slider>
       </div>
-
-   
     </>
   );
 };

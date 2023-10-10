@@ -108,7 +108,7 @@ const AdminNavbar = ({setUserType}) => {
         <div className="flex justify-between items-center px-5 md:px-10 py-2">
           <div className="">
             <Link to="/">
-              <img src={LogoImage} className="w-[104px] h-auto" alt="Logo" />
+            <img src={LogoImage} className="w-[60px] h-[50px]"></img>
             </Link>
           </div>
 
@@ -333,7 +333,7 @@ const AdminNavbar = ({setUserType}) => {
                   <Link
                     to="/fund"
                     className="text-white text-xl hover:text-blue-500"
-                    activeClassName="font-bold"
+                    onClick={() => setIsDrawerOpen(false)}
                   >
                     Fund
                   </Link>
@@ -343,7 +343,7 @@ const AdminNavbar = ({setUserType}) => {
                   <Link
                     to="/contact"
                     className="text-white text-xl hover:text-blue-500"
-                    activeClassName="font-bold"
+                    onClick={() => setIsDrawerOpen(false)}
                   >
                     Contact
                   </Link>

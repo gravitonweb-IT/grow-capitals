@@ -202,6 +202,7 @@ function Register() {
       }
     }
     setRegistrationSuccess(true);
+    localStorage.setItem("userData",username);
   };
 
   return (

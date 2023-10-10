@@ -10,7 +10,7 @@ import {
   faEnvelope,
   faPhone,
 } from "@fortawesome/free-solid-svg-icons";
-import { faInstagram, faTwitter } from "@fortawesome/free-brands-svg-icons";
+
 
 const NavigationBar = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
@@ -18,7 +18,7 @@ const NavigationBar = () => {
   return (
     <>
       <div className="bg-[#2774AE] hidden md:block">
-        <div className=" flex justify-between items-center px-5 md:px-20 py-3">
+        <div className=" flex justify-between items-center px-5 md:px-14 py-3">
           <div className="flex">
             <p>
               <FontAwesomeIcon
@@ -80,13 +80,13 @@ const NavigationBar = () => {
         <div className=" flex justify-between items-center px-5 md:px-10 py-2">
           <div className="">
             <Link to="/">
-              <img src={LogoImage} className="w-[90px] h-[70px]"></img>
+              <img src={LogoImage} className="w-[60px] h-[50px]"></img>
             </Link>
           </div>
 
-          <div className="fixed right-7 bottom-7">
+          <div className="fixed left-4 bottom-3">
             <Link to="https://wa.me/919981413114?I want to Know more About this?">
-              <img src={whatsapp} width="70" />
+              <img src={whatsapp} width="50" />
             </Link>
           </div>
 
@@ -183,7 +183,7 @@ const NavigationBar = () => {
                   <Link
                     to="/loginandregister"
                     className="text-white text-xl hover:text-blue-500"
-                    activeClassName="font-bold"
+                    onClick={() => setIsDrawerOpen(false)}
                   >
                     Login
                   </Link>
@@ -193,7 +193,7 @@ const NavigationBar = () => {
                   <Link
                     to="/register"
                     className="text-white text-xl hover:text-blue-500"
-                    activeClassName="font-bold"
+                    onClick={() => setIsDrawerOpen(false)}
                   >
                     Register
                   </Link>

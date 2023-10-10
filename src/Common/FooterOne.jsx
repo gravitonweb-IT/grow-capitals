@@ -3,11 +3,6 @@ import LogoImage from "./NavbarImages/LogoImage.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope, faPhone } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
-import {
-  faFacebookF,
-  faInstagram,
-  faTwitter,
-} from "@fortawesome/free-brands-svg-icons";
 
 const FooterOne = () => {
   return (
@@ -34,14 +29,7 @@ const FooterOne = () => {
 
           <div class="text-white mt-4 md:mt-0 ">
             <h1 className="font-bold text-2xl ">Contact Us</h1>
-            {/* <p className="mt-4">
-              <FontAwesomeIcon
-                icon={faPhone}
-                className="h-4 w-4 text-white pr-3"
-              />
-              <span className="text-white "></span>
-            </p> */}
-
+          
             <p className="mt-3">
               <FontAwesomeIcon
                 icon={faEnvelope}

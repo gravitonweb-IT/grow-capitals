@@ -21,6 +21,7 @@ import AdminNavbar from "../src/Common/AdminNavbar";
 import Forget from "./Modules/Account/Forget";
 import UserNavbar from "../src/Common/UserNavbar";
 import ScrollToTop from '../src/Common/ScrollToTop'; // Import the ScrollToTop component
+import Scrollup from "./Common/Scrollup";
 
 console.log("check", window.location.pathname.includes("adminpanel"))
 function App() {
@@ -53,6 +54,7 @@ function App() {
         </Routes>
 
         <FooterOne />
+        <Scrollup/>
       </div>
 
     </>
