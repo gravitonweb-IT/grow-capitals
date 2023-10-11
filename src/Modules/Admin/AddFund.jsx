@@ -118,7 +118,7 @@ const AddFund = () => {
   };
   return (
     <>
-      <div className="flex justify-center items-center mb-4">
+      <div className="flex justify-center items-center mt-3">
         <button
           className="bg-blue-500 hover:bg-white text-white hover:text-black border-2 border-blue-500 text-lg rounded-full w-[130px] p-1 transition duration-300 ease-in-out"
           onClick={() => setIsOpen(!isOpen)}

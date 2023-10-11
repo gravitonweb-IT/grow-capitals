@@ -300,7 +300,7 @@ const Contact = () => {
         allowfullscreen=""
         loading="lazy"
         referrerpolicy="no-referrer-when-downgrade"
-        className="m-auto p-2 rounded-md mt-10"
+        className=" p-4 rounded-md mt-5"
       ></iframe>
     </>
   );

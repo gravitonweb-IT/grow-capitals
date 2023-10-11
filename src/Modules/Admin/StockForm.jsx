@@ -93,7 +93,7 @@ const StockForm = () => {
 
   return (
     <div className="flex justify-center items-center min-h-screen bg-blue-300">
-      <div className="bg-white p-6 rounded-md shadow-lg w-[900px] ">
+      <div className="bg-white p-6 rounded-md shadow-lg w-[900px] mt-3 ">
         <form onSubmit={handleSubmit}>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>

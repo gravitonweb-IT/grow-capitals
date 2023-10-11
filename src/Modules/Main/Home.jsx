@@ -1,8 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import HomeSlide1 from "../../Assests/HomePageImages/HomeSlide1.png";
-import HomeSlide2 from "../../Assests/HomePageImages/HomeSlide2.png";
-import HomeSlide3 from "../../Assests/HomePageImages/HomeSlide3.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Typewriter from "typewriter-effect";
 

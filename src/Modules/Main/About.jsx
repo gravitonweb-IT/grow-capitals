@@ -47,7 +47,7 @@ const About = () => {
 
             <h1 className="text-2xl font-bold mt-4">Risk</h1>
 
-            <p className="text-[#64666C] mt-4">
+            <p className="text-[#64666C] mt-4 text-justify">
               Risk: Investing in the stock market involves risk, as stock prices
               can go up or down. Investors should carefully consider their risk
               tolerance and diversify their investments to help manage risk.
@@ -59,7 +59,7 @@ const About = () => {
 
             <h1 className="text-2xl font-bold mt-4">Stocks</h1>
 
-            <p className="text-[#64666C] mt-4">
+            <p className="text-[#64666C] mt-4 text-justify">
               Stocks: Stocks, also known as shares or equities, represent
               ownership in a company. When you buy a stock, you become a partial
               owner of the company, and you have the right to vote on certain
@@ -72,7 +72,7 @@ const About = () => {
 
             <h1 className="text-2xl font-bold mt-4">Indices</h1>
 
-            <p className="text-[#64666C] mt-4">
+            <p className="text-[#64666C] mt-4 text-justify">
               Indices: Stock market indices, such as the S&P 500 and the Dow
               Jones Industrial Average, are measures of the performance of the
               stock market as a whole or of specific sectors within it.
@@ -86,7 +86,7 @@ const About = () => {
 
             <h1 className="text-2xl font-bold mt-4">Volatility</h1>
 
-            <p className="text-[#64666C] mt-4">
+            <p className="text-[#64666C] mt-4 text-justify">
               Volatility: The stock market can be volatile, meaning that stock
               prices can fluctuate significantly in a short period of time. This
               can be influenced by a range of factors, such as economic
@@ -99,7 +99,7 @@ const About = () => {
 
             <h1 className="text-2xl font-bold mt-4">Stock exchanges</h1>
 
-            <p className="text-[#64666C] mt-4">
+            <p className="text-[#64666C] mt-4 text-justify">
               Stock exchanges: The stock market is made up of various stock
               exchanges, such as the New York Stock Exchange (NYSE), NASDAQ, and
               London Stock Exchange. These exchanges provide a platform for
@@ -112,7 +112,7 @@ const About = () => {
 
             <h1 className="text-2xl font-bold mt-4">Long-term investing</h1>
 
-            <p className="text-[#64666C] mt-4">
+            <p className="text-[#64666C] mt-4 text-justify">
               Long-term investing: Investing in the stock market is often viewed
               as a long-term strategy, as it can take time for a company’s stock
               price to increase significantly. Investors should consider their

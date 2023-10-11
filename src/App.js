@@ -22,6 +22,8 @@ import Forget from "./Modules/Account/Forget";
 import UserNavbar from "../src/Common/UserNavbar";
 import ScrollToTop from '../src/Common/ScrollToTop'; // Import the ScrollToTop component
 import Scrollup from "./Common/Scrollup";
+import PhoneButton from "./Modules/Main/PhoneButton";
+
 
 console.log("check", window.location.pathname.includes("adminpanel"))
 function App() {
@@ -52,7 +54,8 @@ function App() {
           {/* <Route path ="/adminpanel" element={<AdminNavbar/>}/> */}
           {/* <Route path ="/user" element={<UserNavbar/>}/> */}
         </Routes>
-
+          
+      <PhoneButton/>
         <FooterOne />
         <Scrollup/>
       </div>
