@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import NavigationBar from "../src/Common/NavigationBar";
 import FooterOne from "../src/Common/FooterOne";
@@ -23,11 +23,23 @@ import UserNavbar from "../src/Common/UserNavbar";
 import ScrollToTop from '../src/Common/ScrollToTop'; // Import the ScrollToTop component
 import Scrollup from "./Common/Scrollup";
 import PhoneButton from "./Modules/Main/PhoneButton";
+import AdminDashboard from "./Modules/Admin/AdminDashboard";
 
 
 console.log("check", window.location.pathname.includes("adminpanel"))
 function App() {
   const [userType , setUserType] = useState("0")
+  useEffect(()=>{
+  
+     if(localStorage.getItem("login")=="user"){
+      setUserType("2")
+    }else if (localStorage.getItem("login")=="admin"){
+      setUserType("1")
+
+    }
+
+  },[])
+ 
   return (
     <>
       <div>
@@ -51,6 +63,7 @@ function App() {
           <Route path="/userapproval" element={<UserApproval />} />
           <Route path="/stockform" element={<StockForm />} />
           <Route path="/addfund" element={<AddFund />} />
+          <Route path="/adminDashboard" element={<AdminDashboard />} />
           {/* <Route path ="/adminpanel" element={<AdminNavbar/>}/> */}
           {/* <Route path ="/user" element={<UserNavbar/>}/> */}
         </Routes>

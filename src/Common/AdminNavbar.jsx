@@ -30,6 +30,7 @@ const AdminNavbar = ({setUserType}) => {
   };
 
    const handleLogOut = () =>{
+    localStorage.removeItem("login")
     setUserType("0");
     setIsDrawerOpen(false) 
  }
@@ -228,7 +229,17 @@ const AdminNavbar = ({setUserType}) => {
 
               {showDropdown === "myAccount" && (
                 <div className="absolute bg-blue-950 w-34 flex flex-col text-white hover:text-white cursor-pointer mt-2">
+                   <p className="hover:bg-sky-500 hover:text-white border-b-2  p-2 w-32">
+                  <Link
+                          to="/adminDashboard"
+                          className="text-white "
+                          // onClick={() => handleLogOut()}
+                        >
+                          Dashboard
+                        </Link>
+                        </p>
                   <p className="hover:bg-sky-500 hover:text-white border-b-2  p-2 w-32">
+                  
                     <Link
                       to="/"
                       className="text-white "
@@ -403,6 +414,13 @@ const AdminNavbar = ({setUserType}) => {
                   {showMyAccountDropdown && (
                     <div className="absolute bg-blue-950 w-40 flex flex-col text-white hover:text-white cursor-pointer">
                       <p className="hover:bg-sky-500 hover:text-white border-b-2  m-2">
+                      <Link
+                          to="/adminDashboard"
+                          className="text-white "
+                          
+                        >
+                          Dashboard
+                        </Link>
                         <Link
                           to="/"
                           className="text-white "
@@ -419,22 +437,7 @@ const AdminNavbar = ({setUserType}) => {
           )}
         </div>
       </nav>
-      <div>
-      <h1>welcome to admin page </h1>
-      <h2> here is the link given below check thngs </h2>
-      <button>
-        Stock Form
-      </button>
-      <button>
-        widraw Data
-      </button>
-      <button>
-       Add Fund
-      </button>
-      <button>
-        Pending Request
-      </button>
-      </div>
+      
     </>
   );
 };

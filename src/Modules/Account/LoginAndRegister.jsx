@@ -60,9 +60,9 @@ export default function LoginAndRegister({ setUserType }) {
     // Use the useEffect hook to trigger navigation when the role changes
     if (role === "1") {
       localStorage.setItem("login","admin")
-      navigate("/adminpanel");
+      navigate("/adminDashboard");
     } else if (role === "2") {
-      localStorage.setItem("login","not")
+    
       navigate("/page2");
     } else if (role === "3") {
       localStorage.setItem("login","user")
