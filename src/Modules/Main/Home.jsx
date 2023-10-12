@@ -224,15 +224,12 @@ const Home = () => {
         },
 
         {
-          proName: "FX_IDC:EURUSD",
-
-          title: "EUR to USD",
+          "description": "",
+          "proName": "NSE:ICICIBANK"
         },
-
         {
-          proName: "BITSTAMP:BTCUSD",
-
-          title: "Bitcoin",
+          "description": "",
+          "proName": "NSE:TCS"
         },
 
         {

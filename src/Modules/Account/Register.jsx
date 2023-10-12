@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { servieUrl } from "../../env/env";
-
+import { useNavigate } from "react-router-dom";
 function Register() {
   const [username, setUserName] = useState("");
   const [password, setPassword] = useState("");
@@ -16,7 +16,7 @@ function Register() {
   const [aadhaarcardnumber, setAadhaarCardNumber] = useState("");
   const [checkOtp, setOtp] = useState(false)
   const [otpValue, setOtpValue] = useState(null)
-
+  const navigate = useNavigate(); // Access the navigation function
   const [errors, setErrors] = useState({
     username: "",
     password: "",
@@ -120,8 +120,8 @@ function Register() {
 
   }
 
-  const verifyOtp = () => {
-
+  const verifyOtp = (e) => {
+e.preventDefault()
     var formdata = new FormData();
     formdata.append("number", phonenumber);
     formdata.append("otp", otpValue);
@@ -146,7 +146,8 @@ function Register() {
   }
 
   const handleSubmit = async () => {
-
+   
+debugger
     // debugger
     // Disable the button to prevent multiple submissions
 
@@ -190,7 +191,8 @@ function Register() {
         setBankAccount("");
         setIfscCode("");
         setAadhaarCardNumber("");
-
+            alert("SuccessFUlly Registered admin will notify you once approved ")
+            navigate("/login");
         // Show a success alert
         // alert("Registration successful!");
       } catch (error) {
@@ -202,6 +204,7 @@ function Register() {
       }
     }
     setRegistrationSuccess(true);
+
     localStorage.setItem("userData",username);
   };
 
@@ -211,7 +214,7 @@ function Register() {
         <div className="mt-16 flex items-center justify-center">
           <div className="max-w-md w-full p-6 bg-white rounded-md shadow-md">
             <h2 className="text-2xl font-semibold text-gray-800 mb-6">OTP Verification</h2>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={verifyOtp}>
               <div className="mb-4">
                 {/* <label htmlFor="email" className="block text-gray-600">Email</label> */}
                 <input
@@ -225,11 +228,11 @@ function Register() {
                 />
               </div>
               <div className="mb-4">
-                <button
-                  onClick={verifyOtp}
-                  type="submit"
-                  className="w-full px-4 py-2 bg-[#2774AE] text-white rounded-md hover:bg-blue-600"
-                >
+              <button
+              className="bg-[#2774AE] mt-8 w-full py-2 text-white text-lg font-semibold rounded-lg"
+              type="submit"
+               // Disable the button when isLoading is true
+            >
 
 
                   Verify OTP
