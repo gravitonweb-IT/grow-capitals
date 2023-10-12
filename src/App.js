@@ -22,7 +22,6 @@ import Forget from "./Modules/Account/Forget";
 import UserNavbar from "../src/Common/UserNavbar";
 import ScrollToTop from '../src/Common/ScrollToTop'; // Import the ScrollToTop component
 import Scrollup from "./Common/Scrollup";
-import PhoneButton from "./Modules/Main/PhoneButton";
 import AdminDashboard from "./Modules/Admin/AdminDashboard";
 import PendingRequest from "./Modules/Admin/PendingRequest";
 
@@ -70,7 +69,7 @@ function App() {
           {/* <Route path ="/user" element={<UserNavbar/>}/> */}
         </Routes>
           
-      <PhoneButton/>
+     
         <FooterOne />
         <Scrollup/>
       </div>

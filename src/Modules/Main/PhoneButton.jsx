@@ -1,12 +1,12 @@
 import React from 'react';
 
-import phoneIcon from "../../Assests/PhoneImages/phone1.png";
+import phoneIcon from "../../Assests/PhoneImages/phoneimg1.png";
 
  
 
 export default function PhoneButton() {
 
-const phoneNumber = "+919403890502";
+const phoneNumber = "+918962163025";
 
  
 

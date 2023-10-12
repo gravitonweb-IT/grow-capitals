@@ -53,7 +53,7 @@ fetch("http://127.0.0.1:8000/rolebased/pendingRequest/", requestOptions)
     pendingRequest.map(result=><>
     <table>
     <td>
-        <tr>{result?.fields?.email}</tr>
+        <tr>{result?.fields?.email} </tr>
         <button onClick={()=>updateValue(result.fields.email)}>Accepted</button>
     </td>
     </table>

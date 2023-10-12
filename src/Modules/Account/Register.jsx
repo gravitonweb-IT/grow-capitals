@@ -192,7 +192,7 @@ debugger
         setIfscCode("");
         setAadhaarCardNumber("");
             alert("SuccessFUlly Registered admin will notify you once approved ")
-            navigate("/login");
+            navigate("/loginandregister");
         // Show a success alert
         // alert("Registration successful!");
       } catch (error) {
