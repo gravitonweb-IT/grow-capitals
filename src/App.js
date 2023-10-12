@@ -24,6 +24,7 @@ import ScrollToTop from '../src/Common/ScrollToTop'; // Import the ScrollToTop c
 import Scrollup from "./Common/Scrollup";
 import PhoneButton from "./Modules/Main/PhoneButton";
 import AdminDashboard from "./Modules/Admin/AdminDashboard";
+import PendingRequest from "./Modules/Admin/PendingRequest";
 
 
 console.log("check", window.location.pathname.includes("adminpanel"))
@@ -64,6 +65,7 @@ function App() {
           <Route path="/stockform" element={<StockForm />} />
           <Route path="/addfund" element={<AddFund />} />
           <Route path="/adminDashboard" element={<AdminDashboard />} />
+          <Route path="/pendingRequest" element={<PendingRequest />} />
           {/* <Route path ="/adminpanel" element={<AdminNavbar/>}/> */}
           {/* <Route path ="/user" element={<UserNavbar/>}/> */}
         </Routes>
