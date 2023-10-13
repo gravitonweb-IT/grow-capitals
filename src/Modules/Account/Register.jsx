@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { servieUrl } from "../../env/env";
 import { useNavigate } from "react-router-dom";
 function Register() {
+  const [showSuccessPopup, setShowSuccessPopup] = useState(false);
   const [username, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const [confirmpassword, setConfirmPassword] = useState("");
@@ -178,7 +179,7 @@ debugger
           servieUrl.otpurl + "rolebased/register/",
           requestOptions
         );
-
+        setShowSuccessPopup(true);
         setUserName("");
         setPassword("");
         setConfirmPassword("");
@@ -467,7 +468,47 @@ debugger
           </form>
         </div>
       }
+ {showSuccessPopup && (
 
+<div className="fixed inset-0 flex items-center justify-center z-10">
+
+  <div className="bg-white p-8 rounded shadow-lg text-center">
+
+    <h2 className="text-2xl font-semibold text-green-500 mb-4">
+
+      Registration Successful
+
+    </h2>
+
+    <p className="text-gray-700">
+
+      Your request is successful and your form will be approved as soon
+
+      as possible.
+
+    </p>
+
+    <div className="mt-6">
+
+      <button
+
+        className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600"
+
+        onClick={() => setShowSuccessPopup(false)}
+
+      >
+
+        Close
+
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+
+)}
     </>
   );
 }

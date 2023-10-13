@@ -8,6 +8,7 @@ import { servieUrl } from "../../env/env";
 
 const Contact = () => {
   const [registrationSuccess, setRegistrationSuccess] = useState(false);
+  const [showSuccessPopup, setShowSuccessPopup] = useState(false);
 
   const [values, setValue] = useState({
     fname: "",
@@ -114,9 +115,11 @@ const Contact = () => {
 
         requestOptions
       )
-        .then((response) => response.text())
+        .then((response) => response.json())
 
-        .then((result) => console.log(result))
+        .then((result) => {
+          setShowSuccessPopup(true);
+        })
 
         .catch((error) => console.log("error", error));
 
@@ -302,6 +305,45 @@ const Contact = () => {
         referrerpolicy="no-referrer-when-downgrade"
         className=" p-4 rounded-md mt-5"
       ></iframe>
+       {showSuccessPopup && (
+
+<div className="fixed inset-0 flex items-center justify-center z-10">
+
+  <div className="bg-white p-8 rounded shadow-lg text-center">
+
+    <h2 className="text-2xl font-semibold text-green-500 mb-4">
+
+     Contact Form 
+
+    </h2>
+
+    <p className="text-gray-700">
+
+     Contact form successfully submitted
+
+    </p>
+
+    <div className="mt-6">
+
+      <button
+
+        className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600"
+
+        onClick={() => setShowSuccessPopup(false)}
+
+      >
+
+        Close
+
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+
+)}
     </>
   );
 };

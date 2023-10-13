@@ -4,7 +4,7 @@ import { servieUrl } from "../../env/env";
 
 const WithdrawForm = ({ isOpen, onClose, onSubmit }) => {
   const [registrationSuccess, setRegistrationSuccess] = useState(false);
-
+  const [showSuccessPopup, setShowSuccessPopup] = useState(false)
   const [formData, setFormData] = useState({
     date: "",
 
@@ -55,9 +55,11 @@ const WithdrawForm = ({ isOpen, onClose, onSubmit }) => {
     };
 
     fetch(servieUrl.otpurl + "growadmin/stock_fund/", requestOptions)
-      .then((response) => response.text())
+      .then((response) => response.json())
 
-      .then((result) => console.log(result))
+      .then((result) => {
+        setShowSuccessPopup(true);
+      })
 
       .catch((error) => console.log("error", error));
 
@@ -86,6 +88,50 @@ const WithdrawForm = ({ isOpen, onClose, onSubmit }) => {
   };
 
   return (
+    <>
+     {showSuccessPopup && (
+
+<div className="fixed inset-0 flex items-center justify-center z-10">
+
+  <div className="bg-white p-8 rounded shadow-lg text-center">
+
+    <h2 className="text-2xl font-semibold text-green-500 mb-4">
+
+      Registration Successful
+
+    </h2>
+
+    <p className="text-gray-700">
+
+      Your request is successful and your form will be approved as soon
+
+      as possible.
+
+    </p>
+
+    <div className="mt-6">
+
+      <button
+
+        className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600"
+
+        onClick={() => setShowSuccessPopup(false)}
+
+      >
+
+        Close
+
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+
+)}
+
+
     <div
       className={`fixed inset-0 flex items-center justify-center z-50 ${
         isOpen ? "" : "hidden"
@@ -218,7 +264,10 @@ const WithdrawForm = ({ isOpen, onClose, onSubmit }) => {
           </form>
         </div>
       </div>
+      
     </div>
+    
+    </>
   );
 };
 

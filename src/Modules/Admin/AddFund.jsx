@@ -14,17 +14,32 @@ const AddFund = () => {
   const [tableData, setTableData] = useState([]);
   const [editingIndex, setEditingIndex] = useState(null);
   const [registrationSuccess, setRegistrationSuccess] = useState(false);
+ const [disableInput,setDisable]=useState(false)
 
-  useEffect(() => {
-    const storedTableData = JSON.parse(localStorage.getItem("tableData"));
-    if (storedTableData) {
-      setTableData(storedTableData);
-    }
-  }, []);
+useEffect(()=>{
+  var formdata = new FormData();
 
-  useEffect(() => {
-    localStorage.setItem("tableData", JSON.stringify(tableData));
-  }, [tableData]);
+  var requestOptions = {
+    method: 'GET',
+    // body: formdata,
+    redirect: 'follow'
+  };
+  
+  fetch("http://127.0.0.1:8000/rolebased/UpdateAmountStatus", requestOptions)
+    .then(response => response.json())
+    .then(result => {setTableData(result)})
+    .catch(error => console.log('error', error));
+},[])
+  // useEffect(() => {
+  //   const storedTableData = JSON.parse(localStorage.getItem("tableData"));
+  //   if (storedTableData) {
+  //     setTableData(storedTableData);
+  //   }
+  // }, []);
+
+  // useEffect(() => {
+  //   localStorage.setItem("tableData", JSON.stringify(tableData));
+  // }, [tableData]);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -34,6 +49,7 @@ const AddFund = () => {
     });
   };
 
+  
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -94,16 +110,42 @@ const AddFund = () => {
 
     setIsOpen(false);
   };
+  const handleUpdate=(e)=>{
+    e.preventDefault()
+    debugger
+    const selectedRow = tableData[editingIndex];
+    var formdata = new FormData();
+    formdata.append("price", formData.price);
+    formdata.append("date", formData.date);
+    formdata.append("loss", formData.loss);
+    formdata.append("profit",formData.profit );
+    formdata.append("user_email",formData.userEmail );
+    
+    var requestOptions = {
+      method: 'POST',
+      body: formdata,
+      redirect: 'follow'
+    };
+    
+    fetch("http://127.0.0.1:8000/rolebased/UpdateAmountStatus/", requestOptions)
+      .then(response => response.json())
+      .then(result => {
+        alert("successfully updated")
+      })
+      .catch(error => console.log('error', error));
+  }
 
   const handleEdit = (index) => {
+    setDisable(true)
+    debugger
     // Set the form data to the selected row for editing
     const selectedRow = tableData[index];
     setFormData({
-      date: selectedRow.Date,
-      price: selectedRow.price,
-      loss: selectedRow.Loss,
-      profit: selectedRow.Profit,
-      userEmail: selectedRow.Email,
+      date: selectedRow.fields.date,
+      price: selectedRow.fields.price,
+      loss: selectedRow.fields.loss,
+      profit: selectedRow.fields.profit,
+      userEmail: selectedRow.fields.user_email,
     });
     setEditingIndex(index);
     setIsOpen(true);
@@ -121,7 +163,8 @@ const AddFund = () => {
       <div className="flex justify-center items-center mt-3">
         <button
           className="bg-blue-500 hover:bg-white text-white hover:text-black border-2 border-blue-500 text-lg rounded-full w-[130px] p-1 transition duration-300 ease-in-out"
-          onClick={() => setIsOpen(!isOpen)}
+          onClick={() => {setIsOpen(!isOpen)
+            setDisable(false)}}
         >
           {isOpen ? "Cancel" : "Add New"}
         </button>
@@ -131,7 +174,7 @@ const AddFund = () => {
         {isOpen && (
           <form
             className="bg-white p-4 shadow-md rounded-md  w-[500px] mt-5 mb-5"
-            onSubmit={handleSubmit}
+            // onSubmit={handleSubmit}
           >
             <div className="mb-4">
               <label
@@ -208,17 +251,22 @@ const AddFund = () => {
                 type="text"
                 id="userEmail"
                 name="userEmail"
+                disabled={disableInput}
                 value={formData.userEmail}
                 onChange={handleInputChange}
                 className=" border rounded-md py-2  w-full hover:bg-gray-100 p-2"
               />
             </div>
-            <button
-              type="submit"
+            
+           
+              {!disableInput? <button
+             onClick={handleSubmit}
               className="bg-blue-500 hover:bg-white text-white hover:text-black border-2 border-blue-500 text-lg rounded-full w-[130px]   p-1 transition duration-300 ease-in-out"
-            >
-              Add New
-            </button>
+            >Add New </button>:<button
+            onClick={handleUpdate}
+            className="bg-blue-500 hover:bg-white text-white hover:text-black border-2 border-blue-500 text-lg rounded-full w-[130px]   p-1 transition duration-300 ease-in-out"
+          >Update </button>}
+           
             {registrationSuccess && (
 
               <p className="text-green-500 mb-2">Your Form successfully Submitted!</p>
@@ -250,20 +298,20 @@ const AddFund = () => {
           </thead>
 
           <tbody>
-            {tableData.map((row, index) => (
+            {tableData?.map((row, index) => (
               <tr key={index} className="border">
-                <td className="p-2 text-center">{row.No}</td>
-                <td className="p-2 text-center">{row.Date}</td>
+                <td className="p-2 text-center">{index+1}</td>
+                <td className="p-2 text-center">{row.fields?.date}</td>
                 <td className="p-2 text-center bg-slate-400 text-white">
-                  {row.price}
+                  {row.fields?.price}
                 </td>
                 <td className="p-2 text-center bg-green-500 text-white">
-                  {row.Profit}
+                  {row.fields?.profit}
                 </td>
                 <td className="p-2 text-center bg-red-500 text-white">
-                  {row.Loss}
+                  {row.fields?.loss}
                 </td>
-                <td className="p-2 text-center">{row.Email}</td>
+                <td className="p-2 text-center">{row.fields?.user_email}</td>
                 <td className="p-2 text-center">
                   <button
                     className="bg-blue-500 text-white px-2 py-1 rounded"

@@ -24,6 +24,7 @@ import ScrollToTop from '../src/Common/ScrollToTop'; // Import the ScrollToTop c
 import Scrollup from "./Common/Scrollup";
 import AdminDashboard from "./Modules/Admin/AdminDashboard";
 import PendingRequest from "./Modules/Admin/PendingRequest";
+import UserDashboard from "./Modules/Account/UserDashboard";
 
 
 console.log("check", window.location.pathname.includes("adminpanel"))
@@ -32,7 +33,7 @@ function App() {
   useEffect(()=>{
   
      if(localStorage.getItem("login")=="user"){
-      setUserType("2")
+      setUserType("3")
     }else if (localStorage.getItem("login")=="admin"){
       setUserType("1")
 
@@ -43,7 +44,7 @@ function App() {
   return (
     <>
       <div>
-        {userType === '0' ? <NavigationBar/> : userType === '1' ? <AdminNavbar setUserType={setUserType} /> :userType ==="3" ? <UserNavbar setUserType={setUserType} /> : <NavigationBar />}
+        {(localStorage.getItem("login")!=="user" && localStorage.getItem("login")!=="admin")  ? <NavigationBar/> : localStorage.getItem("login")=="admin" ? <AdminNavbar setUserType={setUserType} /> :localStorage.getItem("login")=="user" ? <UserNavbar setUserType={setUserType} /> : <NavigationBar />}
         <ScrollToTop /> {/* Add the ScrollToTop component here, outside of Routes */}
         <Routes>
        
@@ -64,6 +65,7 @@ function App() {
           <Route path="/stockform" element={<StockForm />} />
           <Route path="/addfund" element={<AddFund />} />
           <Route path="/adminDashboard" element={<AdminDashboard />} />
+          <Route path="/userDashboard" element={<UserDashboard />} />
           <Route path="/pendingRequest" element={<PendingRequest />} />
           {/* <Route path ="/adminpanel" element={<AdminNavbar/>}/> */}
           {/* <Route path ="/user" element={<UserNavbar/>}/> */}

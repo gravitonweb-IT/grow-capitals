@@ -180,6 +180,15 @@ const UserNavbar = ({setUserType}) => {
 
               {showDropdown && (
                 <div className="absolute bg-blue-950 w-34 flex flex-col text-white hover:text-white cursor-pointer mt-2">
+                   <p className="hover:bg-sky-500 hover:text-white border-b-2  m-2">
+                        <Link
+                          to="/userDashboard"
+                          className="text-white "
+                          onClick={() => handleLogOut()}
+                        >
+                          UserDashboard
+                        </Link>
+                      </p>
                   <p className="hover:bg-sky-500 hover:text-white border-b-2  p-2 w-32">
                     <Link
                       to="/"
@@ -312,6 +321,15 @@ const UserNavbar = ({setUserType}) => {
 
                   {showMyAccountDropdown && (
                     <div className="absolute bg-blue-950 w-40 flex flex-col text-white hover:text-white cursor-pointer">
+                        <p className="hover:bg-sky-500 hover:text-white border-b-2  m-2">
+                        <Link
+                          to="/userDashboard"
+                          className="text-white "
+                          onClick={() => handleLogOut()}
+                        >
+                          UserDashboard
+                        </Link>
+                      </p>
                       <p className="hover:bg-sky-500 hover:text-white border-b-2  m-2">
                         <Link
                           to="/"

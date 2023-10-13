@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { servieUrl } from "../../env/env";
 
 const StockForm = () => {
   const [registrationSuccess, setRegistrationSuccess] = useState(false);
+
+ 
 
   const [formData, setFormData] = useState({
     type: "",
@@ -27,6 +29,9 @@ const StockForm = () => {
 
     userEmail: "",
   });
+  // useEffect(()=>{
+
+  // },[formData?.type])
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -140,8 +145,8 @@ const StockForm = () => {
                 required
               />
             </div>
-
-            <div>
+{formData?.type=="buy"?<div>
+<div>
               <label
                 htmlFor="buyPrice"
                 className="block text-lg font-medium text-gray-700 mb-2"
@@ -178,7 +183,9 @@ const StockForm = () => {
                 required
               />
             </div>
-            <div>
+</div>:null}
+{formData?.type=="sell"?<div>
+<div>
               <label
                 htmlFor="sellPrice"
                 className="block text-lg font-medium text-gray-700 mb-2"
@@ -214,6 +221,9 @@ const StockForm = () => {
                 required
               />
             </div>
+</div>:null}
+           
+            
             <div>
               <label
                 htmlFor="amount"

@@ -22,7 +22,7 @@ const Service = () => {
   const history = useNavigate();
 
   const BuyNow = () => {
-    if (localStorage.getItem("username") !== null) {
+    if (localStorage.getItem("login") !== null) {
       //  history("/loginandregister");
 
       history("/contact");
