@@ -4,11 +4,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faAngleLeft,
   faAngleRight,
+  faArrowTrendDown,
+  faArrowTrendUp,
+  faMoneyBill,
   faTrash,
-  faArrowAltUp,
-  faArrowAltDown,
 } from "@fortawesome/free-solid-svg-icons";
-import "./porfolio.css";
+
 const Portfolio = () => {
   const [dataValue, setDataValue] = useState([]);
   useEffect(() => {
@@ -153,9 +154,7 @@ const Portfolio = () => {
             href="https://in.tradingview.com/"
             rel="noopener noreferrer"
             target="_blank"
-          >
-          
-          </a>
+          ></a>
         </div>
       </div>
       <section>
@@ -169,38 +168,45 @@ const Portfolio = () => {
 
         <div className="">
           <div className="">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mx-6">
-              <div className="customerProfile ml-4 p-5 bg-blue-800 text-white rounded-3xl w-[600px]">
-                <p className="text-3xl ">Welcome</p>
-                <p>{localStorage.getItem("userData")}</p>
-                <p className="text-4xl font-mono">Profit & Loss Details</p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-1 mx-6">
+              <div className="customerProfile  p-10 bg-blue-800 text-white rounded-3xl w-full sm:w-[600px]">
+                <p className=" text-2xl md:text-4xl font-bold ">Welcome</p>
+                <p className="mt-2">{localStorage.getItem("userData")}</p>
+                <p className=" text-2xl md:text-3xl font-semibold  mt-2">
+                  Profit & Loss Details
+                </p>
               </div>
 
-              <div className="grid grid-cols-2 gap-2">
+              <div className="grid  grid-cols-1  sm:grid-cols-2 gap-4">
                 <div className="  p-4  bg-slate-300 rounded-3xl">
-                  <p className="text-2xl mb-2"> Balance Status</p>
-                  <button>
-                    icon - {dataValue[0]?.fields?.price}- payAmount
+                  <p className="text-2xl  font-bold  "> Balance Status</p>
+                  <button className="flex items-center justify-center mt-2">
+                    <FontAwesomeIcon
+                      icon={faMoneyBill}
+                      className="h-8 w-8  p-3 bg-blue-600 rounded-full"
+                    />
+                   <span className="font-semibold px-2"> {dataValue[0]?.fields?.price} payAmount</span>
                   </button>
                 </div>
-                <div className=" p-4  bg-whit rounded-3xl bg-slate-50 shadow-md">
-                  <div className="text-bold">
-                    <button>
-                      {/* <FontAwesomeIcon
-                        icon={faArrowAltUp}
-                        className="h-4 w-4 text-black pr-3"
-                      /> */}
-                      {dataValue[0]?.fields?.profit}- profit
+
+                <div className=" p-4  bg-whit rounded-3xl ">
+                  <div className="shadow-xl rounded-lg ">
+                    <button className="flex items-center justify-center  p-3">
+                      <FontAwesomeIcon
+                        icon={faArrowTrendUp}
+                        className="h-8 w-8 text-black p-3 bg-green-300 rounded-full "
+                      />
+                      <span className="font-semibold px-4">  {dataValue[0]?.fields?.profit} profit</span>
                     </button>
                   </div>
-                  <div>
-                    <button>
-                      {" "}
-                      {/* <FontAwesomeIcon
-                        icon={faArrowAltDown}
-                        className="h-4 w-4 text-black pr-3"
-                      /> */}
-                      {dataValue[0]?.fields?.loss}- loss
+                  <div className="shadow-xl rounded-lg ">
+                    <button className="flex items-center justify-center p-3">
+               
+                      <FontAwesomeIcon
+                        icon={faArrowTrendDown}
+                        className="h-8 w-8 text-black p-3 bg-red-600 rounded-full "
+                      />
+                      <span className="font-semibold px-4"> {dataValue[0]?.fields?.loss} Loss </span>
                     </button>
                   </div>
                 </div>
@@ -217,74 +223,72 @@ const Portfolio = () => {
                 </div>
               </div>
 
-              <div className="filter-bar flex p-4 border border-gray-200 rounded-lg shadow-md">
-                <div className="flex items-center space-x-6">
-                  <div className="">
+              <div class="filter-bar p-4 border border-gray-200 rounded-lg shadow-md">
+                <div class="flex flex-wrap items-center justify-center space-y-4 md:space-y-0 md:space-x-6">
+                  <div class="w-full md:w-auto">
                     <label
-                      htmlFor="name"
-                      className="filter-label text-sm font-medium text-gray-700  pr-2"
+                      for="name"
+                      class="filter-label text-sm font-medium text-gray-700 pr-2"
                     >
                       Name:
                     </label>
                     <input
                       type="text"
                       id="name"
-                      className="filter-input p-1 border border-gray-300 rounded-lg shadow-sm  focus:ring-blue-200 focus:outline-none"
+                      class="filter-input p-1 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-200 focus:outline-none"
                     />
                   </div>
 
-                  <div className="">
+                  <div class="w-full md:w-auto">
                     <label
-                      htmlFor="from-date"
-                      className="filter-label text-sm font-medium text-gray-700  pr-2"
+                      for="from-date"
+                      class="filter-label text-sm font-medium text-gray-700 pr-2"
                     >
                       From Date:
                     </label>
                     <input
                       type="date"
                       id="from-date"
-                      className="filter-input p-1 border border-gray-300 rounded-lg shadow-sm  focus:ring-blue-200 focus:outline-none"
+                      class="filter-input p-1 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-200 focus:outline-none"
                     />
                   </div>
 
-                  <div className="flex items-center">
+                  <div class="w-full md:w-auto">
                     <label
-                      htmlFor="to-date"
-                      className="filter-label text-sm font-medium text-gray-700  pr-2"
+                      for="to-date"
+                      class="filter-label text-sm font-medium text-gray-700 pr-2"
                     >
                       To Date:
                     </label>
                     <input
                       type="date"
                       id="to-date"
-                      className="filter-input p-1 border border-gray-300 rounded-lg shadow-sm  focus:ring-blue-200 focus:outline-none"
+                      class="filter-input p-1 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-200 focus:outline-none"
                     />
                   </div>
 
-                  <div className="flex items-center">
+                  <div class="w-full md:w-auto">
                     <label
-                      htmlFor="quantity"
-                      className="filter-label text-sm font-medium text-gray-700  pr-2"
+                      for="quantity"
+                      class="filter-label text-sm font-medium text-gray-700 pr-2"
                     >
                       Quantity:
                     </label>
                     <input
                       type="number"
                       id="quantity"
-                      className="filter-input p-1 border border-gray-300 rounded-lg shadow-sm  focus:ring-blue-200 focus:outline-none"
+                      class="filter-input p-1 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-200 focus:outline-none"
                     />
                   </div>
 
                   <button
                     id="apply-button"
-                    className="apply-button bg-blue-500 hover:bg-blue-600 text-white py-2 px-5 rounded-xl "
+                    class="apply-button bg-blue-500 hover:bg-blue-600 text-white py-2 px-5 rounded-xl w-full md:w-auto mt-4 md:mt-0"
                   >
                     Apply
                   </button>
                 </div>
               </div>
-
-
             </div>
           </div>
         </div>
@@ -293,7 +297,9 @@ const Portfolio = () => {
       <div>
         <div className="overflow-x-auto">
           {data.length == 0 ? (
-            <p className="py-2 text-center bg-orange-200">Please Buy some Stocks</p>
+            <p className="py-2 text-center bg-orange-200">
+              Please Buy some Stocks
+            </p>
           ) : (
             <table className="w-full table-auto border-4">
               <thead className="bg-zinc-400 text-white">
@@ -416,7 +422,6 @@ const Portfolio = () => {
                 >
                   4
                 </a>
-              
 
                 <a
                   href="#"
@@ -431,8 +436,13 @@ const Portfolio = () => {
               </nav>
             </div>
           </div>
-        </div> 
-        <marquee behavior="scroll" direction="left" scrollamount="2" className = "font-bold">
+        </div>
+        <marquee
+          behavior="scroll"
+          direction="left"
+          scrollamount="2"
+          className="font-bold"
+        >
           म्यूचुअल फंड बाज़ार से जुड़े निवेश हैं और इस तरह वे कभी पूरी तरह से
           सुरक्षित नहीं हो सकते हैं। हालांकि, जोखिम कम करने के लिए इन पर कई तरह
           के नियम लागू होते हैं और म्यूचुअल फण्ड में से पैसा कई क्षेत्रों में
