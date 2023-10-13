@@ -53,7 +53,39 @@ body{
 }
 
 
-
+.custom-file-input {
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+  }
+  
+  .custom-file-input input {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+    filter: alpha(opacity=0); /* For IE 8 and earlier */
+  }
+  
+  .custom-file-input span {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #3498db; /* Button background color */
+    color: #fff; /* Button text color */
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  /* You can add more styles for the button, like hover effects, etc. */
+  .custom-file-input span:hover {
+    background-color: #2980b9; /* Button background color on hover */
+  }
+  
 /* section2 */
 
 
