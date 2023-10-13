@@ -1,28 +1,33 @@
 import React, { useEffect, useState } from "react";
 import { servieUrl } from "../../env/env";
-import "./porfolio.css"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faAngleLeft,
+  faAngleRight,
+  faTrash,
+  faArrowAltUp,
+  faArrowAltDown,
+} from "@fortawesome/free-solid-svg-icons";
+import "./porfolio.css";
 const Portfolio = () => {
-
-  const [dataValue,setDataValue]=useState([])
-  useEffect(()=>{
+  const [dataValue, setDataValue] = useState([]);
+  useEffect(() => {
     var formdata = new FormData();
     formdata.append("userEmail", localStorage.getItem("userData"));
-    
-    var requestOptions = {
-      method: 'POST',
-      body: formdata,
-      redirect: 'follow'
-    };
-    
-    fetch("http://127.0.0.1:8000/rolebased/UserAmountStatus/", requestOptions)
-      .then(response => response.json())
-      .then(result =>{
-        setDataValue(result)
-      })
-      .catch(error => console.log('error', error));
-  },[])
-  
 
+    var requestOptions = {
+      method: "POST",
+      body: formdata,
+      redirect: "follow",
+    };
+
+    fetch("http://127.0.0.1:8000/rolebased/UserAmountStatus/", requestOptions)
+      .then((response) => response.json())
+      .then((result) => {
+        setDataValue(result);
+      })
+      .catch((error) => console.log("error", error));
+  }, []);
 
   useEffect(() => {
     const script = document.createElement("script");
@@ -97,8 +102,7 @@ const Portfolio = () => {
     async function AddFundfetchData() {
       try {
         // Replace with the actual API endpoint URL
-        const apiUrl =
-          servieUrl.url + "growadmin/amount_account/";
+        const apiUrl = servieUrl.url + "growadmin/amount_account/";
         const response = await fetch(apiUrl);
         if (!response.ok) {
           throw new Error("Network response was not ok");
@@ -140,146 +144,301 @@ const Portfolio = () => {
   return (
     <>
       <div
-          id="tradingview-widget-container"
-          className="tradingview-widget-container"
-        >
-          <div className="tradingview-widget-container__widget"></div>
-          <div className="tradingview-widget-copyright">
+        id="tradingview-widget-container"
+        className="tradingview-widget-container"
+      >
+        <div className="tradingview-widget-container__widget"></div>
+        <div className="tradingview-widget-copyright">
+          <a
+            href="https://in.tradingview.com/"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+          
+          </a>
+        </div>
+      </div>
+      <section>
+        {/* <div className="row">
+          <div className="col-lg-4">
+            <div className="border  "></div>
+          </div>
+          <div className="col-lg-4"></div>
+          <div className="col-lg-4"></div>
+        </div> */}
+
+        <div className="">
+          <div className="">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mx-6">
+              <div className="customerProfile ml-4 p-5 bg-blue-800 text-white rounded-3xl w-[600px]">
+                <p className="text-3xl ">Welcome</p>
+                <p>{localStorage.getItem("userData")}</p>
+                <p className="text-4xl font-mono">Profit & Loss Details</p>
+              </div>
+
+              <div className="grid grid-cols-2 gap-2">
+                <div className="  p-4  bg-slate-300 rounded-3xl">
+                  <p className="text-2xl mb-2"> Balance Status</p>
+                  <button>
+                    icon - {dataValue[0]?.fields?.price}- payAmount
+                  </button>
+                </div>
+                <div className=" p-4  bg-whit rounded-3xl bg-slate-50 shadow-md">
+                  <div className="text-bold">
+                    <button>
+                      {/* <FontAwesomeIcon
+                        icon={faArrowAltUp}
+                        className="h-4 w-4 text-black pr-3"
+                      /> */}
+                      {dataValue[0]?.fields?.profit}- profit
+                    </button>
+                  </div>
+                  <div>
+                    <button>
+                      {" "}
+                      {/* <FontAwesomeIcon
+                        icon={faArrowAltDown}
+                        className="h-4 w-4 text-black pr-3"
+                      /> */}
+                      {dataValue[0]?.fields?.loss}- loss
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="pt-4">
+              <div className="text-3xl font-bold mb-4 text-blue-500 text-center">
+                CUSTOMER PORTFOLIO PROFIT AND LOSS DETAILS
+              </div>
+              <div className="bg-[#ccfbf1] p-4 shadow-md">
+                <div className="text-xl font-bold mb-3 text-center">
+                  WELCOME {localStorage.getItem("userData")}
+                </div>
+              </div>
+
+              <div className="filter-bar flex p-4 border border-gray-200 rounded-lg shadow-md">
+                <div className="flex items-center space-x-6">
+                  <div className="">
+                    <label
+                      htmlFor="name"
+                      className="filter-label text-sm font-medium text-gray-700  pr-2"
+                    >
+                      Name:
+                    </label>
+                    <input
+                      type="text"
+                      id="name"
+                      className="filter-input p-1 border border-gray-300 rounded-lg shadow-sm  focus:ring-blue-200 focus:outline-none"
+                    />
+                  </div>
+
+                  <div className="">
+                    <label
+                      htmlFor="from-date"
+                      className="filter-label text-sm font-medium text-gray-700  pr-2"
+                    >
+                      From Date:
+                    </label>
+                    <input
+                      type="date"
+                      id="from-date"
+                      className="filter-input p-1 border border-gray-300 rounded-lg shadow-sm  focus:ring-blue-200 focus:outline-none"
+                    />
+                  </div>
+
+                  <div className="flex items-center">
+                    <label
+                      htmlFor="to-date"
+                      className="filter-label text-sm font-medium text-gray-700  pr-2"
+                    >
+                      To Date:
+                    </label>
+                    <input
+                      type="date"
+                      id="to-date"
+                      className="filter-input p-1 border border-gray-300 rounded-lg shadow-sm  focus:ring-blue-200 focus:outline-none"
+                    />
+                  </div>
+
+                  <div className="flex items-center">
+                    <label
+                      htmlFor="quantity"
+                      className="filter-label text-sm font-medium text-gray-700  pr-2"
+                    >
+                      Quantity:
+                    </label>
+                    <input
+                      type="number"
+                      id="quantity"
+                      className="filter-input p-1 border border-gray-300 rounded-lg shadow-sm  focus:ring-blue-200 focus:outline-none"
+                    />
+                  </div>
+
+                  <button
+                    id="apply-button"
+                    className="apply-button bg-blue-500 hover:bg-blue-600 text-white py-2 px-5 rounded-xl "
+                  >
+                    Apply
+                  </button>
+                </div>
+              </div>
+
+
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div>
+        <div className="overflow-x-auto">
+          {data.length == 0 ? (
+            <p className="py-2 text-center bg-orange-200">Please Buy some Stocks</p>
+          ) : (
+            <table className="w-full table-auto border-4">
+              <thead className="bg-zinc-400 text-white">
+                <tr>
+                  <th className="p-2">No</th>
+                  <th className="p-2">Date</th>
+                  <th className="p-2">StockName</th>
+                  <th className="p-2 ">Buy Price</th>
+                  <th className="p-2">Buy Qauntity</th>
+                  <th className="p-2 ">Sell Price</th>
+                  <th className="p-2">Sell Quantity</th>
+                  {/* <th className="p-2">[S&B]</th> */}
+                  <th className="p-2">Email</th>
+                  <th className="p-2">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                {data.map((item) => (
+                  <tr className="border" key={item.id}>
+                    <td className="p-2 text-center  ">{item.date}</td>
+                    <td className="p-2 text-center bg-slate-300 font-semibold">
+                      {item.stock_name}
+                    </td>
+                    <td className="p-2 text-center font-bold text-green-600  ">
+                      {item.buy_price}
+                    </td>
+                    <td className="p-2 text-center bg-slate-300 font-semibold">
+                      {item.buy_quantity}
+                    </td>
+                    <td className="p-2 text-center font-bold text-green-600">
+                      {item.sell_price}
+                    </td>
+                    <td className="p-2 text-center bg-slate-300 font-semibold">
+                      {item.sell_quantity}
+                    </td>
+                    <td className="p-2 text-center">{item.buy_sell}</td>
+                    <td className="p-2 text-center bg-slate-300 font-semibold">
+                      {item.user_email}
+                    </td>
+                    <td className="p-2 text-center">
+                      <button
+                        onClick={() => handleDelete(item.id)} // Pass the item ID to the delete function
+                        className="   text-center  hover:cursor-pointer"
+                      >
+                        <FontAwesomeIcon
+                          icon={faTrash}
+                          className="h-4 w-4 text-black pr-3"
+                        />
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          )}
+        </div>
+
+        <div className="flex flex-row  justify-right border-t border-gray-200 bg-white px-4 py-3 sm:px-6">
+          <div className="flex flex-1 justify-between sm:hidden">
             <a
-              href="https://in.tradingview.com/"
-              rel="noopener noreferrer"
-              target="_blank"
+              href="#"
+              className="relative inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50"
             >
-              {/* <span className="blue-text">Track all markets on TradingView</span> */}
+              Previous
+            </a>
+            <a
+              href="#"
+              className="relative ml-3 inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50"
+            >
+              Next
             </a>
           </div>
-        </div>
-    <section>
-      <div className="row">
-        <div className="col-lg-4">
-          <div className="border  ">
-
-          </div>
-
-        </div>
-        <div className="col-lg-4">
-          
-        </div>
-        <div className="col-lg-4">
-          
-        </div>
-      </div>
-      <div className="containter">
-        <div className="row">
-          <div className="col-6">
-            <div className="customerProfile">
-            <p>
-        Welcome 
-      </p>
-      <p>
-        {localStorage.getItem("userData")}
-      </p>
-      <p>
-        Profit & Loss Details 
-      </p>
+          <div className="hidden sm:flex sm:flex-1 sm:items-center sm:justify-between">
+            <div>
+              <p className="text-sm text-gray-700">
+                Showing <span className="font-medium">1</span> to{" "}
+                <span className="font-medium">10</span> of{" "}
+                <span className="font-medium">50</span> results
+              </p>
             </div>
-     
-          </div>
-          <div className="col-6">
-    <div className="row">
-      <div className="col-6">
-        Balance Sheet
-          <button>
-            icon - {dataValue[0]?.fields?.price}- payAmount
-          </button>
-          <button>
-            icon - {dataValue[0]?.fields?.profit}- profit
-          </button>
-          <button>
-            icon - {dataValue[0]?.fields?.loss}- loss
-          </button>
-      </div>
+            <div>
+              <nav
+                className="isolate inline-flex -space-x-px rounded-md shadow-sm"
+                aria-label="Pagination"
+              >
+                <a
+                  href="#"
+                  className="relative inline-flex items-center rounded-l-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0"
+                >
+                  <span className="sr-only">Previous</span>
+                  <FontAwesomeIcon
+                    icon={faAngleLeft}
+                    className="h-4 w-4 text-black pr-3"
+                  />
+                </a>
 
-    </div>
-    <div className="text-3xl font-bold mb-4 text-blue-500 text-center">
-            CUSTOMER PORTFOLIO PROFIT AND LOSS DETAILS
-          </div>
-          <div className="bg-[#ccfbf1] p-4 shadow-md">
-          
-          <div className="text-xl font-bold mb-3 text-center">WELCOME  {localStorage.getItem("userData")}</div>
-        </div>
-    <div class="filter-bar">
-        <label for="name" class="filter-label">Name:</label>
-        <input type="text" id="name" class="filter-input"/>
-        
-        <label for="from-date" class="filter-label">From Date:</label>
-        <input type="date" id="from-date" class="filter-input"/>
-        
-        <label for="to-date" class="filter-label">To Date:</label>
-        <input type="date" id="to-date" class="filter-input"/>
-        
-        <label for="quantity" class="filter-label">Quantity:</label>
-        <input type="number" id="quantity" class="filter-input"/>
-        
-        <button id="apply-button" class="apply-button">Apply</button>
-    </div> 
-          </div>
-        </div>
-      </div>
-    </section>
-      <div>
-        
-      
-      
-        <div className="overflow-x-auto">
-          {data.length==0?<>
+                <a
+                  href="#"
+                  aria-current="page"
+                  className="relative z-10 inline-flex items-center bg-indigo-600 px-4 py-2 text-sm font-semibold text-white focus:z-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                >
+                  1
+                </a>
+                <a
+                  href="#"
+                  className="relative inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0"
+                >
+                  2
+                </a>
+                <a
+                  href="#"
+                  className="relative hidden items-center px-4 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0 md:inline-flex"
+                >
+                  3
+                </a>
 
-          Please Buy some Stocks
-          </>:  <table className="w-full table-auto border-4">
-            <thead className="bg-red-600 text-white">
-              <tr>
-                
-                <th className="p-2">No</th>
-                <th className="p-2">Date</th>
-                <th className="p-2">StockName</th>
-                <th className="p-2 ">Buy Price</th>
-                <th className="p-2">Buy Qauntity</th>
-                <th className="p-2 ">Sell Price</th>
-                <th className="p-2">Sell Quantity</th>
-                {/* <th className="p-2">[S&B]</th> */}
-                <th className="p-2">Email</th>
-                {/* <th className="p-2">Action</th> */}
-              </tr>
-            </thead>
-            <tbody>
-              {data.map((item) => (
-                <tr className="border" key={item.id}>
-                  <td className="p-2 text-center  ">{item.date}</td>
-                  <td className="p-2 text-center bg-slate-300 font-semibold">{item.stock_name}</td>
-                  <td className="p-2 text-center font-bold text-green-600  ">{item.buy_price}</td>
-                  <td className="p-2 text-center bg-slate-300 font-semibold">{item.buy_quantity}</td>
-                  <td className="p-2 text-center font-bold text-green-600">{item.sell_price}</td>
-                  <td className="p-2 text-center bg-slate-300 font-semibold">{item.sell_quantity}</td>
-                  <td className="p-2 text-center">{item.buy_sell}</td>
-                  <td className="p-2 text-center bg-slate-300 font-semibold">{item.user_email}</td>
-                  <td className="p-2 text-center">
-                    {/* <button
-                      onClick={() => handleDelete(item.id)} // Pass the item ID to the delete function
-                      className="bg-blue-900 text-white px-2 py-1 rounded ml-2 hover:cursor-pointer"
-                    >
-                      Edit
-                    </button> */}
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-          }
-        
-        </div>
-        <marquee behavior="scroll" direction="left" scrollamount="2">
-        म्यूचुअल फंड बाज़ार से जुड़े निवेश हैं और इस तरह वे कभी पूरी तरह से सुरक्षित नहीं हो सकते हैं। हालांकि, जोखिम कम करने के लिए इन पर कई तरह के नियम लागू होते हैं और म्यूचुअल फण्ड में से पैसा कई क्षेत्रों में निवेश किया जाता है, इस तरह स्टॉक या बॉन्ड के मुकाबले इनमें कम जोखिम होता है।
-    </marquee>
+                <a
+                  href="#"
+                  className="relative hidden items-center px-4 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0 md:inline-flex"
+                >
+                  4
+                </a>
+              
+
+                <a
+                  href="#"
+                  className="relative inline-flex items-center rounded-r-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0"
+                >
+                  <span className="sr-only">Next</span>
+                  <FontAwesomeIcon
+                    icon={faAngleRight}
+                    className="h-4 w-4 text-black pr-3"
+                  />
+                </a>
+              </nav>
+            </div>
+          </div>
+        </div> 
+        <marquee behavior="scroll" direction="left" scrollamount="2" className = "font-bold">
+          म्यूचुअल फंड बाज़ार से जुड़े निवेश हैं और इस तरह वे कभी पूरी तरह से
+          सुरक्षित नहीं हो सकते हैं। हालांकि, जोखिम कम करने के लिए इन पर कई तरह
+          के नियम लागू होते हैं और म्यूचुअल फण्ड में से पैसा कई क्षेत्रों में
+          निवेश किया जाता है, इस तरह स्टॉक या बॉन्ड के मुकाबले इनमें कम जोखिम
+          होता है।
+        </marquee>
       </div>
     </>
   );

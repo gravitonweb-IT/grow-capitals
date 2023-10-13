@@ -242,6 +242,7 @@ const StockForm = () => {
                 required
               />
             </div>
+            
             <div>
               <label
                 htmlFor="loss"
