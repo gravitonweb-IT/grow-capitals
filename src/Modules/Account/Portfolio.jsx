@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { servieUrl } from "../../env/env";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import "./portfolio.css"
 import {
   faAngleLeft,
   faAngleRight,
@@ -9,9 +10,45 @@ import {
   faMoneyBill,
   faTrash,
 } from "@fortawesome/free-solid-svg-icons";
-
+import ReactPaginate from 'react-paginate';
+import { useNavigate } from "react-router-dom";
 const Portfolio = () => {
+  const itemsPerPage =5
+  const [data, setData] = useState([]);
+  const [filter, setFilter] = useState({
+    name: '',
+    fromDate: '',
+    endDate: '',
+    quantity: '',
+  });
+  const filteredData = (e)=>{
+    
+    const value1=data.filter(item => {
+      const isNameMatch = filter.name ? item.stock_name.toLowerCase() === filter.name.toLowerCase() : true;
+      const isFromDateMatch = filter.fromDate ? item.date >= filter.fromDate : true;
+      const isEndDateMatch = filter.endDate ? item.date <= filter.endDate : true;
+      const isQuantityMatch = filter.quantity ? item.buy_quantity == filter.quantity : true;
+    
+      return isNameMatch && isFromDateMatch && isEndDateMatch && isQuantityMatch;
+    });
+    debugger
+console.log(value1)
+  }
   const [dataValue, setDataValue] = useState([]);
+  const [currentPage, setCurrentPage] = useState(0);
+
+  const handlePageClick = (selectedPage) => {
+    setCurrentPage(selectedPage.selected);
+  };
+
+  const offset = currentPage * itemsPerPage;
+  const currentData = data.slice(offset, offset + itemsPerPage);
+  const navigate = useNavigate(); 
+useEffect(()=>{
+    if(localStorage.getItem("userData")==null){
+      navigate("/loginandregister");
+    }
+    },[])
   useEffect(() => {
     var formdata = new FormData();
     formdata.append("userEmail", localStorage.getItem("userData"));
@@ -22,7 +59,7 @@ const Portfolio = () => {
       redirect: "follow",
     };
 
-    fetch("http://127.0.0.1:8000/rolebased/UserAmountStatus/", requestOptions)
+    fetch(servieUrl.url+"rolebased/UserAmountStatus/", requestOptions)
       .then((response) => response.json())
       .then((result) => {
         setDataValue(result);
@@ -74,7 +111,7 @@ const Portfolio = () => {
     };
   }, []);
 
-  const [data, setData] = useState([]);
+  
 
   useEffect(() => {
     async function fetchData() {
@@ -185,7 +222,8 @@ const Portfolio = () => {
                       icon={faMoneyBill}
                       className="h-8 w-8  p-3 bg-blue-600 rounded-full"
                     />
-                   <span className="font-semibold px-2"> {dataValue[0]?.fields?.price} payAmount</span>
+                   <span className="font-semibold px-2">  PayAmount</span>
+                   {dataValue[0]?.fields?.price}
                   </button>
                 </div>
 
@@ -196,7 +234,8 @@ const Portfolio = () => {
                         icon={faArrowTrendUp}
                         className="h-8 w-8 text-black p-3 bg-green-300 rounded-full "
                       />
-                      <span className="font-semibold px-4">  {dataValue[0]?.fields?.profit} profit</span>
+                      <span className="font-semibold px-4">   Profit</span>
+                      {dataValue[0]?.fields?.profit}
                     </button>
                   </div>
                   <div className="shadow-xl rounded-lg ">
@@ -206,7 +245,8 @@ const Portfolio = () => {
                         icon={faArrowTrendDown}
                         className="h-8 w-8 text-black p-3 bg-red-600 rounded-full "
                       />
-                      <span className="font-semibold px-4"> {dataValue[0]?.fields?.loss} Loss </span>
+                      <span className="font-semibold px-4">  Loss </span>
+                      {dataValue[0]?.fields?.loss}
                     </button>
                   </div>
                 </div>
@@ -293,7 +333,39 @@ const Portfolio = () => {
           </div>
         </div>
       </section>
-
+      <div className="filter-container">
+        <input
+          type="text"
+          placeholder="Filter by Name"
+          value={filter.name}
+          onChange={(e) => setFilter({ ...filter, name: e.target.value })}
+        />
+        <input
+          type="date"
+          placeholder="Filter by From Date"
+          value={filter.fromDate}
+          onChange={(e) => setFilter({ ...filter, fromDate: e.target.value })}
+        />
+        <input
+          type="date"
+          placeholder="Filter by End Date"
+          value={filter.endDate}
+          onChange={(e) => setFilter({ ...filter, endDate: e.target.value })}
+        />
+        <input
+          type="text"
+          placeholder="Filter by Quantity"
+          value={filter.quantity}
+          onChange={(e) => setFilter({ ...filter, quantity: e.target.value })}
+        />
+         <button onClick={filteredData}
+                    id="apply-button"
+                    class="apply-button bg-blue-500 hover:bg-blue-600 text-white py-2 px-5 rounded-xl w-full md:w-auto mt-4 md:mt-0"
+                  >
+                    Apply
+                  </button>
+      </div>
+     
       <div>
         <div className="overflow-x-auto">
           {data.length == 0 ? (
@@ -311,14 +383,15 @@ const Portfolio = () => {
                   <th className="p-2">Buy Qauntity</th>
                   <th className="p-2 ">Sell Price</th>
                   <th className="p-2">Sell Quantity</th>
-                  {/* <th className="p-2">[S&B]</th> */}
+                  <th className="p-2">Buy/Sell</th>
                   <th className="p-2">Email</th>
-                  <th className="p-2">Action</th>
+                {localStorage.getItem("login")=="admin"?<th className="p-2">Action</th>:null}  
                 </tr>
               </thead>
               <tbody>
-                {data.map((item) => (
+                {currentData.map((item,index) => (
                   <tr className="border" key={item.id}>
+                    <td className="p-2 text-center  ">{index+1}</td>
                     <td className="p-2 text-center  ">{item.date}</td>
                     <td className="p-2 text-center bg-slate-300 font-semibold">
                       {item.stock_name}
@@ -339,7 +412,7 @@ const Portfolio = () => {
                     <td className="p-2 text-center bg-slate-300 font-semibold">
                       {item.user_email}
                     </td>
-                    <td className="p-2 text-center">
+                    {localStorage.getItem("login")=="admin"?<th className="p-2">  <td className="p-2 text-center">
                       <button
                         onClick={() => handleDelete(item.id)} // Pass the item ID to the delete function
                         className="   text-center  hover:cursor-pointer"
@@ -349,12 +422,26 @@ const Portfolio = () => {
                           className="h-4 w-4 text-black pr-3"
                         />
                       </button>
-                    </td>
+                    </td></th>:null}  
+                  
                   </tr>
                 ))}
               </tbody>
             </table>
           )}
+         <ReactPaginate
+        previousLabel={'Previous'}
+        nextLabel={'Next'}
+        breakLabel={'...'}
+        pageCount={Math.ceil(data.length / itemsPerPage)}
+        marginPagesDisplayed={2}
+        pageRangeDisplayed={5}
+        onPageChange={handlePageClick}
+        containerClassName={'pagination-container'}
+        pageClassName={'pagination-page'}
+        pageLinkClassName={'pagination-link'}
+        activeClassName={'active'}
+      />
         </div>
 
         <div className="flex flex-row  justify-right border-t border-gray-200 bg-white px-4 py-3 sm:px-6">

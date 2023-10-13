@@ -25,7 +25,7 @@ useEffect(()=>{
     redirect: 'follow'
   };
   
-  fetch("http://127.0.0.1:8000/rolebased/UpdateAmountStatus", requestOptions)
+  fetch(servieUrl.url+"rolebased/UpdateAmountStatus", requestOptions)
     .then(response => response.json())
     .then(result => {setTableData(result)})
     .catch(error => console.log('error', error));
@@ -127,7 +127,7 @@ useEffect(()=>{
       redirect: 'follow'
     };
     
-    fetch("http://127.0.0.1:8000/rolebased/UpdateAmountStatus/", requestOptions)
+    fetch(servieUrl.url+"rolebased/UpdateAmountStatus/", requestOptions)
       .then(response => response.json())
       .then(result => {
         alert("successfully updated")

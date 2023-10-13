@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import { servieUrl } from "../../env/env";
 
-const WithdrawForm = ({ isOpen, onClose, onSubmit }) => {
+const WithdrawForm = ({ isOpen, onClose }) => {
   const [registrationSuccess, setRegistrationSuccess] = useState(false);
   const [showSuccessPopup, setShowSuccessPopup] = useState(false)
   const [formData, setFormData] = useState({
@@ -69,7 +69,7 @@ const WithdrawForm = ({ isOpen, onClose, onSubmit }) => {
 
     console.log(formData);
 
-    onSubmit(formData);
+    // onSubmit(formData);
 
     setFormData({
       date: "",

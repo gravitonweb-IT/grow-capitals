@@ -19,7 +19,11 @@ const UserNavbar = ({setUserType}) => {
 
  const handleLogOut = () =>{
     setUserType("0");
+    localStorage.removeItem("login")
+    localStorage.removeItem("userData")
     setIsDrawerOpen(false) 
+    debugger
+    window.location.reload()
  }
 
   const toggleSuperAdminDropdown = () => {
@@ -184,7 +188,7 @@ const UserNavbar = ({setUserType}) => {
                         <Link
                           to="/userDashboard"
                           className="text-white "
-                          onClick={() => handleLogOut()}
+                          // onClick={() => handleLogOut()}
                         >
                           UserDashboard
                         </Link>

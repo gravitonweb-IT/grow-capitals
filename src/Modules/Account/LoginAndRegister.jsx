@@ -13,6 +13,8 @@ export default function LoginAndRegister({ setUserType }) {
   const [error, setError] = useState(null); // Store login error message
   const navigate = useNavigate(); // Access the navigation function
 
+
+  const [showSuccessPopup, setShowSuccessPopup] = useState(false);
   const handleLogin = async () => {
     try {
       // Make a fetch request to the login API
@@ -46,9 +48,12 @@ export default function LoginAndRegister({ setUserType }) {
         // Login successful, set the user's role
         setRole(data.role);
         setUserType(data.role);
+        
       } else {
         // Login failed, display error message
-        setError("Login failed");
+        console.log(response)
+        setShowSuccessPopup(true)
+        setError("Login failedsss");
       }
     } catch (error) {
       console.error("Login failed", error);
@@ -66,7 +71,8 @@ export default function LoginAndRegister({ setUserType }) {
       navigate("/page2");
     } else if (role === "3") {
       localStorage.setItem("login","user")
-      navigate("/user");
+      navigate("/userDashboard");
+      // window.location.reaload()
     }
   }, [role, navigate]);
 
@@ -141,6 +147,49 @@ export default function LoginAndRegister({ setUserType }) {
           <img src={RAndL} className="rounded-lg"></img>
         </div>
       </div>
+      {showSuccessPopup && (
+
+<div className="fixed inset-0 flex items-center justify-center z-10">
+
+  <div className="bg-white p-8 rounded shadow-lg text-center">
+
+    <h2 className="text-2xl font-semibold text-red-500 mb-4">
+
+     Login UnScussessFul
+
+    </h2>
+
+    <p className="text-gray-700">
+
+      your form will be approved as soon
+
+      as possible.
+
+    </p>
+
+    <div className="mt-6">
+
+      <button
+
+        className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600"
+
+        onClick={() => setShowSuccessPopup(false)}
+
+      >
+
+        Close
+
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+
+)}
+
+
     </>
   );
 }

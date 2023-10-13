@@ -18,6 +18,7 @@ function Register() {
   const [checkOtp, setOtp] = useState(false)
   const [otpValue, setOtpValue] = useState(null)
   const navigate = useNavigate(); // Access the navigation function
+
   const [errors, setErrors] = useState({
     username: "",
     password: "",
@@ -179,7 +180,7 @@ debugger
           servieUrl.otpurl + "rolebased/register/",
           requestOptions
         );
-        setShowSuccessPopup(true);
+       
         setUserName("");
         setPassword("");
         setConfirmPassword("");
@@ -192,8 +193,11 @@ debugger
         setBankAccount("");
         setIfscCode("");
         setAadhaarCardNumber("");
-            alert("SuccessFUlly Registered admin will notify you once approved ")
-            navigate("/loginandregister");
+        setShowSuccessPopup(true);
+        setTimeout(() => {
+          navigate("/loginandregister");
+        }, 3000);
+           
         // Show a success alert
         // alert("Registration successful!");
       } catch (error) {
@@ -468,6 +472,47 @@ debugger
           </form>
         </div>
       }
+ {showSuccessPopup && (
+
+<div className="fixed inset-0 flex items-center justify-center z-10">
+
+  <div className="bg-white p-8 rounded shadow-lg text-center">
+
+    <h2 className="text-2xl font-semibold text-green-500 mb-4">
+
+      Registration Successful
+
+    </h2>
+
+    <p className="text-gray-700">
+
+      Your request is successful and your form will be approved as soon
+
+      as possible.
+
+    </p>
+
+    <div className="mt-6">
+
+      <button
+
+        className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600"
+
+        onClick={() => setShowSuccessPopup(false)}
+
+      >
+
+        Close
+
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+
+)}
  {showSuccessPopup && (
 
 <div className="fixed inset-0 flex items-center justify-center z-10">

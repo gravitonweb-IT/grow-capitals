@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useFetcher } from "react-router-dom";
+import { servieUrl } from "../../env/env";
 
 
 
@@ -19,7 +20,7 @@ const [conditiion,seteCondition]=useState(true)
       redirect: 'follow'
     };
     
-    fetch("http://127.0.0.1:8000/rolebased/pendingRequest/", requestOptions)
+    fetch(servieUrl.url+"rolebased/pendingRequest/", requestOptions)
       .then(response => response.json())
       .then(result => {
         debugger
@@ -38,7 +39,7 @@ var requestOptions = {
   redirect: 'follow'
 };
 
-fetch("http://127.0.0.1:8000/rolebased/pendingRequest/", requestOptions)
+fetch(servieUrl.url+"rolebased/pendingRequest/", requestOptions)
   .then(response => response.json())
   .then(result => {
     setPendingRequest(result)

@@ -31,8 +31,10 @@ const AdminNavbar = ({setUserType}) => {
 
    const handleLogOut = () =>{
     localStorage.removeItem("login")
+    localStorage.removeItem("userData")
     setUserType("0");
     setIsDrawerOpen(false) 
+    window.location.reload()
  }
   const toggleSuperAdminDropdown = () => {
     setShowSuperAdminDropdown(!showSuperAdminDropdown);
