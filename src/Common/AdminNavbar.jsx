@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import LogoImage from "./NavbarImages/LogoImage.png";
+import whatsapp from "./NavbarImages/whatsaap.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faNewspaper,
@@ -14,6 +15,7 @@ import {
   faInstagram,
   faTwitter,
 } from "@fortawesome/free-brands-svg-icons";
+import PhoneButton from "../Modules/Main/PhoneButton";
 
 const AdminNavbar = ({setUserType}) => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
@@ -114,6 +116,13 @@ const AdminNavbar = ({setUserType}) => {
             <img src={LogoImage} className="w-[60px] h-[50px]"></img>
             </Link>
           </div>
+
+          <div className="fixed left-4 bottom-3">
+            <Link to="https://wa.me/918962163025?I want to Know more About this?">
+              <img src={whatsapp} width="50" />
+            </Link>
+          </div>
+          <PhoneButton/>
 
           <div className="hidden lg:flex space-x-5">
             <ul className="flex space-x-5">
