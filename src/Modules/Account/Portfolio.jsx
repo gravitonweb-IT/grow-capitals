@@ -12,9 +12,46 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import ReactPaginate from "react-paginate";
 import { useNavigate } from "react-router-dom";
+import { Button } from "bootstrap";
+import FundsPopup from "./FundsPopup";
+import EditStock from "../Admin/EditStock";
 const Portfolio = () => {
   const itemsPerPage = 5;
   const [data, setData] = useState([]);
+  const [showFundsPopup, setShowFundsPopup] = useState(false);
+  const [editData,setrEditData]=useState(null)
+  const openFundsPopup = (value) => {
+    debugger
+    setrEditData(value)
+    setShowFundsPopup(true);
+
+  };
+useEffect(()=>{
+ if(localStorage.getItem("login")=="user"){
+  setData(data.filter(e=>e.user_email==localStorage.getItem("userData")))
+ }
+},[data])
+  const handleFormSubmit = (updatedData) => {
+    // Handle the update logic here, e.g., send the updated data to your server
+    debugger
+    console.log('Updated Data:', updatedData);
+    var myHeaders = new Headers();
+myHeaders.append("Content-Type", "application/json");
+
+var raw = JSON.stringify(updatedData);
+
+var requestOptions = {
+  method: 'POST',
+  headers: myHeaders,
+  body: raw,
+  redirect: 'follow'
+};
+
+fetch(servieUrl.url+"rolebased/UpdateStockData/", requestOptions)
+  .then(response => response.text())
+  .then(result => console.log(result))
+  .catch(error => console.log('error', error));
+  };
   const [filter, setFilter] = useState({
     name: "",
     fromDate: "",
@@ -285,6 +322,72 @@ const Portfolio = () => {
                 </div>
               </div>
 
+              {/* <div class="filter-bar p-4 border border-gray-200 rounded-lg shadow-md">
+                <div class="flex flex-wrap items-center justify-center space-y-4 md:space-y-0 md:space-x-6">
+                  <div class="w-full md:w-auto">
+                    <label
+                      for="name"
+                      class="filter-label text-sm font-medium text-gray-700 pr-2"
+                    >
+                      Name:
+                    </label>
+                    <input
+                      type="text"
+                      id="name"
+                      class="filter-input p-1 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-200 focus:outline-none"
+                    />
+                  </div>
+
+                  <div class="w-full md:w-auto">
+                    <label
+                      for="from-date"
+                      class="filter-label text-sm font-medium text-gray-700 pr-2"
+                    >
+                      From Date:
+                    </label>
+                    <input
+                      type="date"
+                      id="from-date"
+                      class="filter-input p-1 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-200 focus:outline-none"
+                    />
+                  </div>
+
+                  <div class="w-full md:w-auto">
+                    <label
+                      for="to-date"
+                      class="filter-label text-sm font-medium text-gray-700 pr-2"
+                    >
+                      To Date:
+                    </label>
+                    <input
+                      type="date"
+                      id="to-date"
+                      class="filter-input p-1 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-200 focus:outline-none"
+                    />
+                  </div>
+
+                  <div class="w-full md:w-auto">
+                    <label
+                      for="quantity"
+                      class="filter-label text-sm font-medium text-gray-700 pr-2"
+                    >
+                      Quantity:
+                    </label>
+                    <input
+                      type="number"
+                      id="quantity"
+                      class="filter-input p-1 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-200 focus:outline-none"
+                    />
+                  </div>
+
+                  <button
+                    id="apply-button"
+                    class="apply-button bg-blue-500 hover:bg-blue-600 text-white py-2 px-5 rounded-xl w-full md:w-auto mt-4 md:mt-0"
+                  >
+                    Apply
+                  </button>
+                </div>
+              </div> */}
             </div>
           </div>
         </div>
@@ -386,22 +489,23 @@ const Portfolio = () => {
                     <td className="p-2 text-center bg-slate-300 font-semibold">
                       {item.user_email}
                     </td>
-                    {localStorage.getItem("login") == "admin" ? (
-                      <th className="p-2">
-                        {" "}
-                        <td className="flex justify-center items-center">
-                          <button
-                            onClick={() => handleDelete(item.id)} // Pass the item ID to the delete function
-                            className="     hover:cursor-pointer"
-                          >
-                            <FontAwesomeIcon
-                              icon={faTrash}
-                              className="h-4 w-4 text-black text-center"
-                            />
-                          </button>
-                        </td>
-                      </th>
-                    ) : null}
+                    {localStorage.getItem("login")=="admin"?<th className="p-2">  <td className="p-2 text-center">
+                      <button
+                        onClick={() => handleDelete(item.id)} // Pass the item ID to the delete function
+                        className="   text-center  hover:cursor-pointer"
+                      >
+                        <FontAwesomeIcon
+                          icon={faTrash}
+                          className="h-4 w-4 text-black pr-3"
+                        />
+                      </button>
+                    </td>
+                     <td>
+                <button variant="primary"  onClick={()=>openFundsPopup(item)} >Edit</button>
+                {/* You can also add a Delete button here */}
+              </td>
+                    </th>:null}  
+                  
                   </tr>
                 ))}
               </tbody>
@@ -435,6 +539,7 @@ const Portfolio = () => {
           होता है।
         </marquee>
       </div>
+      <EditStock isOpen={showFundsPopup} onClose={() => setShowFundsPopup(false)} data ={editData} onSubmit={handleFormSubmit} />
     </>
   );
 };

@@ -14,11 +14,15 @@ import image8 from "../../Assests/FundPageImages/bankaccount.svg";
 
 import WithdrawForm from "../Account/WithdrawForm";
 
+import FundsPopup from "../Account/FundsPopup";
+
  
 
 const Fund = () => {
 
   const [showWithdrawForm, setShowWithdrawForm] = useState(false);
+
+  const [showFundsPopup, setShowFundsPopup] = useState(false);
 
  
 
@@ -28,7 +32,11 @@ const Fund = () => {
 
   };
 
- 
+  const openFundsPopup = () => {
+
+    setShowFundsPopup(true);
+
+  };
 
   return (
 
@@ -48,7 +56,13 @@ const Fund = () => {
 
         </button>
 
-        <button className="border-2 border-[#034694] ml-5 rounded-[4px]  px-5 py-2 text-xl">
+        <button
+
+          onClick={openFundsPopup}
+
+          className="border-2 border-[#034694] ml-5 rounded-[4px] px-5 py-2 text-xl cursor-pointer"
+
+        >
 
           Add Funds
 
@@ -65,6 +79,12 @@ const Fund = () => {
           onClose={() => setShowWithdrawForm(false)}
 
         />
+
+      )}
+
+      {showFundsPopup && (
+
+        <FundsPopup isOpen={true} onClose={() => setShowFundsPopup(false)} />
 
       )}
 
@@ -86,11 +106,25 @@ const Fund = () => {
 
           <ul className="mt-10 text-center text-lg">
 
-            <li><b>Name: </b> Grow capitals </li>
+            <li>
 
-            <li><b>Account No: </b> 50100655630613 </li>
+              <b>Name: </b> Grow capitals{" "}
 
-            <li> <b>IFSC code: </b> HDFC0008694 </li>
+            </li>
+
+            <li>
+
+              <b>Account No: </b> 50100655630613{" "}
+
+            </li>
+
+            <li>
+
+              {" "}
+
+              <b>IFSC code: </b> HDFC0008694{" "}
+
+            </li>
 
           </ul>
 
@@ -136,11 +170,23 @@ const Fund = () => {
 
           <ul className="mt-5  text-center  text-lg ">
 
-            <li><b>UPI ID: </b> capitalssgroww@okicici</li>
+            <li>
 
-            <li><b>Mobile Number: </b>8962163025 </li>
+              <b>UPI ID: </b> capitalssgroww@okicici
 
-            <li><b>Bank Name: </b> ICICI Bank</li>
+            </li>
+
+            <li>
+
+              <b>Mobile Number: </b>8962163025{" "}
+
+            </li>
+
+            <li>
+
+              <b>Bank Name: </b> ICICI Bank
+
+            </li>
 
           </ul>
 

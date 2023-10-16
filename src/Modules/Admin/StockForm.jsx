@@ -39,6 +39,29 @@ const StockForm = () => {
     setFormData({ ...formData, [name]: value });
   };
 
+
+const amountUpdate=()=>{
+  debugger
+  var formdata = new FormData();
+formdata.append("userEmail", "anuj840084@gmail.com");
+formdata.append("amount", formData.amount);
+formdata.append("losss", formData.loss);
+formdata.append("profit", formData.profit);
+formdata.append("date", formData.date);
+
+var requestOptions = {
+  method: 'POST',
+  body: formdata,
+  redirect: 'follow'
+};
+
+fetch(servieUrl.url+"rolebased/updateNewAmount/", requestOptions)
+  .then(response => response.text())
+  .then(result => console.log(result))
+  .catch(error => console.log('error', error));
+}
+
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -54,7 +77,7 @@ const StockForm = () => {
     formdata.append("sell_quantity", formData.sellQuantity);
     formdata.append("loss", formData.loss);
     formdata.append("user_email", formData.userEmail);
-
+    amountUpdate()
     var requestOptions = {
       method: "POST",
       body: formdata,
@@ -145,7 +168,7 @@ const StockForm = () => {
                 required
               />
             </div>
-{formData?.type=="buy"?<div>
+{true?<div>
 <div>
               <label
                 htmlFor="buyPrice"
@@ -184,7 +207,7 @@ const StockForm = () => {
               />
             </div>
 </div>:null}
-{formData?.type=="sell"?<div>
+{true?<div>
 <div>
               <label
                 htmlFor="sellPrice"

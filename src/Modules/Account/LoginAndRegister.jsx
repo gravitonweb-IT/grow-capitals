@@ -71,8 +71,11 @@ export default function LoginAndRegister({ setUserType }) {
       navigate("/page2");
     } else if (role === "3") {
       localStorage.setItem("login","user")
+      
       navigate("/userDashboard");
-      // window.location.reaload()
+      window.location.reload()
+
+   
     }
   }, [role, navigate]);
 

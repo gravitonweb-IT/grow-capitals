@@ -295,9 +295,7 @@ useEffect(() => {
                 </div>
               </div>
 
-              {/* <div className=" bg-white mx-5 p-3 py-3 shadow-2xl" id="grapch">
-              <TradingGraphc/>
-              </div> */}
+             
             </div>
           </div>
         </div>

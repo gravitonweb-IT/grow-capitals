@@ -329,7 +329,7 @@ const UserNavbar = ({setUserType}) => {
                         <Link
                           to="/userDashboard"
                           className="text-white "
-                          onClick={() => handleLogOut()}
+                          // onClick={() => handleLogOut()}
                         >
                           UserDashboard
                         </Link>
