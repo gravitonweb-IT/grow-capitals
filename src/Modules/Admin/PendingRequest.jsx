@@ -58,8 +58,10 @@ const PendingRequest = () => {
   const displayedItems = pendingRequest.slice(startIndex, endIndex);
 
   return (
-    <div className="container mx-auto px-4 py-8">
-      <table className="table-auto w-full border-collapse border border-gray-300">
+    <div className="overflow-x-hidden">
+    <div className="container mx-auto px-4 py-8 ">
+      <div className="overflow-x-auto">
+      <table className="table-auto w-full border-collapse border border-gray-300 ">
         <thead className="bg-gray-200">
           <tr>
             <th className="p-2">Email</th>
@@ -102,7 +104,7 @@ const PendingRequest = () => {
           ))}
         </tbody>
       </table>
-
+      </div>
       {/* Pagination */}
       <div className="my-4 flex justify-center">
         <ReactPaginate
@@ -119,6 +121,7 @@ const PendingRequest = () => {
           pageLinkClassName={"rounded-full border px-2 py-1 m-1"}
         />
       </div>
+    </div>
     </div>
   );
 };
