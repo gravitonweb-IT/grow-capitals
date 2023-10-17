@@ -31,27 +31,47 @@ const UserDashboard = () => {
 
   useEffect(() => {
     var formdata = new FormData();
-
     formdata.append("userEmail", localStorage.getItem("userData"));
 
     var requestOptions = {
       method: "POST",
-
       body: formdata,
-
       redirect: "follow",
     };
 
     fetch(servieUrl.url + "rolebased/UserAmountStatus/", requestOptions)
       .then((response) => response.json())
-
       .then((result) => {
-        setDataValue(result);
+        let totalProfit = 0;
+        let totalLoss = 0;
+        let totalPrice = 0;
+        
+        // Loop through the data array
+        result.forEach(item => {
+            const { profit, loss, price } = item.fields;
+            
+            // Add the profit, loss, and price values to the corresponding totals
+            totalProfit += Number(profit);
+            totalLoss += Number(loss);
+            totalPrice += Number(price);
+        });
+        
+        // Create an object to store the total values
+        const result1 = {
+            profit: totalProfit,
+            loss: totalLoss,
+            price: totalPrice,
+        };
+        
+        
+        
+      debugger
+        
+        
+        setDataValue(result1);
       })
-
       .catch((error) => console.log("error", error));
   }, []);
-
   useEffect(() => {
     var formdata = new FormData();
 
@@ -213,19 +233,19 @@ const UserDashboard = () => {
             <div className="flex p-4 justify-between border border-blue-600 rounded-[4px]">
               <p className="pl-3 text-xl font-medium">Balance Sheet</p>
 
-              <p> {dataValue[0]?.fields?.price}</p>
+              <p> {dataValue?.price}</p>
             </div>
 
             <div className="flex mt-8 p-4 justify-between border border-blue-600 rounded-[4px]">
               <p className="pl-3 text-xl font-medium">Profit</p>
 
-              <p> {dataValue[0]?.fields?.profit}</p>
+              <p> {dataValue?.profit}</p>
             </div>
 
             <div className="flex mt-8 p-4 justify-between border border-blue-600 rounded-[4px]">
               <p className="pl-3 text-xl font-medium">Loss</p>
 
-              <p> {dataValue[0]?.fields?.loss}</p>
+              <p> {dataValue?.loss}</p>
             </div>
           </div>
 

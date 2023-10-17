@@ -17,7 +17,7 @@ import FundsPopup from "./FundsPopup";
 import EditStock from "../Admin/EditStock";
 import { BsEmojiSmileUpsideDown } from "react-icons/bs";
 const Portfolio = () => {
-  const itemsPerPage = 5;
+  const itemsPerPage = 10;
   const [data, setData] = useState([]);
   const [showFundsPopup, setShowFundsPopup] = useState(false);
   const [editData, setrEditData] = useState(null);
@@ -85,7 +85,7 @@ const Portfolio = () => {
     debugger;
     console.log(value1);
   };
-  const [dataValue, setDataValue] = useState([]);
+  const [dataValue, setDataValue] = useState({});
   const [currentPage, setCurrentPage] = useState(0);
 
   const handlePageClick = (selectedPage) => {
@@ -113,7 +113,33 @@ const Portfolio = () => {
     fetch(servieUrl.url + "rolebased/UserAmountStatus/", requestOptions)
       .then((response) => response.json())
       .then((result) => {
-        setDataValue(result);
+        let totalProfit = 0;
+        let totalLoss = 0;
+        let totalPrice = 0;
+        
+        // Loop through the data array
+        result.forEach(item => {
+            const { profit, loss, price } = item.fields;
+            
+            // Add the profit, loss, and price values to the corresponding totals
+            totalProfit += Number(profit);
+            totalLoss += Number(loss);
+            totalPrice += Number(price);
+        });
+        
+        // Create an object to store the total values
+        const result1 = {
+            profit: totalProfit,
+            loss: totalLoss,
+            price: totalPrice,
+        };
+        
+        
+        
+      debugger
+        
+        
+        setDataValue(result1);
       })
       .catch((error) => console.log("error", error));
   }, []);
@@ -290,7 +316,7 @@ const Portfolio = () => {
             </div>
 
             <div className="font-bold mt-2  pl-5 ">
-              {dataValue[0]?.fields?.price}
+              {dataValue?.price}
               <br />
               <span className="font-bold text-lg "> PayAmount</span>
             </div>
@@ -307,7 +333,7 @@ const Portfolio = () => {
             </div>
 
             <div className="font-semibold  pl-5  ">
-              {dataValue[0]?.fields?.profit}
+              {dataValue?.profit}
               <br />
               <span className="font-bold"> Profit</span>
             </div>
@@ -322,7 +348,7 @@ const Portfolio = () => {
             </div>
 
             <div className="font-semibold  pl-5  ">
-              {dataValue[0]?.fields?.loss}
+            {dataValue?.loss}
               <br />
               <span className="font-bold"> Loss</span>
             </div>
@@ -340,7 +366,7 @@ const Portfolio = () => {
         </div>
       </div>
 
-      <div className="flex flex-wrap mx-5 mt-10  items-center justify-center">
+      {/* <div className="flex flex-wrap mx-5 mt-10  items-center justify-center">
         <p className="w-full sm:w-1/2 md:w-auto">
           <input
             type="text"
@@ -386,7 +412,7 @@ const Portfolio = () => {
             Apply
           </button>
         </p>
-      </div>
+      </div> */}
 
       <div className="overflow-x-auto mt-10">
         {data.length == 0 ? (
@@ -477,7 +503,7 @@ const Portfolio = () => {
         breakLabel={"..."}
         pageCount={Math.ceil(data.length / itemsPerPage)}
         marginPagesDisplayed={2}
-        pageRangeDisplayed={5}
+        pageRangeDisplayed={10}
         onPageChange={handlePageClick}
         containerClassName={"pagination-container"}
         pageClassName={"pagination-page"}

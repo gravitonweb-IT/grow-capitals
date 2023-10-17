@@ -28,7 +28,16 @@ useEffect(()=>{
   
   fetch(servieUrl.url+"rolebased/UpdateAmountStatus", requestOptions)
     .then(response => response.json())
-    .then(result => {setTableData(result)})
+    .then(result => {
+      
+      if(localStorage.getItem("login")=="user"){
+        let value=result.filter(e=>e.fields.user_email==localStorage.getItem("userData"))
+        setTableData(result)
+      }
+      else{
+        setTableData(result)
+      }
+      })
     .catch(error => console.log('error', error));
 },[])
   // useEffect(() => {
@@ -325,7 +334,7 @@ useEffect(()=>{
           </thead>
 
           <tbody>
-            {tableData.filter(e=>e.fields.user_email==localStorage.getItem("userData"))?.map((row, index) => (
+            {tableData?.map((row, index) => (
               <tr key={index} className="border">
                 <td className="p-2 text-center">{index+1}</td>
                 <td className="p-2 text-center">{row.fields?.date}</td>

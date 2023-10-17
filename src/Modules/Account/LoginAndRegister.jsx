@@ -44,7 +44,7 @@ export default function LoginAndRegister({ setUserType }) {
         // localStorage.setItem("username", username);
 
         localStorage.setItem("userData",username);
-
+        localStorage.setItem("Name",data.first_name)
         // Login successful, set the user's role
         setRole(data.role);
         setUserType(data.role);
