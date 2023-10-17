@@ -66,6 +66,7 @@ export default function LoginAndRegister({ setUserType }) {
     if (role === "1") {
       localStorage.setItem("login","admin")
       navigate("/adminDashboard");
+      window.location.reload()
     } else if (role === "2") {
     
       navigate("/page2");

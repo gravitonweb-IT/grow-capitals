@@ -25,6 +25,7 @@ import Scrollup from "./Common/Scrollup";
 import AdminDashboard from "./Modules/Admin/AdminDashboard";
 import PendingRequest from "./Modules/Admin/PendingRequest";
 import UserDashboard from "./Modules/Account/UserDashboard";
+import AccountDetails from "./Modules/Admin/AccountDetails";
 
 
 console.log("check", window.location.pathname.includes("adminpanel"))
@@ -67,6 +68,7 @@ function App() {
           <Route path="/adminDashboard" element={<AdminDashboard />} />
           <Route path="/userDashboard" element={<UserDashboard />} />
           <Route path="/pendingRequest" element={<PendingRequest />} />
+          <Route path="/AccountDetails" element={<AccountDetails />} />
           {/* <Route path ="/adminpanel" element={<AdminNavbar/>}/> */}
           {/* <Route path ="/user" element={<UserNavbar/>}/> */}
         </Routes>

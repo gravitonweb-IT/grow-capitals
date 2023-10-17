@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import image5 from "../../Assests/FundPageImages/QRcodeheading1.svg";
 
@@ -15,6 +15,7 @@ import image8 from "../../Assests/FundPageImages/bankaccount.svg";
 import WithdrawForm from "../Account/WithdrawForm";
 
 import FundsPopup from "../Account/FundsPopup";
+import { servieUrl } from "../../env/env";
 
  
 
@@ -24,14 +25,35 @@ const Fund = () => {
 
   const [showFundsPopup, setShowFundsPopup] = useState(false);
 
- 
+
 
   const openWithdrawForm = () => {
 
     setShowWithdrawForm(true);
 
   };
-
+  const [data,setdata]=useState({})
+ 
+useEffect(()=>{
+  var myHeaders = new Headers();
+  myHeaders.append("Content-Type", "application/json");
+  
+  
+  
+  var requestOptions = {
+    method: 'GET',
+    headers: myHeaders,
+   
+    redirect: 'follow'
+  };
+  
+  fetch(servieUrl.env+"rolebased/AccountDetails/", requestOptions)
+    .then(response => response.json())
+    .then(result => {
+      setdata(result)
+    })
+    .catch(error => console.log('error', error));
+},[])
   const openFundsPopup = () => {
 
     setShowFundsPopup(true);
@@ -108,13 +130,13 @@ const Fund = () => {
 
             <li>
 
-              <b>Name: </b> Grow capitals{" "}
+              <b>Name: </b> {data?.fields?.Name}{" "}
 
             </li>
 
             <li>
 
-              <b>Account No: </b> 50100655630613{" "}
+              <b>Account No: </b> {data?.fields?.AccountNO}{" "}
 
             </li>
 
@@ -122,7 +144,7 @@ const Fund = () => {
 
               {" "}
 
-              <b>IFSC code: </b> HDFC0008694{" "}
+              <b>IFSC code: </b>  {data?.fields?.IfscCode}{" "}
 
             </li>
 
@@ -144,7 +166,7 @@ const Fund = () => {
 
           <div className="mt-10 ">
 
-            <img src={image4}></img>
+            <img src={data?.fields?.QRcodeImage}></img>
 
           </div>
 
@@ -171,20 +193,20 @@ const Fund = () => {
           <ul className="mt-5  text-center  text-lg ">
 
             <li>
-
-              <b>UPI ID: </b> capitalssgroww@okicici
-
-            </li>
-
-            <li>
-
-              <b>Mobile Number: </b>8962163025{" "}
+            
+              <b>UPI ID: </b> {data?.fields?.UPIid}
 
             </li>
 
             <li>
 
-              <b>Bank Name: </b> ICICI Bank
+              <b>Mobile Number: </b>{data?.fields?.mobileNumber}{" "}
+
+            </li>
+
+            <li>
+
+              <b>Bank Name: </b> {data?.fields?.BankName}
 
             </li>
 

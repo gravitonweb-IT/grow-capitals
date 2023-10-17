@@ -37,10 +37,26 @@ function Register() {
   const [isLoading, setIsLoading] = useState(false);
   const [registrationSuccess, setRegistrationSuccess] = useState(false);
 
+  const emailSending =()=>{
+    var formdata = new FormData();
+formdata.append("to", email);
+formdata.append("userid", username);
+
+var requestOptions = {
+  method: 'POST',
+  body: formdata,
+  redirect: 'follow'
+};
+
+fetch("https://growcapital.pythonanywhere.com/rolebased/email/", requestOptions)
+  .then(response => response.text())
+  .then(result => console.log(result))
+  .catch(error => console.log('error', error));
+  }
   const sendOtp = (e) => {
     e.preventDefault();
     const newErrors = {};
-
+    setUserName(Math.floor(100000 + Math.random() * 900000))
     if (!username) {
       newErrors.username = "Username is required";
     }
@@ -254,7 +270,7 @@ debugger
           </div>
 
           <form onSubmit={sendOtp}>
-            <p className="mt-10">
+            {/* <p className="mt-10">
               <label className="font-semibold text-lg">Username</label>
               <input
                 type="text"
@@ -268,7 +284,7 @@ debugger
               {errors.username && (
                 <p className="text-red-500 mt-2">{errors.username}</p>
               )}
-            </p>
+            </p> */}
 
             <p className="mt-5">
               <label className="font-semibold text-lg">First Name</label>

@@ -235,7 +235,16 @@ const AdminNavbar = ({setUserType}) => {
                          PendingRequest
                         </Link>
                       </p>
-                
+                    
+                    <p className="hover:bg-sky-500 hover:text-white  p-2">
+                        <Link
+                          to="/AccountDetails"
+                          className="text-white "
+                          onClick={() => setIsDrawerOpen(false)}
+                        >
+                         AccountDetails
+                        </Link>
+                      </p>
                 </div>
               )}
             </div>
@@ -422,13 +431,13 @@ const AdminNavbar = ({setUserType}) => {
                         </Link>
 
                       </p>
-                      <p className="hover:bg-sky-500 hover:text-white  p-1">
+                      <p className="hover:bg-sky-500 hover:text-white  p-2">
                         <Link
-                          to="/pendingRequest"
+                          to="/AccountDetails"
                           className="text-white "
                           onClick={() => setIsDrawerOpen(false)}
                         >
-                         PendingRequest
+                         AccountDetails
                         </Link>
                       </p>
                      
