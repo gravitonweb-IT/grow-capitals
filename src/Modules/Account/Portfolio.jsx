@@ -201,6 +201,24 @@ const Portfolio = () => {
     AddFundfetchData();
   }, []);
 
+  const [addData, setaddData] = useState([]);
+
+  useEffect(() => {
+    // Define the API URL
+    const apiUrl =
+      "https://growcapital.pythonanywhere.com/rolebased/UpdateAmountStatus/";
+
+    // Make a GET request using fetch
+    fetch(apiUrl)
+      .then((response) => response.json())
+      .then((data) => {
+        setaddData(data);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
+  }, []);
+
   const handleDelete = async (itemId) => {
     try {
       // Replace with the actual API endpoint URL for deleting an item
@@ -278,7 +296,7 @@ const Portfolio = () => {
             </div>
 
             <div className="font-semibold  pl-5  ">
-              {dataValue[0]?.fields?.profit} 
+              {dataValue[0]?.fields?.profit}
               <br />
               <span className="font-bold"> Profit</span>
             </div>
@@ -359,8 +377,6 @@ const Portfolio = () => {
         </p>
       </div>
 
-     
-
       <div className="overflow-x-auto mt-10">
         {data.length == 0 ? (
           <p className="py-2 text-center bg-orange-200">
@@ -372,13 +388,15 @@ const Portfolio = () => {
               <tr>
                 <th className="p-2">No</th>
                 <th className="p-2">Date</th>
-                <th className="p-2 ">StockName</th>
+                <th className="px-2 p-2">StockName</th>
                 <th className="p-2 ">Buy Price</th>
                 <th className="p-2">Buy Qauntity</th>
                 <th className="p-2 ">Sell Price</th>
                 <th className="p-2">Sell Quantity</th>
                 <th className="p-2">Buy/Sell</th>
-                <th className="p-2">Email</th>
+                <th className="p-2">profit</th>
+                <th className="p-2">loss</th>
+
                 {localStorage.getItem("login") == "admin" ? (
                   <th className="p-2">Action</th>
                 ) : null}
@@ -404,12 +422,17 @@ const Portfolio = () => {
                   <td className="p-2 text-center bg-slate-300 font-semibold">
                     {item.sell_quantity}
                   </td>
-                  <td className="p-2 text-center font-semibold capitalize ">
+                  <td className="p-1 text-center font-semibold capitalize ">
                     {item.buy_sell}
                   </td>
-                  <td className="p-2 text-center bg-slate-300 font-semibold">
-                    {item.user_email}
-                  </td>
+                  {addData.map((aitem) => {
+                    return (
+                      <React.Fragment key={aitem.id}>
+                        <td className="p-2 text-center bg-red-500 mr-1 font-semibold">{aitem.loss}</td>
+                        <td className="p-2 text-center bg-green-500 font-semibold">{aitem.profit}</td>
+                      </React.Fragment>
+                    );
+                  })}
                   {localStorage.getItem("login") == "admin" ? (
                     <th className="p-2">
                       {" "}

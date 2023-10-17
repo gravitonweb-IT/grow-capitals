@@ -17,7 +17,7 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import PhoneButton from "../Modules/Main/PhoneButton";
 
-const AdminNavbar = ({setUserType}) => {
+const AdminNavbar = ({ setUserType }) => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [showDropdown, setShowDropdown] = useState(null);
   const [showSuperAdminDropdown, setShowSuperAdminDropdown] = useState(false);
@@ -31,13 +31,13 @@ const AdminNavbar = ({setUserType}) => {
     }
   };
 
-   const handleLogOut = () =>{
-    localStorage.removeItem("login")
-    localStorage.removeItem("userData")
+  const handleLogOut = () => {
+    localStorage.removeItem("login");
+    localStorage.removeItem("userData");
     setUserType("0");
-    setIsDrawerOpen(false) 
-    window.location.reload()
- }
+    setIsDrawerOpen(false);
+    window.location.reload();
+  };
   const toggleSuperAdminDropdown = () => {
     setShowSuperAdminDropdown(!showSuperAdminDropdown);
   };
@@ -57,7 +57,7 @@ const AdminNavbar = ({setUserType}) => {
                 className="h-5 w-5 text-white pr-3"
               />
               <span className="text-white font-semibold text-lg">
-              info@growwcapitals.in
+                info@growwcapitals.in
               </span>
             </p>
             {/* <p className="pl-10">
@@ -81,7 +81,6 @@ const AdminNavbar = ({setUserType}) => {
                 icon={faLink}
                 className="h-5 w-5 text-white pr-3 hover:cursor-pointer"
               />
-              
             </a>
             <a
               href="https://www.moneycontrol.com/news/business/stocks/"
@@ -93,8 +92,8 @@ const AdminNavbar = ({setUserType}) => {
                 className="h-4 w-4 text-white pr-3 hover:cursor-pointer"
               />
             </a>
-           
-             <a
+
+            <a
               href="https://www.moneycontrol.com/portfolio-management/portfolio-investment-signup.php"
               target="_blank"
               rel="noopener noreferrer"
@@ -104,7 +103,6 @@ const AdminNavbar = ({setUserType}) => {
                 className="h-4 w-4 text-white pr-3 hover:cursor-pointer"
               />
             </a>
-           
           </div>
         </div>
       </div>
@@ -113,7 +111,7 @@ const AdminNavbar = ({setUserType}) => {
         <div className="flex justify-between items-center px-5 md:px-10 py-2">
           <div className="">
             <Link to="/">
-            <img src={LogoImage} className="w-[60px] h-[50px]"></img>
+              <img src={LogoImage} className="w-[60px] h-[50px]"></img>
             </Link>
           </div>
 
@@ -122,7 +120,7 @@ const AdminNavbar = ({setUserType}) => {
               <img src={whatsapp} width="50" />
             </Link>
           </div>
-          <PhoneButton/>
+          <PhoneButton />
 
           <div className="hidden lg:flex space-x-5">
             <ul className="flex space-x-5">
@@ -183,7 +181,6 @@ const AdminNavbar = ({setUserType}) => {
                 >
                   Funds
                 </Link>
-                
               </li>
             </ul>
 
@@ -224,27 +221,26 @@ const AdminNavbar = ({setUserType}) => {
                     >
                       Add Funds
                     </Link>
+                  </p>
+                  <p className="hover:bg-sky-500 hover:text-white  p-2">
+                    <Link
+                      to="/pendingRequest"
+                      className="text-white "
+                      onClick={() => setIsDrawerOpen(false)}
+                    >
+                      PendingRequest
+                    </Link>
+                  </p>
 
-                    </p>
-                    <p className="hover:bg-sky-500 hover:text-white  p-2">
-                        <Link
-                          to="/pendingRequest"
-                          className="text-white "
-                          onClick={() => setIsDrawerOpen(false)}
-                        >
-                         PendingRequest
-                        </Link>
-                      </p>
-                    
-                    <p className="hover:bg-sky-500 hover:text-white  p-2">
-                        <Link
-                          to="/AccountDetails"
-                          className="text-white "
-                          onClick={() => setIsDrawerOpen(false)}
-                        >
-                         AccountDetails
-                        </Link>
-                      </p>
+                  <p className="hover:bg-sky-500 hover:text-white  p-2">
+                    <Link
+                      to="/AccountDetails"
+                      className="text-white "
+                      onClick={() => setIsDrawerOpen(false)}
+                    >
+                      AccountDetails
+                    </Link>
+                  </p>
                 </div>
               )}
             </div>
@@ -255,26 +251,25 @@ const AdminNavbar = ({setUserType}) => {
                 className="text-[#64666C] hover:text-blue-500 text-lg font-semibold"
                 onClick={() => toggleDropdown("myAccount")}
               >
-              My Account <span className="ml-1">&#9660;</span>
+                My Account <span className="ml-1">&#9660;</span>
               </button>
 
               {showDropdown === "myAccount" && (
                 <div className="absolute bg-blue-950 w-34 flex flex-col text-white hover:text-white cursor-pointer mt-2">
-                   <p className="hover:bg-sky-500 hover:text-white border-b-2  p-2 w-32">
-                  <Link
-                          to="/adminDashboard"
-                          className="text-white "
-                          // onClick={() => handleLogOut()}
-                        >
-                          Dashboard
-                        </Link>
-                        </p>
                   <p className="hover:bg-sky-500 hover:text-white border-b-2  p-2 w-32">
-                  
+                    <Link
+                      to="/adminDashboard"
+                      className="text-white "
+                      // onClick={() => handleLogOut()}
+                    >
+                      Dashboard
+                    </Link>
+                  </p>
+                  <p className="hover:bg-sky-500 hover:text-white border-b-2  p-2 w-32">
                     <Link
                       to="/"
                       className="text-white "
-                      onClick={() =>handleLogOut()}
+                      onClick={() => handleLogOut()}
                     >
                       Logout
                     </Link>
@@ -335,7 +330,10 @@ const AdminNavbar = ({setUserType}) => {
                   <Link
                     to="/"
                     className="text-white text-xl hover:text-blue-500"
-                    onClick={() => {setIsDrawerOpen(false) ; setUserType("0")}}
+                    onClick={() => {
+                      setIsDrawerOpen(false);
+                      setUserType("0");
+                    }}
                   >
                     Home
                   </Link>
@@ -396,7 +394,7 @@ const AdminNavbar = ({setUserType}) => {
                     className="text-white text-xl hover:text-white relative"
                     onClick={toggleSuperAdminDropdown}
                   >
-                     Super Admin <span className="ml-1">&#9660;</span>
+                    Super Admin <span className="ml-1">&#9660;</span>
                   </button>
 
                   {showSuperAdminDropdown && (
@@ -429,7 +427,6 @@ const AdminNavbar = ({setUserType}) => {
                         >
                           Add Funds
                         </Link>
-
                       </p>
                       <p className="hover:bg-sky-500 hover:text-white  p-2">
                         <Link
@@ -437,10 +434,9 @@ const AdminNavbar = ({setUserType}) => {
                           className="text-white "
                           onClick={() => setIsDrawerOpen(false)}
                         >
-                         AccountDetails
+                          AccountDetails
                         </Link>
                       </p>
-                     
                     </div>
                   )}
                 </li>
@@ -450,19 +446,18 @@ const AdminNavbar = ({setUserType}) => {
                     className="text-white text-xl hover:text-white relative"
                     onClick={toggleMyAccountDropdown}
                   >
-                     My Account <span className="ml-1">&#9660;</span>
+                    My Account <span className="ml-1">&#9660;</span>
                   </button>
 
                   {showMyAccountDropdown && (
                     <div className="absolute bg-blue-950 w-40 flex flex-col text-white hover:text-white cursor-pointer">
                       <p className="hover:bg-sky-500 hover:text-white border-b-2  m-2">
-                      <Link
-                          to="/adminDashboard"
-                          className="text-white "
-                          
-                        >
+                        <Link to="/adminDashboard" className="text-white ">
                           Dashboard
                         </Link>
+                      </p>
+
+                      <p className="hover:bg-sky-500 hover:text-white border-b-2  m-2">
                         <Link
                           to="/"
                           className="text-white "
@@ -479,7 +474,6 @@ const AdminNavbar = ({setUserType}) => {
           )}
         </div>
       </nav>
-      
     </>
   );
 };
