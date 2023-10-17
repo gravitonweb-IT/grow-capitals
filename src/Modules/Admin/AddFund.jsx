@@ -152,6 +152,9 @@ useEffect(()=>{
     setIsOpen(true);
   };
   
+  const naviagationsURl=()=>{
+    window.location.href = 'https://growwcapitals.in/fund';
+  }
 
   const handleDelete = (index) => {
     // Remove the selected row from the table data
@@ -173,13 +176,22 @@ useEffect(()=>{
   return (
     <>
       <div className="flex justify-center items-center mt-3">
-        <button
+        {localStorage.getItem("login")=="user"? <button
           className="bg-blue-500 hover:bg-white text-white hover:text-black border-2 border-blue-500 text-lg rounded-full w-[130px] p-1 transition duration-300 ease-in-out"
-          onClick={() => {setIsOpen(!isOpen)
-            setDisable(false)}}
-        >
-          {isOpen ? "Cancel" : "Add New"}
-        </button>
+          onClick={naviagationsURl}
+      >
+          {false ? "Cancel" : "Add New"}
+        </button>:
+         <button
+         className="bg-blue-500 hover:bg-white text-white hover:text-black border-2 border-blue-500 text-lg rounded-full w-[130px] p-1 transition duration-300 ease-in-out"
+         onClick={() => {setIsOpen(!isOpen)
+           setDisable(false)}}
+       >
+         {isOpen ? "Cancel" : "Add New"}
+       </button>
+
+        }
+      
       </div>
 
       <div className="flex items-center justify-center  bg-blue-300  ">
@@ -305,12 +317,15 @@ useEffect(()=>{
               <th className="p-2">Profit</th>
               <th className="p-2">Loss</th>
               <th className="p-2">Email</th>
-              <th className="p-2">Action</th>
+             {
+              localStorage.getItem("login")=="admin"?  <th className="p-2">Action</th>:null
+             } 
+            
             </tr>
           </thead>
 
           <tbody>
-            {tableData?.map((row, index) => (
+            {tableData.filter(e=>e.fields.user_email==localStorage.getItem("userData"))?.map((row, index) => (
               <tr key={index} className="border">
                 <td className="p-2 text-center">{index+1}</td>
                 <td className="p-2 text-center">{row.fields?.date}</td>
@@ -324,20 +339,24 @@ useEffect(()=>{
                   {row.fields?.loss}
                 </td>
                 <td className="p-2 text-center">{row.fields?.user_email}</td>
-                <td className="p-2 text-center">
-                  <button
-                    className="bg-blue-500 text-white px-2 py-1 rounded"
-                    onClick={() => handleEdit(index)}
-                  >
-                    Edit
-                  </button>
-                  <button
-                    className="bg-red-500 text-white px-2 py-1 rounded ml-2"
-                    onClick={() => handleDelete(index)}
-                  >
-                    Delete
-                  </button>
-                </td>
+                {
+              localStorage.getItem("login")=="admin"?    <td className="p-2 text-center">
+                  
+              <button
+                className="bg-blue-500 text-white px-2 py-1 rounded"
+                onClick={() => handleEdit(index)}
+              >
+                Edit
+              </button>
+              <button
+                className="bg-red-500 text-white px-2 py-1 rounded ml-2"
+                onClick={() => handleDelete(index)}
+              >
+                Delete
+              </button>
+            </td>:null
+             } 
+              
               </tr>
             ))}
           </tbody>

@@ -52,7 +52,7 @@ const StockForm = () => {
 const amountUpdate=()=>{
   debugger
   var formdata = new FormData();
-formdata.append("userEmail", "anuj840084@gmail.com");
+formdata.append("userEmail",formData.userEmail);
 formdata.append("amount", formData.amount);
 formdata.append("losss", formData.loss);
 formdata.append("profit", formData.profit);

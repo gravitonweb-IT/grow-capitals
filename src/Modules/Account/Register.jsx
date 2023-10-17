@@ -164,7 +164,7 @@ e.preventDefault()
   }
 
   const handleSubmit = async () => {
-   
+    emailSending()
 debugger
     // debugger
     // Disable the button to prevent multiple submissions

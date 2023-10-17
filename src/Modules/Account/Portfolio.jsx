@@ -15,6 +15,7 @@ import { useNavigate } from "react-router-dom";
 import { Button } from "bootstrap";
 import FundsPopup from "./FundsPopup";
 import EditStock from "../Admin/EditStock";
+import { BsEmojiSmileUpsideDown } from "react-icons/bs";
 const Portfolio = () => {
   const itemsPerPage = 5;
   const [data, setData] = useState([]);
@@ -25,13 +26,16 @@ const Portfolio = () => {
     setrEditData(value);
     setShowFundsPopup(true);
   };
-  useEffect(() => {
-    if (localStorage.getItem("login") == "user") {
-      setData(
-        data.filter((e) => e.user_email == localStorage.getItem("userData"))
-      );
-    }
-  }, [data]);
+  // useEffect(() => {
+  //   if (localStorage.getItem("login") == "user") {
+      
+       
+  //     console.log("data",data)
+  //     setData(
+  //       data.filter((e) => e.user_email == localStorage.getItem("userData"))
+  //     );
+  //   }
+  // }, [data]);
   const handleFormSubmit = (updatedData) => {
     // Handle the update logic here, e.g., send the updated data to your server
     debugger;
@@ -170,7 +174,14 @@ const Portfolio = () => {
         }
         const data = await response.json();
         console.log(data);
-        setData(data);
+          if (localStorage.getItem("login") == "user") {
+      setData(
+        data.filter((e) => e.user_email == localStorage.getItem("userData"))
+      );
+    }else {
+      setData(data);
+    }
+      
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -394,9 +405,7 @@ const Portfolio = () => {
                 <th className="p-2 ">Sell Price</th>
                 <th className="p-2">Sell Quantity</th>
                 <th className="p-2">Buy/Sell</th>
-                <th className="p-2">profit</th>
-                <th className="p-2">loss</th>
-
+                <th className="p-2">Profit/Loss</th>
                 {localStorage.getItem("login") == "admin" ? (
                   <th className="p-2">Action</th>
                 ) : null}
@@ -425,14 +434,12 @@ const Portfolio = () => {
                   <td className="p-1 text-center font-semibold capitalize ">
                     {item.buy_sell}
                   </td>
-                  {addData.map((aitem) => {
-                    return (
-                      <React.Fragment key={aitem.id}>
-                        <td className="p-2 text-center bg-red-500 mr-1 font-semibold">{aitem.loss}</td>
-                        <td className="p-2 text-center bg-green-500 font-semibold">{aitem.profit}</td>
-                      </React.Fragment>
-                    );
-                  })}
+                  <td className="p-2 text-center bg-slate-300 font-semibold">
+                  <div class="text-base">
+  <span class="bg-green-500 text-white rounded-full px-2 py-1 mr-2 profit-amount">+{item.profit}</span>
+  <span class="bg-red-500 text-white rounded-full px-2 py-1 loss-amount">-{item.loss}</span>
+</div>
+                  </td>
                   {localStorage.getItem("login") == "admin" ? (
                     <th className="p-2">
                       {" "}
