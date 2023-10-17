@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useFetcher } from "react-router-dom";
+import { useFetcher, useNavigate } from "react-router-dom";
 import { servieUrl } from "../../env/env";
 import "tailwindcss/tailwind.css";
 import ReactPaginate from "react-paginate";
@@ -7,6 +7,18 @@ import "./pendingRequest.css"
 const PendingRequest = () => {
   const [pendingRequest, setPendingRequest] = useState([]);
   const [conditiion, seteCondition] = useState(true);
+
+
+  
+  const navigate = useNavigate();
+  useEffect(()=>{
+    if (localStorage.getItem("login") != "admin") {
+
+      navigate("/loginandregister");
+
+    }
+
+  }, []);
 
   const updateValue = (value) => {
     seteCondition(!conditiion);

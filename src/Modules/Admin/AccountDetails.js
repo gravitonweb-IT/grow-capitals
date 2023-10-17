@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { servieUrl } from '../../env/env';
+import { useNavigate } from 'react-router-dom';
 
 function AccountDetails() {
   const [formData, setFormData] = useState({
@@ -91,6 +92,18 @@ debugger
     // .then(data => console.log(data))
     // .catch(error => console.error(error));
   };
+
+
+  
+  const navigate = useNavigate();
+  useEffect(()=>{
+    if (localStorage.getItem("login") != "admin") {
+
+      navigate("/loginandregister");
+
+    }
+
+  }, []);
 
   return (
     <div className="p-4">

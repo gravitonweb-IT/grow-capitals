@@ -1,10 +1,19 @@
 import React, { useEffect, useState } from "react";
 import { servieUrl } from "../../env/env";
+import { useNavigate } from "react-router-dom";
 
 const StockForm = () => {
   const [registrationSuccess, setRegistrationSuccess] = useState(false);
 
- 
+  const navigate = useNavigate();
+  useEffect(()=>{
+    if (localStorage.getItem("login") != "admin") {
+
+      navigate("/loginandregister");
+
+    }
+
+  }, []);
 
   const [formData, setFormData] = useState({
     type: "",

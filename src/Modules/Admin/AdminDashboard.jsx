@@ -1,7 +1,17 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function AdminDashboard() {
+  const navigate = useNavigate();
+  useEffect(()=>{
+    if (localStorage.getItem("login") != "admin") {
+
+      navigate("/loginandregister");
+
+    }
+
+  }, []);
+
   return (
     <>
       <h1 className="text-2xl md:text-4xl font-bold text-center text-[#034694] mt-10">

@@ -1,10 +1,22 @@
 import React, { useEffect, useState } from "react";
 
 import { servieUrl } from "../../env/env";
+import { useNavigate } from "react-router-dom";
 
 const Withdraw = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [data, setData] = useState([]);
+
+  
+  const navigate = useNavigate();
+  useEffect(()=>{
+    if (localStorage.getItem("login") != "admin") {
+
+      navigate("/loginandregister");
+
+    }
+
+  }, []);
 
   useEffect(() => {
     async function fetchData() {

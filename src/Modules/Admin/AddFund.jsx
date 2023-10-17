@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { servieUrl } from "../../env/env";
+import { useNavigate } from "react-router-dom";
 
 const AddFund = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -158,6 +159,17 @@ useEffect(()=>{
     updatedTableData.splice(index, 1);
     setTableData(updatedTableData);
   };
+
+  
+  const navigate = useNavigate();
+  useEffect(()=>{
+    if (localStorage.getItem("login") != "admin") {
+
+      navigate("/loginandregister");
+
+    }
+
+  }, []);
   return (
     <>
       <div className="flex justify-center items-center mt-3">
