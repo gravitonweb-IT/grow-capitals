@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 import { Link, useNavigate } from "react-router-dom";
-import StockMarket from "../../Assests/userdashboardimg/stockMarket1.svg";
+// import StockMarket from "../../Assests/userdashboardimg/stockMarket1.svg";
 import { servieUrl } from "../../env/env";
 
 const UserDashboard = () => {
@@ -297,9 +297,9 @@ const UserDashboard = () => {
             </div>
           </div>
 
-          <div>
+          {/* <div>
             <img src={StockMarket} className="w-[80%]"></img>
-          </div>
+          </div> */}
         </div>
       </div>
     </>
