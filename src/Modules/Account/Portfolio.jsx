@@ -42,7 +42,7 @@ const Portfolio = () => {
     console.log("Updated Data:", updatedData);
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
-
+ 
     var raw = JSON.stringify(updatedData);
 
     var requestOptions = {

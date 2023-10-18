@@ -12,6 +12,8 @@ const AddFund = () => {
     profit: "",
     userEmail: "",
   });
+
+  
   const [tableData, setTableData] = useState([]);
   const [editingIndex, setEditingIndex] = useState(null);
   const [registrationSuccess, setRegistrationSuccess] = useState(false);

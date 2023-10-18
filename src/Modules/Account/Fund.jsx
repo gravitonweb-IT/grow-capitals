@@ -78,7 +78,7 @@ useEffect(()=>{
 
         </button>
 
-        <button
+        {/* <button
 
           onClick={openFundsPopup}
 
@@ -88,7 +88,7 @@ useEffect(()=>{
 
           Add Funds
 
-        </button>
+        </button> */}
 
       </div>
 

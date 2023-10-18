@@ -14,6 +14,8 @@ function AccountDetails() {
     mobileNumber: "",
     bankName: "",
   });
+
+  
   const [base64Image, setBase64Image] = useState(null);
   const handleInputChange = (event) => {
     const { name, value } = event.target;
