@@ -177,7 +177,7 @@ const UserDashboard = () => {
                 />
               </label>
 
-              <Link to="/addfund">
+              <Link to="/fund">
                 {" "}
                 <button className=" p-2  border-2 border-blue-600  rounded-[4px] mt-2">Add Fund</button>{" "}
               </Link>
