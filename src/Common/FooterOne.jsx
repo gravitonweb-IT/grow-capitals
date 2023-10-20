@@ -58,11 +58,17 @@ const FooterOne = () => {
             <p className="mt-2">
               <Link to="/contact"><span className="hover:underline">Contact </span></Link>
             </p>
+            <p className="mt-2">
+              <Link to="/privacypolicy"><span className="hover:underline">Privacy Policy </span></Link>
+            </p>
+             <p className="mt-2">
+              <Link to="/termcondation"><span className="hover:underline"> Team & Condation </span></Link>
+            </p>
           </div>
 
           <div class=" text-white mt-4 md:mt-0">
             <h1 className="font-bold text-2xl">Useful Links</h1>
-            <p className="mt-4 ">
+            <p className="mt-3 ">
               <a
                 href="https://www.moneycontrol.com/stocksmarketsindia/"
                 target="_blank"
@@ -73,7 +79,7 @@ const FooterOne = () => {
               </a>
             </p>
 
-            <p className="mt-3">
+            <p className="mt-2">
               <a
                 href="https://www.moneycontrol.com/news/business/stocks/"
                 target="_blank"
@@ -84,7 +90,7 @@ const FooterOne = () => {
               </a>
             </p>
 
-            <p className="mt-3">
+            <p className="mt-2">
               <a
                 href="https://www.moneycontrol.com/ipo/"
                 target="_blank"
@@ -95,7 +101,7 @@ const FooterOne = () => {
               </a>
             </p>
 
-            <p className="mt-3">
+            <p className="mt-2">
               <a
                 href="https://www.moneycontrol.com/portfolio-management/portfolio-investment-signup.php"
                 target="_blank"
@@ -103,6 +109,27 @@ const FooterOne = () => {
                 className="hover:underline"
               >
                 Portfolio
+              </a>
+            </p>
+
+            <p className="mt-2">
+              <a
+                href="   https://economictimes.indiatimes.com/bse-ltd/stocks/companyid-2809.cms"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:underline"
+              >
+               BSE 
+              </a>
+            </p>
+            <p className="mt-2">
+              <a
+                href=" https://www.nseindia.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:underline"
+              >
+              NSE 
               </a>
             </p>
           </div>

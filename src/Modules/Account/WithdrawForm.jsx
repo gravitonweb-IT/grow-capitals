@@ -59,13 +59,15 @@ const WithdrawForm = ({ isOpen, onClose }) => {
 
       .then((result) => {
         setShowSuccessPopup(true);
+        onClose();
+     
       })
 
       .catch((error) => console.log("error", error));
 
     // alert("Submitted Successfully !")
 
-    onClose();
+  
 
     console.log(formData);
 
@@ -85,6 +87,7 @@ const WithdrawForm = ({ isOpen, onClose }) => {
       price: "",
     });
     setRegistrationSuccess(true);
+ 
   };
 
   return (
@@ -97,7 +100,7 @@ const WithdrawForm = ({ isOpen, onClose }) => {
 
     <h2 className="text-2xl font-semibold text-green-500 mb-4">
 
-      Registration Successful
+      Form  Successfuly
 
     </h2>
 

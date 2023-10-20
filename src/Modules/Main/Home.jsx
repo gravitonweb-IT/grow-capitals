@@ -45,26 +45,7 @@ import HomeSlide6 from "../../Assests/HomePageImages/stock3.png";
 import Chart from "./Chart";
 import Stockchart from "./Stockchart";
 
-const stockData = {
-  name: "Reliance Industries Ltd",
 
-  description:
-    "Engaged in refining, manufacturing of refined petroleum products, pet...",
-
-  price: "₹ 2,382.60",
-
-  return1M: -4.7,
-
-  return1Y: 7.38,
-
-  pe: 24.71,
-
-  marketCap: "16,48,408.34",
-
-  beta: 1.07,
-
-  dividendYield: "0.36",
-};
 
 const slides = [
   {
@@ -199,117 +180,34 @@ const Home = () => {
     settings.slidesToShow = 1;
   }
 
-  useEffect(() => {
-    const script = document.createElement("script");
 
-    script.type = "text/javascript";
-
-    script.src =
-      "https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js";
-
-    script.async = true;
-
-    script.innerHTML = JSON.stringify({
-      symbols: [
-        {
-          proName: "FOREXCOM:SPXUSD",
-
-          title: "S&P 500",
-        },
-
-        {
-          proName: "FOREXCOM:NSXUSD",
-
-          title: "US 100",
-        },
-
-        {
-          "description": "",
-          "proName": "NSE:ICICIBANK"
-        },
-        {
-          "description": "",
-          "proName": "NSE:TCS"
-        },
-
-        {
-          proName: "BITSTAMP:ETHUSD",
-
-          title: "Ethereum",
-        },
-      ],
-
-      showSymbolLogo: true,
-
-      colorTheme: "light",
-
-      isTransparent: false,
-
-      displayMode: "adaptive",
-
-      locale: "in",
-    });
-
-    document.getElementById("tradingview-widget-container").appendChild(script);
-
-    return () => {};
-  }, []);
-
-  useEffect(() => {
-    const script = document.createElement("script");
-
-    script.type = "text/javascript";
-
-    script.src =
-      "https://s3.tradingview.com/external-embedding/embed-widget-screener.js";
-
-    script.async = true;
-
-    script.innerHTML = JSON.stringify({
-      width: "1320",
-
-      height: "560",
-
-      defaultColumn: "overview",
-
-      defaultScreen: "general",
-
-      market: "forex",
-
-      showToolbar: true,
-
-      colorTheme: "light",
-
-      locale: "in",
-    });
-
-    document
-
-      .getElementById("tradingview-screener-widget-container")
-
-      .appendChild(script);
-
-    return () => {};
-  }, []);
 
   return (
     <>
-      <div
-        id="tradingview-widget-container"
-        className="tradingview-widget-container"
-      >
-        <div className="tradingview-widget-container__widget"></div>
-
-        <div className="tradingview-widget-copyright">
-          <a
-            href="https://in.tradingview.com/"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            {/* <span className="blue-text">Track all markets on TradingView</span> */}
-          </a>
-        </div>
+     
+ <div className="bg-gray-200 p-4 w-full overflow-hidden">
+      <div className="overflow-x-auto">
+        <marquee
+         behavior="scroll"
+         direction="left"
+         scrollamount="5"
+          className="text-md" // Adjust text size for responsiveness
+        >
+          <strong className="px-3">NIFTY 100 | Price: <span className="text-green-500 font-normal">19488.25 </span></strong>
+          <strong className="px-2">BAJAJHLDNG | Price: <span className="text-green-500 font-normal">6861.15</span></strong>
+          <strong className="px-3">MUTHOOTFIN | Price: <span className="text-green-500 font-normal">1251.45</span></strong>
+          <strong className="px-3">ZOMATO | Price: <span className="text-green-500 font-normal">114</span></strong>
+          <strong className="px-3">KOTAKBANK | Price: <span className="text-green-500 font-normal"> 1733.5</span></strong>
+          <strong className="px-3">NESTLEIND | Price: <span className="text-green-500 font-normal">24099.95</span></strong>
+          <strong className="px-3">INDUSINDBK | Price: <span className="text-green-500 font-normal">1448</span></strong>
+          <strong className="px-3">BERGEPAINT | Price:<span className="text-green-500 font-normal"> 572</span></strong>
+          <strong className="px-3">TCS | Price: <span className="text-green-500 font-normal">3450.4</span></strong>
+          <strong className="px-3">WIPRO | Price:<span className="text-green-500 font-normal"> 21980.25</span></strong>
+          <strong className="px-3">IBM | Price:<span className="text-green-500 font-normal"> 13786.25</span></strong>
+          <strong className="px-3">RELIANCE | Price:<span className="text-green-500 font-normal"> 980.25</span></strong>
+        </marquee>
       </div>
+    </div>
 
       {/* Banner-part */}
 
@@ -432,29 +330,9 @@ const Home = () => {
       </div>
 
       {/* Stock-market-Part */}
+      <Stockchart />
 
-      <div className="">
-        <div className="flex items-center justify-center h-screen">
-          <div
-            id="tradingview-screener-widget-container"
-            className="tradingview-widget-container overflow-x-auto w-screen md:w-3/4 lg:w-2/3 xl:w-1/2"
-          >
-            <div className="tradingview-widget-container__widget"></div>
-
-            <div className="tradingview-widget-copyright">
-              <a
-                href="https://in.tradingview.com/"
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                <span className="blue-text">
-                  Track all markets on TradingView
-                </span>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
+     
 
       {/* Services-part */}
 
@@ -667,169 +545,9 @@ const Home = () => {
 
       {/* FAQ's-part-end */}
 
-      {/* <div className=" bg-[#2774AE] ">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-colr-2 gap-10 max-10 md:max-20 lg:mx-32  ">
-          <div className="bg-white rounded-lg shadow-md p-4 w-100 mt-20 ">
-            <h2 className="text-xl font-semibold">{stockData.name}</h2>
-
-            <p className="text-gray-600">{stockData.description}</p>
-
-            <div className="mt-4">
-              <p className="text-2xl font-semibold">{stockData.price}</p>
-
-              <p
-                className={
-                  stockData.return1M < 0 ? "text-red-500" : "text-green-500"
-                }
-              >
-                1M Return: {stockData.return1M}%
-              </p>
-
-              <p className="text-gray-600">1Y Return: {stockData.return1Y}%</p>
-            </div>
-
-            <div className="mt-4">
-              <p>P/E Ratio: {stockData.pe}</p>
-
-              <p>Market Cap: {stockData.marketCap} Cr</p>
-
-              <p>Beta: {stockData.beta}</p>
-
-              <p>Div. Yield: {stockData.dividendYield}</p>
-            </div>
-
-            <div className="mt-4 flex justify-end">
-              <button className="bg-green-500 hover:bg-green-600 text-white py-2  px-4 rounded">
-                Buy
-              </button>
-              <button className="bg-red-500 hover:bg-red-600 text-white py-2 px-4 ml-5 rounded">
-                Sell
-              </button>
-            </div>
-          </div>
-
-          <div className="bg-white rounded-lg shadow-md p-4 w-100 mt-20">
-            <h2 className="text-xl font-semibold">{stockData.name}</h2>
-
-            <p className="text-gray-600">{stockData.description}</p>
-
-            <div className="mt-4">
-              <p className="text-2xl font-semibold">{stockData.price}</p>
-
-              <p
-                className={
-                  stockData.return1M < 0 ? "text-red-500" : "text-green-500"
-                }
-              >
-                1M Return: {stockData.return1M}%
-              </p>
-
-              <p className="text-gray-600">1Y Return: {stockData.return1Y}%</p>
-            </div>
-
-            <div className="mt-4">
-              <p>P/E Ratio: {stockData.pe}</p>
-
-              <p>Market Cap: {stockData.marketCap} Cr</p>
-
-              <p>Beta: {stockData.beta}</p>
-
-              <p>Div. Yield: {stockData.dividendYield}</p>
-            </div>
-
-            <div className="mt-4 flex justify-end">
-              <button className="bg-green-500 hover:bg-green-600 text-white py-2  px-4 rounded">
-                Buy
-              </button>
-              <button className="bg-red-500 hover:bg-red-600 text-white py-2 px-4 ml-5 rounded">
-                Sell
-              </button>
-            </div>
-          </div>
-          <div className="bg-white rounded-lg shadow-md p-4 w-100 mb-10">
-            <h2 className="text-xl font-semibold">{stockData.name}</h2>
-
-            <p className="text-gray-600">{stockData.description}</p>
-
-            <div className="mt-4">
-              <p className="text-2xl font-semibold">{stockData.price}</p>
-
-              <p
-                className={
-                  stockData.return1M < 0 ? "text-red-500" : "text-green-500"
-                }
-              >
-                1M Return: {stockData.return1M}%
-              </p>
-
-              <p className="text-gray-600">1Y Return: {stockData.return1Y}%</p>
-            </div>
-
-            <div className="mt-4">
-              <p>P/E Ratio: {stockData.pe}</p>
-
-              <p>Market Cap: {stockData.marketCap} Cr</p>
-
-              <p>Beta: {stockData.beta}</p>
-
-              <p>Div. Yield: {stockData.dividendYield}</p>
-            </div>
-
-            <div className="mt-4 flex justify-end">
-              <button className="bg-green-500 hover:bg-green-600 text-white py-2  px-4 rounded">
-                Buy
-              </button>
-
-              <button className="bg-red-500 hover:bg-red-600 text-white py-2 px-4 ml-5 rounded">
-                Sell
-              </button>
-            </div>
-          </div>
-
-          <div className="bg-white rounded-lg shadow-md p-4 w-100 mb-10">
-            <h2 className="text-xl font-semibold">{stockData.name}</h2>
-
-            <p className="text-gray-600">{stockData.description}</p>
-
-            <div className="mt-4">
-              <p className="text-2xl font-semibold">{stockData.price}</p>
-
-              <p
-                className={
-                  stockData.return1M < 0 ? "text-red-500" : "text-green-500"
-                }
-              >
-                1M Return: {stockData.return1M}%
-              </p>
-
-              <p className="text-gray-600">1Y Return: {stockData.return1Y}%</p>
-            </div>
-
-            <div className="mt-4">
-              <p>P/E Ratio: {stockData.pe}</p>
-
-              <p>Market Cap: {stockData.marketCap} Cr</p>
-
-              <p>Beta: {stockData.beta}</p>
-
-              <p>Div. Yield: {stockData.dividendYield}</p>
-            </div>
-
-            <div className="mt-4 flex justify-end">
-              <button className="bg-green-500 hover:bg-green-600 text-white py-2  px-4 rounded">
-                Buy
-              </button>
-              <button className="bg-red-500 hover:bg-red-600 text-white py-2 px-4 ml-5 rounded">
-                Sell
-              </button>
-            </div>
-          </div>
-        </div>
-      </div> */}
-
-      {/* indian stock table */}
+     
       <div>
-        <Stockchart />
+       
       </div>
 
       {/* Portfolio-part */}

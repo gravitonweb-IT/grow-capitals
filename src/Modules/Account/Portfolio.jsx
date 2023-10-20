@@ -144,49 +144,7 @@ const Portfolio = () => {
       .catch((error) => console.log("error", error));
   }, []);
 
-  useEffect(() => {
-    const script = document.createElement("script");
-    script.type = "text/javascript";
-    script.src =
-      "https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js";
-    script.async = true;
-    script.innerHTML = JSON.stringify({
-      symbols: [
-        {
-          proName: "FOREXCOM:SPXUSD",
-          title: "S&P 500",
-        },
-        {
-          proName: "FOREXCOM:NSXUSD",
-          title: "US 100",
-        },
-        {
-          proName: "FX_IDC:EURUSD",
-          title: "EUR to USD",
-        },
-        {
-          proName: "BITSTAMP:BTCUSD",
-          title: "Bitcoin",
-        },
-        {
-          proName: "BITSTAMP:ETHUSD",
-          title: "Ethereum",
-        },
-      ],
-      showSymbolLogo: true,
-      colorTheme: "light",
-      isTransparent: false,
-      displayMode: "adaptive",
-      locale: "in",
-    });
-    document.getElementById("tradingview-widget-container").appendChild(script);
-    return () => {
-      // Clean up the script when the component unmounts
-      // document
-      //   .getElementById("tradingview-widget-container")
-      //   .removeChild(script);
-    };
-  }, []);
+  
 
   useEffect(() => {
     async function fetchData() {
@@ -281,21 +239,29 @@ const Portfolio = () => {
 
   return (
     <>
-      <div
-        id="tradingview-widget-container"
-        className="tradingview-widget-container"
-      >
-        <div className="tradingview-widget-container__widget"></div>
-        <div className="tradingview-widget-copyright">
-          <a
-            href="https://in.tradingview.com/"
-            rel="noopener noreferrer"
-            target="_blank"
-          ></a>
-        </div>
+      <div className="bg-gray-200 p-4 w-full overflow-hidden">
+      <div className="overflow-x-auto">
+        <marquee
+         behavior="scroll"
+         direction="left"
+         scrollamount="5"
+          className="text-md" // Adjust text size for responsiveness
+        >
+          <strong className="px-3">NIFTY 100 | Price: <span className="text-green-500 font-normal">19488.25 </span></strong>
+          <strong className="px-2">BAJAJHLDNG | Price: <span className="text-green-500 font-normal">6861.15</span></strong>
+          <strong className="px-3">MUTHOOTFIN | Price: <span className="text-green-500 font-normal">1251.45</span></strong>
+          <strong className="px-3">ZOMATO | Price: <span className="text-green-500 font-normal">114</span></strong>
+          <strong className="px-3">KOTAKBANK | Price: <span className="text-green-500 font-normal"> 1733.5</span></strong>
+          <strong className="px-3">NESTLEIND | Price: <span className="text-green-500 font-normal">24099.95</span></strong>
+          <strong className="px-3">INDUSINDBK | Price: <span className="text-green-500 font-normal">1448</span></strong>
+          <strong className="px-3">BERGEPAINT | Price:<span className="text-green-500 font-normal"> 572</span></strong>
+          <strong className="px-3">TCS | Price: <span className="text-green-500 font-normal">3450.4</span></strong>
+          <strong className="px-3">GODREJCP | Price:<span className="text-green-500 font-normal"> 980.25</span></strong>
+        </marquee>
       </div>
+    </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mx-5 md:mx-12 ">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mx-5 md:mx-12 mt-8">
         <div className="  p-10 bg-blue-800 text-white rounded-3xl ">
           <p className=" text-2xl md:text-4xl font-bold ">Welcome</p>
           <p className="mt-2">{localStorage.getItem("userData")}</p>
@@ -420,7 +386,7 @@ const Portfolio = () => {
             Please Buy some Stocks
           </p>
         ) : (
-          <table className="w-full table-auto border-4">
+          <table className="w-full table-auto border-4 bg-sky-100">
             <thead className="bg-zinc-400 text-white">
               <tr>
                 <th className="p-2">No</th>
@@ -439,28 +405,28 @@ const Portfolio = () => {
             </thead>
             <tbody>
               {currentData.map((item, index) => (
-                <tr className="border-y-2" key={item.id}>
+                <tr className="border-y border-black" key={item.id}>
                   <td className="p-2 text-center  ">{index + 1}</td>
                   <td className="p-2 text-center  ">{item.date}</td>
-                  <td className="p-2 text-center bg-slate-300 font-semibold uppercase">
+                  <td className="p-2 text-center bg-slate-200 font-semibold uppercase">
                     {item.stock_name}
                   </td>
                   <td className="p-2 text-center font-bold text-green-600  ">
                     {item.buy_price}
                   </td>
-                  <td className="p-2 text-center bg-slate-300 font-semibold">
+                  <td className="p-2 text-center bg-slate-200 font-semibold">
                     {item.buy_quantity}
                   </td>
                   <td className="p-2 text-center font-bold text-green-600">
                     {item.sell_price}
                   </td>
-                  <td className="p-2 text-center bg-slate-300 font-semibold">
+                  <td className="p-2 text-center bg-slate-200 font-semibold">
                     {item.sell_quantity}
                   </td>
                   <td className="p-1 text-center font-semibold capitalize ">
                     {item.buy_sell}
                   </td>
-                  <td className="p-2 text-center bg-slate-300 font-semibold">
+                  <td className="p-2 text-center bg-slate-200 font-semibold">
                   <div class="text-base">
   <span class="bg-green-500 text-white rounded-full px-2 py-1 mr-2 profit-amount">+{item.profit}</span>
   <span class="bg-red-500 text-white rounded-full px-2 py-1 loss-amount">-{item.loss}</span>

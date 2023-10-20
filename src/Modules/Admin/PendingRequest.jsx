@@ -26,7 +26,7 @@ const PendingRequest = () => {
     formdata.append("userEmail", value);
 
     var requestOptions = {
-      method: "POST",
+      method: "UPDATE",
       body: formdata,
       redirect: "follow",
     };

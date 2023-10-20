@@ -4,7 +4,7 @@ import "./Stockchart.css";
 function Stockchart() {
   return (
     <>
-      <div className="tv-layout-width">
+      <div className="tv-layout-width-full mx-5 md:mx-10">
         <div className="tv-category__tab-page tv-card-exterior">
           <div className="tv-feed tv-feed--no-hindent tv-feed--tablet-top-indent tv-feed--no-min-height tv-feed--no-vertical-margin">
             {/* <div className="tv-category__content tv-category__content--market-tabs js-category-header">
@@ -261,7 +261,7 @@ function Stockchart() {
             <div className="tv-category__tab-description">
               <div className="tv-category__tab-description-content">
                 <div className="tv-category-description">
-                  <h1 className="tv-category-description__title">
+                  <h1 className="tv-category-description__title text-lg">
                     Largest companies by market cap — Indian Stock Market
                   </h1>
                   <p className="tv-category-description__text">
