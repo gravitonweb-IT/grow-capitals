@@ -41,7 +41,7 @@ function Register() {
     var formdata = new FormData();
 formdata.append("to", email);
 formdata.append("userid", username);
-
+formdata.append("password",password)
 var requestOptions = {
   method: 'POST',
   body: formdata,
@@ -163,9 +163,26 @@ e.preventDefault()
       .catch(error => console.log('error', error));
   }
 
+const sendingRegsiter=()=>{
+  var formdata = new FormData();
+  formdata.append("email", email);
+  formdata.append("password", password);
+  
+  var requestOptions = {
+    method: 'POST',
+    body: formdata,
+    redirect: 'follow'
+  };
+  
+  fetch("https://growcapital.pythonanywhere.com/rolebased/PasswordUpdate/", requestOptions)
+    .then(response => response.text())
+    .then(result => console.log(result))
+    .catch(error => console.log('error', error));
+}
+
   const handleSubmit = async () => {
     emailSending()
-debugger
+    sendingRegsiter()
     // debugger
     // Disable the button to prevent multiple submissions
 

@@ -11,8 +11,25 @@ const AddFund = () => {
     loss: "",
     profit: "",
     userEmail: "",
+    idValue:""
   });
+const deleteFund=(event)=>{
+  var formdata = new FormData();
+formdata.append("idvalue", event);
 
+var requestOptions = {
+  method: 'POST',
+  body: formdata,
+  redirect: 'follow'
+};
+
+fetch("https://growcapital.pythonanywhere.com/rolebased/deleteFund/", requestOptions)
+  .then(response => response.text())
+  .then(result => {
+    alert("succeffuly deleted")
+  })
+  .catch(error => console.log('error', error));
+}
   
   const [tableData, setTableData] = useState([]);
   const [editingIndex, setEditingIndex] = useState(null);
@@ -118,6 +135,7 @@ useEffect(()=>{
       loss: "",
       profit: "",
       userEmail: "",
+      idValue:""
     });
 
     setIsOpen(false);
@@ -132,7 +150,7 @@ useEffect(()=>{
     formdata.append("loss", formData.loss);
     formdata.append("profit",formData.profit );
     formdata.append("user_email",formData.userEmail );
-    
+    formdata.append("idValue",formData.idValue );
     var requestOptions = {
       method: 'POST',
       body: formdata,
@@ -158,6 +176,7 @@ useEffect(()=>{
       loss: selectedRow.fields.loss,
       profit: selectedRow.fields.profit,
       userEmail: selectedRow.fields.user_email,
+      idValue:selectedRow.pk
     });
     setEditingIndex(index);
     setIsOpen(true);
@@ -168,6 +187,7 @@ useEffect(()=>{
   }
 
   const handleDelete = (index) => {
+    deleteFund(index)
     // Remove the selected row from the table data
     const updatedTableData = [...tableData];
     updatedTableData.splice(index, 1);
@@ -378,3 +398,5 @@ useEffect(()=>{
 };
 
 export default AddFund;
+
+

@@ -26,6 +26,8 @@ const Portfolio = () => {
     setrEditData(value);
     setShowFundsPopup(true);
   };
+
+  const [name,setName]=useState("")
   // useEffect(() => {
   //   if (localStorage.getItem("login") == "user") {
       
@@ -36,6 +38,27 @@ const Portfolio = () => {
   //     );
   //   }
   // }, [data]);
+
+
+useEffect(()=>{
+  var formdata = new FormData();
+formdata.append("userEmail", localStorage.getItem("userData"));
+
+var requestOptions = {
+  method: 'POST',
+  body: formdata,
+  redirect: 'follow'
+};
+
+fetch("https://growcapital.pythonanywhere.com/rolebased/userData/", requestOptions)
+  .then(response => response.json())
+  .then(result => {
+    debugger
+    console.log("result ",result)
+    setName(result[0].fields.first_name+" "+result[0].fields.last_name)
+  })
+  .catch(error => console.log('error', error));
+},[])
   const handleFormSubmit = (updatedData) => {
     // Handle the update logic here, e.g., send the updated data to your server
     debugger;
@@ -264,7 +287,7 @@ const Portfolio = () => {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mx-5 md:mx-12 mt-8">
         <div className="  p-10 bg-blue-800 text-white rounded-3xl ">
           <p className=" text-2xl md:text-4xl font-bold ">Welcome</p>
-          <p className="mt-2">{localStorage.getItem("userData")}</p>
+          <p className="mt-2">{name}</p>
           <p className=" text-2xl md:text-3xl font-semibold  mt-2">
             Profit & Loss Details
           </p>
@@ -328,7 +351,7 @@ const Portfolio = () => {
 
       <div className="bg-[#ccfbf1] mt-5 p-5 ">
         <div className="text-xl font-semibold  text-center">
-          WELCOME {localStorage.getItem("userData")}
+          WELCOME {name}
         </div>
       </div>
 
