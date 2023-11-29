@@ -50,7 +50,7 @@ var requestOptions = {
   redirect: 'follow'
 };
 
-fetch("https://growcapital.pythonanywhere.com/rolebased/userData/", requestOptions)
+fetch("https://growwccapitals.pythonanywhere.comrolebased/userData/", requestOptions)
   .then(response => response.json())
   .then(result => {
     debugger
@@ -224,7 +224,7 @@ fetch("https://growcapital.pythonanywhere.com/rolebased/userData/", requestOptio
   useEffect(() => {
     // Define the API URL
     const apiUrl =
-      "https://growcapital.pythonanywhere.com/rolebased/UpdateAmountStatus/";
+      "https://growwccapitals.pythonanywhere.comrolebased/UpdateAmountStatus/";
 
     // Make a GET request using fetch
     fetch(apiUrl)

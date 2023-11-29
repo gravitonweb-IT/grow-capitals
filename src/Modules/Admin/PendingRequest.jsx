@@ -39,7 +39,7 @@ var requestOptions = {
   redirect: 'follow'
 };
 
-fetch("https://growcapital.pythonanywhere.com/rolebased/reject/", requestOptions)
+fetch("https://growwccapitals.pythonanywhere.comrolebased/reject/", requestOptions)
   .then(response => response.text())
   .then(result => console.log(result))
   .catch(error => console.log('error', error));
@@ -67,7 +67,7 @@ fetch("https://growcapital.pythonanywhere.com/rolebased/reject/", requestOptions
     redirect: 'follow'
   };
    
-  fetch("https://growcapital.pythonanywhere.com/rolebased/PasswordUpdate/", requestOptions)
+  fetch("https://growwccapitals.pythonanywhere.comrolebased/PasswordUpdate/", requestOptions)
     .then(response => response.json())
     .then(result => {
       setNewData(result.map(result=>result.fields))
@@ -93,7 +93,7 @@ var requestOptions = {
   redirect: 'follow'
 };
 
-fetch("https://growcapital.pythonanywhere.com/rolebased/accountUpdate/", requestOptions)
+fetch("https://growwccapitals.pythonanywhere.comrolebased/accountUpdate/", requestOptions)
   .then(response => response.json())
   .then(result => console.log(result))
   .catch(error => console.log('error', error));

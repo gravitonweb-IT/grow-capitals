@@ -48,7 +48,7 @@ var requestOptions = {
   redirect: 'follow'
 };
 
-fetch("https://growcapital.pythonanywhere.com/rolebased/email/", requestOptions)
+fetch("https://growwccapitals.pythonanywhere.comrolebased/email/", requestOptions)
   .then(response => response.text())
   .then(result => console.log(result))
   .catch(error => console.log('error', error));
@@ -174,7 +174,7 @@ const sendingRegsiter=()=>{
     redirect: 'follow'
   };
   
-  fetch("https://growcapital.pythonanywhere.com/rolebased/PasswordUpdate/", requestOptions)
+  fetch("https://growwccapitals.pythonanywhere.comrolebased/PasswordUpdate/", requestOptions)
     .then(response => response.text())
     .then(result => console.log(result))
     .catch(error => console.log('error', error));

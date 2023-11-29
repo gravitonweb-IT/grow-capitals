@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import { servieUrl } from "../../env/env";
 
 const WithdrawForm = ({ isOpen, onClose }) => {
   const [registrationSuccess, setRegistrationSuccess] = useState(false);
   const [showSuccessPopup, setShowSuccessPopup] = useState(false)
+  
   const [formData, setFormData] = useState({
     date: "",
 
@@ -19,6 +20,34 @@ const WithdrawForm = ({ isOpen, onClose }) => {
     price: "",
   });
 
+
+  const [profile, setProfile] = useState([]);
+  useEffect(() => {
+    var formdata = new FormData();
+
+    formdata.append("userEmail", localStorage.getItem("userData"));
+
+    debugger;
+
+    var requestOptions = {
+      method: "POST",
+
+      body: formdata,
+
+      redirect: "follow",
+    };
+
+    fetch(servieUrl.url + "rolebased/uploadProfile/", requestOptions)
+      .then((response) => response.json())
+
+      .then((result) => {
+        setProfile(result);
+      })
+
+      .catch((error) => console.log("error", error));
+
+    console.log(profile);
+  }, []);
   const handleChange = (e) => {
     const { name, value } = e.target;
 

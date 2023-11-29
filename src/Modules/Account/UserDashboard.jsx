@@ -294,6 +294,18 @@ const UserDashboard = () => {
                   {profile[0]?.fields?.pancard}
                 </div>
               </div>
+              <h5>IFSC</h5>
+              <div class="progress mb-3 ">
+                <div
+                  class="progress-bar bg-primary w-[89%]"
+                  role="progressbar"
+                  aria-valuenow="89"
+                  aria-valuemin="0"
+                  aria-valuemax="100"
+                >
+                  {profile[0]?.fields?.ifsccode}
+                </div>
+              </div>
             </div>
           </div>
 

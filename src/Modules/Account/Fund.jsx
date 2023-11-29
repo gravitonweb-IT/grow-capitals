@@ -25,8 +25,7 @@ const Fund = () => {
 
   const [showFundsPopup, setShowFundsPopup] = useState(false);
 
-
-
+ 
   const openWithdrawForm = () => {
 
     setShowWithdrawForm(true);
