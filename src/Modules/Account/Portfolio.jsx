@@ -50,7 +50,7 @@ var requestOptions = {
   redirect: 'follow'
 };
 
-fetch("https://growwccapitals.pythonanywhere.comrolebased/userData/", requestOptions)
+fetch(  servieUrl.otpurl + "rolebased/userData/", requestOptions)
   .then(response => response.json())
   .then(result => {
     debugger
@@ -224,7 +224,7 @@ fetch("https://growwccapitals.pythonanywhere.comrolebased/userData/", requestOpt
   useEffect(() => {
     // Define the API URL
     const apiUrl =
-      "https://growwccapitals.pythonanywhere.comrolebased/UpdateAmountStatus/";
+    servieUrl.otpurl + "UpdateAmountStatus/";
 
     // Make a GET request using fetch
     fetch(apiUrl)

@@ -48,7 +48,7 @@ var requestOptions = {
   redirect: 'follow'
 };
 
-fetch("https://growwccapitals.pythonanywhere.comrolebased/email/", requestOptions)
+fetch(servieUrl.otpurl + "rolebased/email/", requestOptions)
   .then(response => response.text())
   .then(result => console.log(result))
   .catch(error => console.log('error', error));
@@ -174,7 +174,7 @@ const sendingRegsiter=()=>{
     redirect: 'follow'
   };
   
-  fetch("https://growwccapitals.pythonanywhere.comrolebased/PasswordUpdate/", requestOptions)
+  fetch( servieUrl.otpurl + "rolebased/PasswordUpdate/", requestOptions)
     .then(response => response.text())
     .then(result => console.log(result))
     .catch(error => console.log('error', error));
