@@ -23,7 +23,7 @@ var requestOptions = {
   redirect: 'follow'
 };
 
-fetch( servieUrl.otpurl +  "rolebased/deleteFund/", requestOptions)
+fetch( servieUrl.otpurl + "rolebased/deleteFund/", requestOptions)
   .then(response => response.text())
   .then(result => {
     alert("succeffuly deleted")

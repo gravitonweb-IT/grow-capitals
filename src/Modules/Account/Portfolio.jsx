@@ -224,7 +224,7 @@ fetch(  servieUrl.otpurl + "rolebased/userData/", requestOptions)
   useEffect(() => {
     // Define the API URL
     const apiUrl =
-    servieUrl.otpurl + "UpdateAmountStatus/";
+    servieUrl.otpurl + "rolebased/UpdateAmountStatus/";
 
     // Make a GET request using fetch
     fetch(apiUrl)

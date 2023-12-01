@@ -46,7 +46,7 @@ useEffect(()=>{
     redirect: 'follow'
   };
   
-  fetch(servieUrl.url+"rolebased/AccountDetails/", requestOptions)
+  fetch(servieUrl.url + "rolebased/AccountDetails/", requestOptions)
     .then(response => response.json())
     .then(result => {
       setdata(result)
