@@ -86,9 +86,9 @@ export default function LoginAndRegister({ setUserType }) {
         <div>
           <h1 className="text-lg md:text-5xl font-bold">
             <span className="text-lg md:text-5xl font-bold text-[#0066b2] pr-3">
-              GROWW
+              Choice
             </span>
-            CAPITALS
+            Algo
           </h1>
 
           <form>

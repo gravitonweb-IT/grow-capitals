@@ -47,7 +47,7 @@ const UserNavbar = ({setUserType}) => {
                 className="h-5 w-5 text-white pr-3"
               />
               <span className="text-white font-semibold text-lg">
-              info@growwcapitals.in
+              choicealgo@gmail.com
               </span>
             </p>
 

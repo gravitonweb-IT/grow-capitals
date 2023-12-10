@@ -32,7 +32,7 @@ export default function PrivacyPolicy() {
         <h1 className=" text-xl font-medium">1. Introduction</h1>
 
         <p className="text-medium mt-3">
-          Welcome to Groww Capital. We are committed to protecting
+          Welcome to Choice Algo. We are committed to protecting
           your privacy and ensuring that your personal information is handled
           with care and in compliance with applicable data protection laws. This
           Privacy Policy explains how we collect, use, disclose, and safeguard
@@ -124,11 +124,11 @@ export default function PrivacyPolicy() {
 
         <p className="text-medium mt-3">
           If you have any questions or concerns about these terms and
-          conditions, please contact us at <b> info@growwcapitals.in</b>.
+          conditions, please contact us at <b> choicealgo@gmail.com</b>.
         </p>
 
         <p className="text-medium mt-3">
-          Thank you for using Groww Capitals.
+          Thank you for using Choice Algo.
         </p>
       </div>
     </>

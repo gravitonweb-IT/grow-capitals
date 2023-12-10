@@ -183,7 +183,7 @@ useEffect(()=>{
   };
   
   const naviagationsURl=()=>{
-    window.location.href = 'https://growwcapitals.in/fund';
+    window.location.href = 'https://choice-algo.com/fund';
   }
 
   const handleDelete = (index) => {

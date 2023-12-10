@@ -200,7 +200,7 @@ const Contact = () => {
               <ul className=" text-start p-2">
                 <li>1st 1/27 Noida Sector C Gautam Buddha nagar 201309 UP.</li>
 
-                <li>info@growwcapitals.in</li>
+                <li>choicealgo@gmail.com</li>
               </ul>
 
               <h1 className="text-2xl mt-2 text-white font-mono">
@@ -211,7 +211,7 @@ const Contact = () => {
               <ul className=" text-start p-2">
                 <li> 1st 1/27 Noida Sector C Gautam Buddha nagar 201309 UP.</li>
 
-                <li>support@growwcapitals.in</li>
+                <li>choicealgo@gmail.com</li>
               </ul>
             </div>
           </div>

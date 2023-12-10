@@ -465,7 +465,7 @@ const Home = () => {
             </h1>
 
             <p className="text-[#64666C] text-md md:text-lg lg:text-lg xl-text-xl font-medium mt-5 md:mt-10">
-              <strong>Groww Capitals </strong> Technology Solutions is proud to
+              <strong>Choice Algo </strong> Technology Solutions is proud to
               introduce fully automated Robo Trading, designed to enhance the
               intelligence of your trading strategies. Look no further for
               Option Calls, Commodity Trading, Nifty Futures, and various other

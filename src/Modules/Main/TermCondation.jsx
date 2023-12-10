@@ -28,7 +28,7 @@ export default function TermCondition() {
       </h1>
 
       <p className="mt-4 mx-10 md:mx-16 lg:mx-20 text-medium font-normal">
-        By accessing and using the services provided by Groww Capitals,
+        By accessing and using the services provided by Choice Algo,
         you agree to comply with and be bound by the following terms and
         conditions. Please read these terms carefully before using our website,
         services, or products.
@@ -111,11 +111,11 @@ export default function TermCondition() {
 
         <p className="text-medium mt-3">
           If you have any questions or concerns about these terms and
-          conditions, please contact us at <b>  info@growwcapitals.in</b>.
+          conditions, please contact us at <b>  choicealgo@gmail.com</b>.
         </p>
 
         <p className="text-medium mt-3">
-          Thank you for using Groww Capitals.
+          Thank you for using Choice Algo.
         </p>
       </div>
     </>

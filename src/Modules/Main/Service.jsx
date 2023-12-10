@@ -49,7 +49,7 @@ const Service = () => {
             <h1 className="text-lg md:text-5xl font-bold">Our Services</h1>
 
             <p className="mt-4 text-md md:text-xl font-semibold">
-              Start Investing and Trading with Groww Capitals 5 E’s Steps
+              Start Investing and Trading with Choice Algo 5 E’s Steps
             </p>
           </div>
         </div>
@@ -158,8 +158,8 @@ const Service = () => {
         </h2>
 
         <p className="mt-4 text-md md:text-xl font-semibold text-center text-[#64666C]">
-          Choose the right plan and start your investment journey with Groww
-          Capitals
+          Choose the right plan and start your investment journey with Choice 
+         Algo
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mx-10 md:mx-20 lg:mx-32  mt-10 md:mt-20">
