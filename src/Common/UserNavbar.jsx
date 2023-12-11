@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import LogoImage from "./NavbarImages/LogoImage.png";
+import LogoImage from "./NavbarImages/logo-no-background.png";
 import whatsapp from "./NavbarImages/whatsaap.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -47,7 +47,7 @@ const UserNavbar = ({setUserType}) => {
                 className="h-5 w-5 text-white pr-3"
               />
               <span className="text-white font-semibold text-lg">
-              choicealgo@gmail.com
+              info@choice-algo.com
               </span>
             </p>
 

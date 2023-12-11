@@ -111,7 +111,7 @@ export default function TermCondition() {
 
         <p className="text-medium mt-3">
           If you have any questions or concerns about these terms and
-          conditions, please contact us at <b>  choicealgo@gmail.com</b>.
+          conditions, please contact us at <b>  info@choice-algo.com</b>.
         </p>
 
         <p className="text-medium mt-3">

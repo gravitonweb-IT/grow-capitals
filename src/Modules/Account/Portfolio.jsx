@@ -27,11 +27,10 @@ const Portfolio = () => {
     setShowFundsPopup(true);
   };
 
-  const [name,setName]=useState("")
+  const [name, setName] = useState("");
   // useEffect(() => {
   //   if (localStorage.getItem("login") == "user") {
-      
-       
+
   //     console.log("data",data)
   //     setData(
   //       data.filter((e) => e.user_email == localStorage.getItem("userData"))
@@ -39,33 +38,32 @@ const Portfolio = () => {
   //   }
   // }, [data]);
 
+  useEffect(() => {
+    var formdata = new FormData();
+    formdata.append("userEmail", localStorage.getItem("userData"));
 
-useEffect(()=>{
-  var formdata = new FormData();
-formdata.append("userEmail", localStorage.getItem("userData"));
+    var requestOptions = {
+      method: "POST",
+      body: formdata,
+      redirect: "follow",
+    };
 
-var requestOptions = {
-  method: 'POST',
-  body: formdata,
-  redirect: 'follow'
-};
-
-fetch(  servieUrl.otpurl + "rolebased/userData/", requestOptions)
-  .then(response => response.json())
-  .then(result => {
-    debugger
-    console.log("result ",result)
-    setName(result[0].fields.first_name+" "+result[0].fields.last_name)
-  })
-  .catch(error => console.log('error', error));
-},[])
+    fetch(servieUrl.otpurl + "rolebased/userData/", requestOptions)
+      .then((response) => response.json())
+      .then((result) => {
+        debugger;
+        console.log("result ", result);
+        setName(result[0].fields.first_name + " " + result[0].fields.last_name);
+      })
+      .catch((error) => console.log("error", error));
+  }, []);
   const handleFormSubmit = (updatedData) => {
     // Handle the update logic here, e.g., send the updated data to your server
     debugger;
     console.log("Updated Data:", updatedData);
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
- 
+
     var raw = JSON.stringify(updatedData);
 
     var requestOptions = {
@@ -139,35 +137,30 @@ fetch(  servieUrl.otpurl + "rolebased/userData/", requestOptions)
         let totalProfit = 0;
         let totalLoss = 0;
         let totalPrice = 0;
-        
+
         // Loop through the data array
-        result.forEach(item => {
-            const { profit, loss, price } = item.fields;
-            
-            // Add the profit, loss, and price values to the corresponding totals
-            totalProfit += Number(profit);
-            totalLoss += Number(loss);
-            totalPrice += Number(price);
+        result.forEach((item) => {
+          const { profit, loss, price } = item.fields;
+
+          // Add the profit, loss, and price values to the corresponding totals
+          totalProfit += Number(profit);
+          totalLoss += Number(loss);
+          totalPrice += Number(price);
         });
-        
+
         // Create an object to store the total values
         const result1 = {
-            profit: totalProfit,
-            loss: totalLoss,
-            price: totalPrice,
+          profit: totalProfit,
+          loss: totalLoss,
+          price: totalPrice,
         };
-        
-        
-        
-      debugger
-        
-        
+
+        debugger;
+
         setDataValue(result1);
       })
       .catch((error) => console.log("error", error));
   }, []);
-
-  
 
   useEffect(() => {
     async function fetchData() {
@@ -181,14 +174,13 @@ fetch(  servieUrl.otpurl + "rolebased/userData/", requestOptions)
         }
         const data = await response.json();
         console.log(data);
-          if (localStorage.getItem("login") == "user") {
-      setData(
-        data.filter((e) => e.user_email == localStorage.getItem("userData"))
-      );
-    }else {
-      setData(data);
-    }
-      
+        if (localStorage.getItem("login") == "user") {
+          setData(
+            data.filter((e) => e.user_email == localStorage.getItem("userData"))
+          );
+        } else {
+          setData(data);
+        }
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -223,8 +215,7 @@ fetch(  servieUrl.otpurl + "rolebased/userData/", requestOptions)
 
   useEffect(() => {
     // Define the API URL
-    const apiUrl =
-    servieUrl.otpurl + "rolebased/UpdateAmountStatus/";
+    const apiUrl = servieUrl.otpurl + "rolebased/UpdateAmountStatus/";
 
     // Make a GET request using fetch
     fetch(apiUrl)
@@ -263,29 +254,59 @@ fetch(  servieUrl.otpurl + "rolebased/userData/", requestOptions)
   return (
     <>
       <div className="bg-gray-200 p-4 w-full overflow-hidden">
-      <div className="overflow-x-auto">
-        <marquee
-         behavior="scroll"
-         direction="left"
-         scrollamount="5"
-          className="text-md" // Adjust text size for responsiveness
-        >
-          <strong className="px-3">NIFTY 100 | Price: <span className="text-green-500 font-normal">19488.25 </span></strong>
-          <strong className="px-2">BAJAJHLDNG | Price: <span className="text-green-500 font-normal">6861.15</span></strong>
-          <strong className="px-3">MUTHOOTFIN | Price: <span className="text-green-500 font-normal">1251.45</span></strong>
-          <strong className="px-3">ZOMATO | Price: <span className="text-green-500 font-normal">114</span></strong>
-          <strong className="px-3">KOTAKBANK | Price: <span className="text-green-500 font-normal"> 1733.5</span></strong>
-          <strong className="px-3">NESTLEIND | Price: <span className="text-green-500 font-normal">24099.95</span></strong>
-          <strong className="px-3">INDUSINDBK | Price: <span className="text-green-500 font-normal">1448</span></strong>
-          <strong className="px-3">BERGEPAINT | Price:<span className="text-green-500 font-normal"> 572</span></strong>
-          <strong className="px-3">TCS | Price: <span className="text-green-500 font-normal">3450.4</span></strong>
-          <strong className="px-3">GODREJCP | Price:<span className="text-green-500 font-normal"> 980.25</span></strong>
-        </marquee>
+        <div className="overflow-x-auto">
+          <marquee
+            behavior="scroll"
+            direction="left"
+            scrollamount="5"
+            className="text-md" // Adjust text size for responsiveness
+          >
+            <strong className="px-3">
+              NIFTY 100 | Price:{" "}
+              <span className="text-green-500 font-normal">19488.25 </span>
+            </strong>
+            <strong className="px-2">
+              BAJAJHLDNG | Price:{" "}
+              <span className="text-green-500 font-normal">6861.15</span>
+            </strong>
+            <strong className="px-3">
+              MUTHOOTFIN | Price:{" "}
+              <span className="text-green-500 font-normal">1251.45</span>
+            </strong>
+            <strong className="px-3">
+              ZOMATO | Price:{" "}
+              <span className="text-green-500 font-normal">114</span>
+            </strong>
+            <strong className="px-3">
+              KOTAKBANK | Price:{" "}
+              <span className="text-green-500 font-normal"> 1733.5</span>
+            </strong>
+            <strong className="px-3">
+              NESTLEIND | Price:{" "}
+              <span className="text-green-500 font-normal">24099.95</span>
+            </strong>
+            <strong className="px-3">
+              INDUSINDBK | Price:{" "}
+              <span className="text-green-500 font-normal">1448</span>
+            </strong>
+            <strong className="px-3">
+              BERGEPAINT | Price:
+              <span className="text-green-500 font-normal"> 572</span>
+            </strong>
+            <strong className="px-3">
+              TCS | Price:{" "}
+              <span className="text-green-500 font-normal">3450.4</span>
+            </strong>
+            <strong className="px-3">
+              GODREJCP | Price:
+              <span className="text-green-500 font-normal"> 980.25</span>
+            </strong>
+          </marquee>
+        </div>
       </div>
-    </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mx-5 md:mx-12 mt-8">
-        <div className="  p-10 bg-blue-800 text-white rounded-3xl ">
+        <div className="  p-10 bg-red-500 text-white rounded-3xl ">
           <p className=" text-2xl md:text-4xl font-bold ">Welcome</p>
           <p className="mt-2">{name}</p>
           <p className=" text-2xl md:text-3xl font-semibold  mt-2">
@@ -293,7 +314,7 @@ fetch(  servieUrl.otpurl + "rolebased/userData/", requestOptions)
           </p>
         </div>
 
-        <div className="  p-5  bg-slate-200 rounded-3xl">
+        <div className="  p-5  bg-slate-400 rounded-3xl">
           <p className="text-2xl  font-bold mt-3  "> Balance Status</p>
 
           <div className="flex  mt-5  ">
@@ -313,11 +334,11 @@ fetch(  servieUrl.otpurl + "rolebased/userData/", requestOptions)
         </div>
 
         <div>
-          <div className="flex mt-5 p-5 shadow-xl rounded-lg">
+          <div className="flex mt-5 p-5 bg-blue-200 shadow-xl rounded-lg">
             <div>
               <FontAwesomeIcon
                 icon={faArrowTrendUp}
-                className="h-8 w-8 p-3 bg-green-300 rounded-full "
+                className="h-8 w-8 p-3 bg-green-600 rounded-full "
               />
             </div>
 
@@ -328,7 +349,7 @@ fetch(  servieUrl.otpurl + "rolebased/userData/", requestOptions)
             </div>
           </div>
 
-          <div className="flex mt-5 p-5 shadow-xl rounded-lg  ">
+          <div className="flex mt-5 p-5 bg-blue-200 shadow-xl rounded-lg  ">
             <div>
               <FontAwesomeIcon
                 icon={faArrowTrendDown}
@@ -337,7 +358,7 @@ fetch(  servieUrl.otpurl + "rolebased/userData/", requestOptions)
             </div>
 
             <div className="font-semibold  pl-5  ">
-            {dataValue?.loss}
+              {dataValue?.loss}
               <br />
               <span className="font-bold"> Loss</span>
             </div>
@@ -349,10 +370,8 @@ fetch(  servieUrl.otpurl + "rolebased/userData/", requestOptions)
         CUSTOMER PORTFOLIO PROFIT AND LOSS DETAILS
       </div>
 
-      <div className="bg-[#ccfbf1] mt-5 p-5 ">
-        <div className="text-xl font-semibold  text-center">
-          WELCOME {name}
-        </div>
+      <div className="bg-[#50e536] mt-5 p-5 ">
+        <div className="text-xl font-semibold  text-center">WELCOME {name}</div>
       </div>
 
       {/* <div className="flex flex-wrap mx-5 mt-10  items-center justify-center">
@@ -410,7 +429,7 @@ fetch(  servieUrl.otpurl + "rolebased/userData/", requestOptions)
           </p>
         ) : (
           <table className="w-full table-auto border-4 bg-sky-100">
-            <thead className="bg-zinc-400 text-white">
+            <thead className="bg-black text-white">
               <tr>
                 <th className="p-2">No</th>
                 <th className="p-2">Date</th>
@@ -440,7 +459,7 @@ fetch(  servieUrl.otpurl + "rolebased/userData/", requestOptions)
                   <td className="p-2 text-center bg-slate-200 font-semibold">
                     {item.buy_quantity}
                   </td>
-                  <td className="p-2 text-center font-bold text-green-600">
+                  <td className="p-2 text-center font-bold text-red-600">
                     {item.sell_price}
                   </td>
                   <td className="p-2 text-center bg-slate-200 font-semibold">
@@ -450,10 +469,14 @@ fetch(  servieUrl.otpurl + "rolebased/userData/", requestOptions)
                     {item.buy_sell}
                   </td>
                   <td className="p-2 text-center bg-slate-200 font-semibold">
-                  <div class="text-base">
-  <span class="bg-green-500 text-white rounded-full px-2 py-1 mr-2 profit-amount">+{item.profit}</span>
-  <span class="bg-red-500 text-white rounded-full px-2 py-1 loss-amount">-{item.loss}</span>
-</div>
+                    <div class="text-base">
+                      <span class="bg-green-500 text-white rounded-full px-2 py-1 mr-2 profit-amount">
+                        +{item.profit}
+                      </span>
+                      <span class="bg-red-500 text-white rounded-full px-2 py-1 loss-amount">
+                        -{item.loss}
+                      </span>
+                    </div>
                   </td>
                   {localStorage.getItem("login") == "admin" ? (
                     <th className="p-2">

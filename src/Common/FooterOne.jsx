@@ -1,5 +1,5 @@
 import React from "react";
-import LogoImage from "./NavbarImages/LogoImage.png";
+import LogoImage from "./NavbarImages/logo-no-background.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope, faPhone } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
@@ -35,7 +35,7 @@ const FooterOne = () => {
                 icon={faEnvelope}
                 className="h-4 w-4 text-white pr-3"
               />
-              <span className="text-white ">choicealgo@gmail.com</span>
+              <span className="text-white ">info@choice-algo.com</span>
             </p>
 
            
