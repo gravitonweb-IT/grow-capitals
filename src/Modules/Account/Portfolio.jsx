@@ -305,7 +305,7 @@ const Portfolio = () => {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mx-5 md:mx-12 mt-8">
+      {/* <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mx-5 md:mx-12 mt-8">
         <div className="  p-10 bg-red-500 text-white rounded-3xl ">
           <p className=" text-2xl md:text-4xl font-bold ">Welcome</p>
           <p className="mt-2">{name}</p>
@@ -364,14 +364,94 @@ const Portfolio = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
 
-      <div className="text-2xl md:text-3xl font-semibold mt-10  text-blue-500 text-center">
+
+
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mx-5 md:mx-12 mt-8  border-double border-4 border-indigo-600 rounded-lg">
+        <div className="mt-3 p-8 ">
+          <div className="sm:border-r-4 sm:border-[#969696]  sm:h-[100px] mx-5">
+          <p className=" text-2xl md:text-4xl font-bold ">Welcome</p>
+          <p className=" font-bold text-blue-600 text-xl">{name}</p>
+          <p className=" text-xl md:text-2xl font-semibold  mt-2">
+            Profit & Loss Details
+          </p>
+          </div>
+        </div>
+       
+        
+        <div className=" p-8">
+        <div className="sm:border-r-4 sm:border-[#969696]  sm:h-[100px] mx-5">
+          <p className="text-2xl  font-bold mt-3  "> Balance Status</p>
+          <div className="flex  mt-5  ">
+            <div>
+              <FontAwesomeIcon
+                icon={faMoneyBill}
+                className="h-5 w-5  p-3   bg-blue-600 rounded"
+              />
+            </div>
+            <div className="ml-3 ">
+            <span className="font-bold text-lg "> PayAmount</span>
+            <br />
+              {dataValue?.price}
+           
+           
+            </div>
+          </div>
+          </div>
+        </div>
+
+        <div className=" mt-3 p-10 text-center  flex gap-10">
+          <div className="flex">
+            <div className="mt-3">
+              <FontAwesomeIcon
+                icon={faArrowTrendUp}
+                className="h-8 w-8 p-2  bg-[#00DFA2] rounded"
+              />
+            </div>
+
+            <div className="font-semibold ml-3 ">
+            <span className="font-bold text-2xl"> Profit</span>
+            <br />
+              {dataValue?.profit}
+            
+            
+            </div>
+          </div>
+
+          <div className="flex ">
+            <div className="mt-3">
+              <FontAwesomeIcon
+                icon={faArrowTrendDown}
+                className="h-8 w-8 p-2  bg-[#EF4040] rounded"
+              />
+            </div>
+
+         
+      
+             <div className="font-semibold ml-3 ">
+            <span className="font-bold text-2xl"> Loss</span>
+            <br />
+              {dataValue?.loss}
+            
+            
+            </div>
+             
+         
+          </div>
+        </div>
+      </div>
+      
+
+
+     
+
+      <div className="text-2xl md:text-3xl font-semibold mt-10  text-[#0766AD] text-center">
         CUSTOMER PORTFOLIO PROFIT AND LOSS DETAILS
       </div>
 
-      <div className="bg-[#50e536] mt-5 p-5 ">
-        <div className="text-xl font-semibold  text-center">WELCOME {name}</div>
+      <div className="bg-[#AFC8AD] mt-5 p-5 ">
+        <div className="text-2xl font-semibold  text-center">WELCOME {name}</div>
       </div>
 
       {/* <div className="flex flex-wrap mx-5 mt-10  items-center justify-center">
@@ -428,8 +508,8 @@ const Portfolio = () => {
             Please Buy some Stocks
           </p>
         ) : (
-          <table className="w-full table-auto border-4 bg-sky-100">
-            <thead className="bg-black text-white">
+          <table className="w-full table-auto border-4 bg-sky-400">
+            <thead className="bg-[#687EFF] text-white">
               <tr>
                 <th className="p-2">No</th>
                 <th className="p-2">Date</th>
@@ -448,32 +528,32 @@ const Portfolio = () => {
             <tbody>
               {currentData.map((item, index) => (
                 <tr className="border-y border-black" key={item.id}>
-                  <td className="p-2 text-center  ">{index + 1}</td>
+                  <td className="p-2 text-center bg-yellow-200  ">{index + 1}</td>
                   <td className="p-2 text-center  ">{item.date}</td>
-                  <td className="p-2 text-center bg-slate-200 font-semibold uppercase">
+                  <td className="p-2 text-center bg-slate-300 font-semibold uppercase">
                     {item.stock_name}
                   </td>
                   <td className="p-2 text-center font-bold text-green-600  ">
                     {item.buy_price}
                   </td>
-                  <td className="p-2 text-center bg-slate-200 font-semibold">
+                  <td className="p-2 text-center bg-slate-300 font-semibold">
                     {item.buy_quantity}
                   </td>
                   <td className="p-2 text-center font-bold text-red-600">
                     {item.sell_price}
                   </td>
-                  <td className="p-2 text-center bg-slate-200 font-semibold">
+                  <td className="p-2 text-center bg-slate-300 font-semibold">
                     {item.sell_quantity}
                   </td>
                   <td className="p-1 text-center font-semibold capitalize ">
                     {item.buy_sell}
                   </td>
-                  <td className="p-2 text-center bg-slate-200 font-semibold">
+                  <td className="p-2 text-center bg-slate-300 font-semibold">
                     <div class="text-base">
-                      <span class="bg-green-500 text-white rounded-full px-2 py-1 mr-2 profit-amount">
+                      <span class="bg-green-500 text-white rounded-full px-2 py-1 m profit-amount">
                         +{item.profit}
                       </span>
-                      <span class="bg-red-500 text-white rounded-full px-2 py-1 loss-amount">
+                      <span class="bg-red-500 text-white rounded-3xl px-2 m-2 py-1 loss-amount">
                         -{item.loss}
                       </span>
                     </div>
